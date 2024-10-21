@@ -1,0 +1,66 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_training_calendar/allevents
+    displaying calendar days
+}}
+    
+
+<!-- <ul class="calender_clr_list pull-right">
+        <li class="caleder_clr_list_item evalaluation">
+            <span class=""><span class="pull-left mr-2 calendar_spot_clr"></span><span class="pull-left calendar_clr">Feedbacks</span></span>
+        </li>
+        <li class="caleder_clr_list_item classroom">
+            <span class=""><span class="pull-left mr-2 calendar_spot_clr"></span><span class="pull-left calendar_clr">Classrooms</span></span>
+        </li>
+        <li class="caleder_clr_list_item program">
+            <span class=""><span class="pull-left mr-2 calendar_spot_clr"></span><span class="pull-left calendar_clr">Programs</span></span>
+        </li>
+        <li class="caleder_clr_list_item certification">
+            <span class=""><span class="pull-left mr-2 calendar_spot_clr"></span><span class="pull-left calendar_clr">Certifications</span></span>
+        </li>
+        <li class="caleder_clr_list_item onlinetests">
+            <span class=""><span class="pull-left mr-2 calendar_spot_clr"></span><span class="pull-left calendar_clr">Online exams</span></span>
+        </li>
+        <li class="caleder_clr_list_item mod">
+            <span class=""><span class="pull-left mr-2 calendar_spot_clr"></span><span class="pull-left calendar_clr">Course Activities</span></span>
+        </li>
+    </ul> -->
+  <!--   <div class="calenderview_course d-flex align-items-center justify-content-end">
+            <lable for="type">Type</lable>
+            <select name="type" class="target custom-select ml-15" id="id_eventtype" >
+            <option data-ignore="" value="all" selected="">All</option>
+            {{#types}}
+                <option value={{key}}>{{value}}</option>
+            {{/types}}
+            </select>
+    </div> -->
+    <div class="calenderview_course d-flex align-items-center justify-content-end">
+            <lable for="type">Displaying calendar</lable>
+            <select name="status" class="target custom-select ml-15" id="id_eventstatus" >
+            <option data-ignore="" value="all" selected="">All</option>
+            {{#status}}
+                <option value={{key}}>{{value}}</option>
+            {{/status}}
+            </select>
+    </div>
+    <div id='calendar' class="mt-3"></div>
+        <p id='eventInfo'></p>
+    <div id='pop_desc'></div>
+                
+
+

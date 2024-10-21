@@ -1,0 +1,74 @@
+div.block_simplehtml {
+    border-radius: 0px !important;
+    background-color: #346899;
+    color: #ffffff;
+    margin-bottom: 1px !important;
+}
+div.block_simplehtml h4{
+    color: #ffffff;
+    font-weight: 100;
+}
+div.block_simplehtml h4.nps_count{
+    text-align: right;
+    font-weight: 100;
+    margin-right: 10px;
+}
+div.block_simplehtml2 {
+    border-radius: 0px !important;
+    background-color: #e86241;
+    color: #ffffff;
+    margin-bottom: 1px !important;
+}
+div.block_simplehtml2 h4{
+    color: #ffffff !important;
+    font-weight: 100;
+    margin-bottom: 0px;
+}
+div.block_simplehtml2 h4.credit_count{
+    text-align: right;
+    font-weight: 100;
+    margin-right: 10px;
+}
+div.block_simplehtml3 {
+    border-radius: 0px !important;
+    background-color: #2b2b2b;
+    color: #424242;
+    
+}
+div.block_simplehtml3 h4{
+    color: #ffffff !important;
+    font-weight: 100;
+    /* if we want search image in simplehtml3 block uncoomment below code*/
+    /*width: 88%;
+    float: left;*/
+}
+
+#block-region-content-post>.block_nps.block{
+    display: block;
+}
+#trnps {
+	font-size:28px;
+}
+.block_nps .content{
+    clear: both;
+}
+.block_nps #nps_credits {
+	display: block;
+    float: right;
+    font-size: 50px;
+	padding-top: 55px;
+}
+.block_nps .credit{
+    color:white;
+}
+.block_nps a.credit:hover{
+    color:white;
+}
+.block_nps a.credit:visited{
+    color:white;
+}
+#page-blocks-nps-nps_info #emptymsg{
+    box-shadow: inset 0px 0px 11px 3px rgba(226, 219, 219, 1);
+    padding: 15px 0;
+    text-align: center;
+}

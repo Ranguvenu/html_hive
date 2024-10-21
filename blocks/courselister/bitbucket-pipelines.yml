@@ -1,0 +1,54 @@
+---
+image: moodlehq/moodle-php-apache:5.6
+
+# https://bitbucket.org/site/master/issues/13474/pipeline-specific-environment-variables
+# See: https://bitbucket.org/site/master/issues/13474/pipeline-specific-environment-variables#comment-47380139
+
+pipelines:
+  default:
+    - step:
+        image: moodlehq/moodle-php-apache:5.6
+        name: Moodle 3.3 and Postgres
+        caches:
+          - composer
+        script:
+          - export DEBIAN_FRONTEND='noninteractive'
+          - export COMPOSER_ALLOW_SUPERUSER=1
+          - export MCILOCATION="$BITBUCKET_CLONE_DIR/.."
+          - apt-get -qq update
+          - mkdir -p /usr/share/man/man1
+          - mkdir -p /usr/share/man/man3
+          - mkdir -p /usr/share/man/man7
+          - apt-get -yqq --no-install-suggests --no-install-recommends install openjdk-8-jre-headless curl ca-certificates git-core gnupg postgresql-client
+          - curl -sS https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
+          - . ~/.bashrc
+          - nvm install --no-progress v8.9.4
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir='/usr/local/bin' --filename='composer'
+          - cd "$MCILOCATION"
+          - composer create-project -n --no-dev --no-progress --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^2
+          - touch /usr/local/bin/phpenv && chmod +x /usr/local/bin/phpenv
+          - export MOODLE_REPO='https://bitbucket.org/moodle/moodle.git'
+          - export MOODLE_BRANCH='MOODLE_33_STABLE'
+          - export MOODLE_DOCKER_DBNAME='moodletest'
+          - export DB='pgsql'
+          - export TRAVIS_BUILD_DIR="$BITBUCKET_CLONE_DIR"
+          - export PATH="$MCILOCATION/ci/bin:$MCILOCATION/ci/vendor/bin:$PATH"
+          - moodle-plugin-ci install --db-user='moodle' --db-pass='test' --db-host='127.0.0.1' --db-name='moodletest'
+          - moodle-plugin-ci phplint
+          - moodle-plugin-ci phpdoc
+          - moodle-plugin-ci phpmd
+          - moodle-plugin-ci codechecker
+          - moodle-plugin-ci validate
+          - moodle-plugin-ci savepoints
+          - moodle-plugin-ci mustache
+          - moodle-plugin-ci grunt
+        services:
+          - postgres
+
+definitions:
+  services:
+    postgres:
+      image: postgres:9.6.7
+      variables:
+        POSTGRES_USER: 'moodle'
+        POSTGRES_PASSWORD: 'test'

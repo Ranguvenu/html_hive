@@ -1,0 +1,82 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="w-full pull-left planview_container">
+	<div class="w-100 pull-left planview_topcontent">
+		<div class="col-md-3 d-none-1023 pull-left p-0">
+			<div style="background-image: url('{{ lpnameimg }}');" alt="{{ lpname }}" title="{{ lpname }}" class="lpimg_bg" ></div>
+		</div>
+		<div class="col-md-9 d-md-lg-full pull-left">
+			<!--<h4 class='pull-left mb-5 lp_name'>{{ lpname }}</h4>-->	
+			<div class="w-100 pull-left pb-10">
+				<span class="w-100 pull-left"><b>Description :</b></span>
+				<div class="w-100 pull-left description">
+					{{# description }}
+						<p class="m-0">{{{ description }}}</p>
+					{{/ description }}
+					{{^ description }}
+						<p class="alert alert-info text-center m-0">{{#str}}nocoursedesc, local_courses{{/str}}</p>
+					{{/ description }}
+				</div>
+			</div>
+			<!--<div class="w-full pull-left mt-5 mb-5"><img src="{{ lpcoursespath }}" class="w-full" height="40"/></div>-->
+			<div class="w-100 pull-left coursepath"> {{{lpcoursespath}}} </div>
+			<div class="w-100 pull-left">
+				<div class="col-md-6 pull-left p-0">
+					<div class="w-100 pull-left mb-1">
+						<span class="w-100 pull-left"><b>Details :</b></span>
+					</div>
+					<div class="w-100 pull-left">
+						<span class="text-muted pull-left" style="min-width: 100px;">Plan Type 
+						<span class="mr-2 pull-right">:</span> 
+						</span><span><strong>{{ plan_type }}</strong></span>
+					</div>
+					<div class="w-100 pull-left">
+						<span class="text-muted pull-left"  style="min-width: 100px;">End Date 
+						<span class="mr-2 pull-right">:</span> 
+						</span><span title="{{ enddate }}"><strong>{{ enddate }}</strong></span>
+					</div>
+					<div class="w-100 pull-left">
+						<span class="text-muted pull-left" style="min-width: 100px;">Credits 
+						<span class="mr-2 pull-right">:</span> 
+						</span><span><strong>{{ plan_credits }}</strong></span>
+					</div>
+				</div>
+				<div class="col-md-3 pull-left pl-0">
+					<div class="w-100 pull-left mb-1">
+						<span class="w-100 pull-left"><b>Courses :</b></span>
+					</div>
+					<div class="w-100 pull-left">
+						<span class="text-muted pull-left" style="min-width: 100px;">Assigned 
+						<span class="mr-2 pull-right">:</span> 
+						</span><span><strong>{{ total_assigned_course }}</strong></span>
+					</div>
+					<div class="w-full pull-left">
+						<span class="text-muted pull-left" style="min-width: 100px;">Mandatory
+						<span class="mr-2 pull-right">:</span> 
+						</span><span><strong>{{ mandatory }}</strong></span>
+					</div>
+					<div class="w-full pull-left">
+						<span class="text-muted pull-left" style="min-width: 100px;">Optional
+						<span class="mr-2 pull-right">:</span> 
+						</span><span><strong>{{ optional }}</strong></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

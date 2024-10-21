@@ -1,0 +1,138 @@
+body#page-course-view-topics .topics {
+    width: 100%;
+    float: left;
+}
+body#page-course-view-topics .topics li.section {
+    list-style: none;
+    border-bottom: 1px solid #f1f1f1;
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+    -webkit-transition: .2s color linear;
+    -o-transition: .2s color linear;
+    transition: .2s color linear;
+    background-color: #fff;
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+    border: 1px solid #e1e1e1;
+    margin: 15px 0 0;
+}
+body#page-course-view-topics .topics li.section .course-section-header .stretched-link.collapsed:before {
+    content: "\f107";
+    font-family: var(--fa-style-family, "Font Awesome 6 Free");
+    font-weight: var(--fa-style, 900);
+    font-style: normal;
+    font-variant: normal;
+/*    margin-right: 21px;*/
+    margin-left: 0px;
+
+    font-size: 24px;
+    float: left;
+    margin-top: -3px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    transition: transform .1s ease-in;
+    transform: rotate(0deg);
+}
+
+body#page-course-view-topics .topics li.section .course-section-header .stretched-link:before {
+    content: "\f107";
+    font-family: var(--fa-style-family, "Font Awesome 6 Free");
+    font-weight: var(--fa-style, 900);
+    font-style: normal;
+    font-variant: normal;
+/*    margin-right: 21px;*/
+    margin-left: 0px;
+
+    float: left;
+    margin-top: -3px;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    transition: transform .1s ease-in;
+}
+
+body#page-course-view-topics .topics li.section .course-section-header .stretched-link .expanded-icon {
+    display: none;
+}
+body#page-course-view-topics .topics li.section .course-section-header {
+    cursor: pointer;
+    padding: 0em 1em 1em 1em;
+    border-bottom: 1px solid #e1e1e1;
+    margin: 15px 0 0;
+    border-radius: 0;
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity{
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 12px 0 7px 0;
+    margin-left: 7em;
+    margin-right: 5em;
+    min-height: 67px;
+}
+
+body#page-course-view-topics .topics li.section .course-content-item-content .activity:last-child{
+    border-bottom:none;
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity .activity-item {
+    position: relative;
+    padding: 0 16px 0 0;
+    margin: 0.5em 0;
+    background-color: transparent;
+    border: none;
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity .activity-item .activity-grid {
+    padding-left: 20px;
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity::after {
+    border: 6px solid rgba(0,0,0,.17);
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity::after {
+    width: 12px;
+    height: 12px;
+    display: block;
+    top: 26px;
+    position: absolute;
+    left: -14.5px;
+    border-radius: 10px;
+    content: '';
+/*    border: 2px solid rgba(0,0,0,.17);*/
+    background-color: #fff;
+    margin-left: -16px;
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity::before {
+    content: "";
+    border-left: 2px solid rgba(0,0,0,.17);
+    position: absolute;
+    left: -26px;
+    min-height: 100%;
+    color: rgba(0,0,0,.17)!important;
+    z-index: 0;
+    top: 27px;
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity:last-child::before {
+    border: none;
+}
+body#page-course-view-topics .topics li.section .course-content-item-content .activity:hover {
+    background-color: #ecf3fc;
+    transition: .1s background-color linear;
+}

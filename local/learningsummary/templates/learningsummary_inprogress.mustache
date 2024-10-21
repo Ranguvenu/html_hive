@@ -1,0 +1,105 @@
+{{!
+     This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+{{ #title }}
+<div class="status_header inprogress">
+    {{#str}} inprogress, block_learningsummary_inprogress {{/str}}<span class="count inprogress_count">({{totalcount}})</span> 
+</div>
+{{ /title }}
+ <div class="learningsummary_status"> 
+    <div id="status_tabs" class="w-100" >
+        <div class='inprogress_block p-0 d-md-flex flex-row flex-nowrap pull-right'>
+            <select class="custom_noti_filter custom-select form-control-danger course_type_inprogress"  id = "coursetype_{{ filtertype }}">   
+            {{# links}}
+                    <option value="{{id}}" >{{coursetype}}</option>        
+            {{/ links}}
+            </select>
+        
+            <div class='inprogress_module_content pull-left col-sm p-0 justify-content-end'></div>
+        </div>
+
+        <div class="tab-content">
+            {{#tabs.0}}
+                {{#tabs}}
+                
+                     <div id="{{ type }}" data-region="{{ type }}-preview-container" class="viewcourselisters">
+                          <div class="global_filter_structure_myinprogresscourses global_filter_structure">
+                             <input id="global_filter_{{ type }}" class="global filter" placeholder = "Search...." type="text" name="search_query">
+                          </div>
+                          <!-- <span class="pull-right" id ="note-msg">* InProgress Courses.</span>  -->
+       
+                          <div data-region="{{ type }}-count-container"></div>
+                          <div data-region="{{ type }}-list-container" class ="methoddata">
+                          </div>
+                          <span class="overlay-icon-container cardpaginate-loader {{$hiddenclass}}{{^visible}}hidden{{/visible}}{{/hiddenclass}}" data-region="overlay-icon-container">
+                                <span class="loading-icon icon-no-margin">{{#pix}} ajax-loader, local_costcenter, {{#str}} loading {{/str}} {{/pix}}</span>
+                            </span>
+                     </div>
+               {{/tabs}}
+            {{/tabs.0}}
+       </div>
+  </div>
+</div>
+
+{{#js}}
+require(['local_learningsummary/cardPaginate'], function(cardPaginate) {
+    cardPaginate.reload({{{options}}}, {{{dataoptions}}},{{{filterdata}}});
+});
+var search_interval = 100;
+var timer;
+var filtertype={{{filtertype}}};
+
+
+$(document).ready(function() {
+    $('.course_type').prop('selectedIndex',0);
+});
+
+ $('#global_filter_'+filtertype.id+'').keyup(function(){
+    var searchval = $(this).val();
+ 
+    var dataoptions={{{dataoptions}}};
+    
+    dataoptions["id"]= $('.course_type_inprogress :selected').val();
+    dataoptions["coursetype"] = $('.course_type_inprogress :selected').text();
+    dataoptions["blocktype"]='inprogress' ;
+    dataoptions["search_query"]=searchval;   
+
+    require(['local_learningsummary/cardPaginate'], function(cardPaginate) {
+        timer = setTimeout(function(){
+          cardPaginate.reload({{{options}}}, dataoptions,{{{filterdata}}});
+        },search_interval);
+    });
+});
+
+$(document).on('change', '#coursetype_'+filtertype.id+'', function(){
+    var id = $(this).val();
+    var searchval = $(this).find("option:selected").text();
+    
+    var dataoptions={{{dataoptions}}};
+    dataoptions["id"]=id;
+    dataoptions["coursetype"]=searchval;
+    dataoptions["blocktype"]='inprogress' ;
+    require(['local_learningsummary/cardPaginate'], function(cardPaginate) {
+        timer = setTimeout(function(){
+          cardPaginate.reload({{{options}}}, dataoptions,{{{filterdata}}});
+        },search_interval);
+    });
+});
+
+$(document).on('keydown', '#global_filter_'+filtertype.id+'', function(){
+    clearTimeout(timer);
+});
+{{/js}}

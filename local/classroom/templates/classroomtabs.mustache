@@ -1,0 +1,271 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<ul class="course_extended_menu_list">
+    <li>
+        <div class="course_extended_menu_itemcontainer">
+            <a href='#' class="course_extended_menu_itemlink" data-action='tool_usertours/resetpagetour'>
+                <i class='icon fa fa-question-circle' aria-hidden='true'></i>
+            </a>
+        </div>
+    </li>
+    {{#request_url }}
+        <li>
+            <div class = "coursebackup course_extended_menu_itemcontainer" >
+                <a href="{{ request_url }}" class="course_extended_menu_itemlink create_ilt" title="Request">
+                    <i class="icon fa fa-share-square" aria-hidden="true"></i>
+                </a>
+            </div>
+        </li>
+    {{/request_url }}
+    {{#location_url }}
+        <li>
+            <div class = "coursebackup course_extended_menu_itemcontainer" >
+                <a href="{{ location_url }}"class="course_extended_menu_itemlink create_ilt" title="Location">
+                    <i class="icon fa fa-map-marker" aria-hidden="true"></i>
+                </a>
+            </div>
+           
+        </li>
+    {{/location_url }}  
+    {{# creataclassroom }}
+        <li>
+            <div class = "coursebackup course_extended_menu_itemcontainer" >
+                <a class="course_extended_menu_itemlink create_ilt" title="{{# str }} create_classroom, local_classroom {{/ str }}"onclick="(function(e){ require('local_classroom/ajaxforms').init({contextid:{{contextid}}, component:'local_classroom', callback:'classroom_form', form_status:0, plugintype: '{{plugintype}}', pluginname: '{{plugin_name}}', id:0, title: 'createclassroom' }) })(event)">
+                    <span class="createicon">
+                        <span class="custom_classroom_icon icon"><i class="fa fa-plus createiconchild" aria-hidden="true"></i></span>
+                        
+                    </span>
+                </a>
+            </div>
+        </li>
+    {{/ creataclassroom }}
+    {{# unenrolclassroom}}
+        <li>
+            <div class = "coursebackup course_extended_menu_itemcontainer" >
+                <a href="{{ unenrolclassroomurl }}" id="extended_menu" class="course_extended_menu_itemlink create_ilt" title="{{# str }} unenrol_classroom, local_classroom {{/ str }}">
+                 
+                    <span class="createicon">
+                        <i class="icon custom_classroom_icon"></i>
+                        <i class="fa fa-close createiconchild" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+        </li>
+    {{/ unenrolclassroom}}
+</ul>
+
+<div id="status_tabs">
+    <div class="crstatus_tabs_list p-15 mt-2">
+        <ul class="nav nav-tabs classroom_tabs" role="tablist">
+        
+        {{#all_tab}}
+            <li class="nav-item classroomstatus" role="presentation" data-status = "-1" data-module="all">
+                <a class="active nav-link " data-toggle="tab" href="javascript:void(0);" aria-controls="allclasses" role="tab" title="{{# str }} allclasses, local_classroom {{/ str }}" >
+                    <i class="fa fa-list-ul cr_statusicon" ></i>{{# str }} allclasses, local_classroom {{/ str }}
+                </a>
+            </li>
+        {{/all_tab}}
+        {{#new_tab}}
+            <li class="nav-item classroomstatus" role="presentation" data-status = "0" data-module="new">
+                <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="newclasses" role="tab" title="{{# str }} newclasses, local_classroom {{/ str }}" >
+                    <i class="fa fa-bullhorn cr_statusicon" aria-hidden="true"></i>{{# str }} newclasses, local_classroom {{/ str }}
+                </a>
+            </li>
+        {{/new_tab}}
+        {{#active_tab}}
+            <li class="nav-item classroomstatus" role="presentation" data-status = "1"  data-module="active">
+                <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="activeclasses" role="tab" title="{{# str }} activeclasses, local_classroom {{/ str }}" >
+                    <i class="fa fa-thumbs-o-up cr_statusicon" aria-hidden="true"></i>{{# str }} activeclasses, local_classroom {{/ str }}
+                </a>
+            </li>
+        {{/active_tab}}
+        {{#hold_tab}}
+            <li class="nav-item classroomstatus" role="presentation" data-status = "2" data-module="hold">
+                <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="holdclasses" role="tab" title="{{# str }} holdclasses, local_classroom {{/ str }}" >
+                    <i class="fa fa-hand-o-up cr_statusicon" aria-hidden="true"></i>{{# str }} holdclasses, local_classroom {{/ str }}
+                </a>
+            </li>
+        {{/hold_tab}}
+        {{#cancelled_tab}}
+            <li class="nav-item classroomstatus" role="presentation" data-status = "3" data-module="cancelled">
+                <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="cancelledclasses" role="tab" title="{{# str }} cancelledclasses, local_classroom {{/ str }}" >
+                    <i class="fa fa-lock cr_statusicon" aria-hidden="true"></i>{{# str }} cancelledclasses, local_classroom {{/ str }}
+                </a>
+            </li>
+        {{/cancelled_tab}}
+        {{#completed_tab}}
+            <li class="nav-item classroomstatus" role="presentation" data-status = "4" data-module="completed" >
+                <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="completedclasses" role="tab" title="{{# str }} completedclasses, local_classroom {{/ str }}" >
+                    <i class="fa fa-flag-o cr_statusicon" aria-hidden="true"></i>{{# str }} completedclasses, local_classroom {{/ str }}
+                </a>
+            </li>
+        {{/completed_tab}}
+        </ul>
+    </div>
+    <div class="tab-content p-15">
+        <div class="tab-pane active" id="all_tab">
+            <div class="card-paginate_wrap" id="all" data-region="all-preview-container">
+                <div data-region="all-count-container"></div>
+                <div class="global_filter_structure">
+                    <label>{{# str}}search{{/ str}} : </label>
+                    <input id="global_filter" class="global filter" type="text" name="search_query">
+                </div>
+                <div data-region="all-list-container" id ="allid"></div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="new_tab">
+            <div class="card-paginate_wrap" id="new" data-region="new-preview-container">
+                <div data-region="new-count-container"></div>
+                <div class="global_filter_structure">
+                    <label>{{# str}}search{{/ str}} : </label>
+                    <input id="global_filter" class="global filter" type="text" name="search_query">
+                </div>
+                <div data-region="new-list-container" id ="newid"></div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="active_tab">
+            <div class="card-paginate_wrap" id="active" data-region="active-preview-container">
+                <div data-region="active-count-container"></div>
+                <div class="global_filter_structure">
+                    <label>{{# str}}search{{/ str}} : </label>
+                    <input id="global_filter" class="global filter" type="text" name="search_query">
+                </div>
+                <div data-region="active-list-container" id ="activeid"></div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="hold_tab">
+            <div class="card-paginate_wrap" id="hold" data-region="hold-preview-container">
+                <div data-region="hold-count-container"></div>
+                <div class="global_filter_structure">
+                    <label>{{# str}}search{{/ str}} : </label>
+                    <input id="global_filter" class="global filter" type="text" name="search_query">
+                </div>
+                <div data-region="hold-list-container" id ="holdid"></div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="cancelled_tab">
+            <div class="card-paginate_wrap" id="cancelled" data-region="cancelled-preview-container">
+                <div data-region="cancelled-count-container"></div>
+                <div class="global_filter_structure">
+                    <label>{{# str}}search{{/ str}} : </label>
+                    <input id="global_filter" class="global filter" type="text" name="search_query">
+                </div>
+                <div data-region="cancelled-list-container" id ="cancelledid"></div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="completed_tab">
+            <div class="card-paginate_wrap" id="completed" data-region="completed-preview-container">
+                <div data-region="completed-count-container"></div>
+                    <div class="global_filter_structure">
+                        <label>{{# str}}search{{/ str}} : </label>
+                        <input id="global_filter" class="global filter" type="text" name="search_query">
+                    </div>
+                <div data-region="completed-list-container" id ="completedid"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{#js}}
+require(['local_costcenter/cardPaginate'], function(cardPaginate) {
+    $('.classroomstatus').click(function(){
+        if ($(this).find('a').hasClass('active')){
+            return true;
+        }
+
+        var classroomstatus = $(this).data('status');
+        var classroommodule = $(this).data('module');
+
+        $('#status_tabs .tab-pane').removeClass('active');
+        $('#status_tabs #'+classroommodule+'_tab').addClass('active');
+
+        var options = {targetID: classroommodule,
+                    templateName: 'local_classroom/classrooms_list',
+                    methodName: 'local_classroom_get_classrooms',
+                    perPage: 6,
+                    cardClass: 'col-md-6 col-12',
+                    viewType: 'card'};
+
+        var dataoptions = {status: classroomstatus};
+
+        for(i = -1; i<=4; i++){
+            if(classroomstatus != i){
+                switch(i){
+                    case -1:
+                        $("#allid").empty();
+                    break;
+                    case 0:
+                        $("#newid").empty();
+                    break;
+
+                    case 1:
+                        $("#activeid").empty();
+                    break;
+
+                    case 2:
+                        $("#holdid").empty();
+                    break;
+
+                    case 3:
+                        $("#cancelledid").empty();
+                    break;
+
+                    case 4:
+                        $("#completedid").empty();
+                    break;
+                }
+                
+            }
+        }
+    //require(['local_costcenter/cardPaginate'], function(cardPaginate) {
+        cardPaginate.reload(options, dataoptions);
+    //});
+    });
+    var search_interval = 100;
+    var timer;
+    $(document).on('keyup', '#global_filter', function(){
+        var searchval = $(this).val();
+        var thiselement = $('.classroomstatus a.active').parent();
+        var classroomstatus = thiselement.data('status');
+        var classroommodule = thiselement.data('module');
+
+        {{! $('#status_tabs .tab-pane').removeClass('active'); }}
+        {{! $('#status_tabs #'+classroommodule+'_tab').addClass('active'); }}
+
+        var options = {targetID: classroommodule,
+                    templateName: 'local_classroom/classrooms_list',
+                    methodName: 'local_classroom_get_classrooms',
+                    perPage: 6,
+                    cardClass: 'col-md-6 col-12',
+                    viewType: 'card'};
+        var dataoptions = {status: classroomstatus, search_query: searchval};
+        timer = setTimeout(function(){
+            cardPaginate.reload(options, dataoptions);
+        },search_interval);
+    });
+    $(document).on('keydown', '#global_filter', function(){
+        clearTimeout(timer);
+    });
+});
+{{/js}}

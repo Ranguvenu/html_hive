@@ -1,0 +1,58 @@
+{{!
+  This file is part of Moodle - http://moodle.org/
+
+  Moodle is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  Moodle is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+
+<button id = "btn" class="btn btn-secondary fp-btn-choose pull-right" onclick="location.href='{{form}}'">{{#str}}upload,
+  local_video{{/str}}</button><br><br>
+
+
+<table id="example" class="generaltable ">
+
+  <thead class="text-white text-center">
+    <tr>
+      <th>{{#str}}vtitle, local_video{{/str}}</th>
+      <th>{{#str}}link, local_video{{/str}}</th>
+      <th>{{#str}}video, local_video{{/str}}</th>
+      <!-- <th>Status</th> -->
+      <th width="15%">{{#str}}action, local_video{{/str}}</th>
+      
+    </tr>
+  </thead>
+<tbody>
+  {{# result}}
+  <tr align="center" id="tr" {{^ status}} style="opacity: 0.3" {{/ status}}>
+    <td>{{title}}</td>        
+    <td><a href="{{imageurl}}" >{{#str}}click, local_video{{/str}}</a></td>
+    <td>
+      <video width="150" height="100" controls>
+        <source src="{{imageurl}}" type="video/mp4">
+      </video>
+    </td>
+    <td>
+      <i class = "icon fa fa-pencil fa-fw"  onclick = "location.href='{{form}}?id={{id}}'" title="{{#str}}edit, local_video{{/str}}"></i> 
+      <i id="eye" class = "icon fa {{# status}}fa-eye {{/ status}}{{^ status}}fa-eye-slash{{/ status}} fa-2x" onclick = "(function(e){
+        require('local_video/demoVideo').show({
+          id:{{ id }}
+        })
+      })(event)" title="{{#str}}show, local_video{{/str}}"></i>
+      
+    </td>
+  </tr>
+  {{/ result}}
+</tbody>
+
+</table>

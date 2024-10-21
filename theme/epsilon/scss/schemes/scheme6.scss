@@ -1,0 +1,959 @@
+$sitehighlight: #df1515;
+$buttonbgcolor: #2a2a2a;
+$btntextcolor:  #fff;
+$btnhoverbgcolor: #2a2a2a;
+$btnhovertextcolor: #fff;
+$btnbordercolor: #2a2a2a;
+$lefticoncolor: #fff;
+$linkcolor: #2a5298;
+$linkhovercolor: #1e3c72;
+$quicklinkcolor : #fff !default;
+$quicksidebar : #12304b !default;
+$quicksidebars: #2a2a2a !default;
+$quicksidebarthirdclr: #fff !default;
+$cardbackgroundcolor: #e7e7e7 !default; 
+
+$hedingblock: #2a2a2a;
+
+$sidebarbgstartcolor: #2a2a2a;
+$sidebarbgendcolor:  #2a2a2a;
+$blockheaderstartbg: #e3e3e3;
+$blockheaderendbg:  #e3e3e3;/*#2a5298 */
+$blocktextcolor: #1a1a1a;
+$headerbgcolor: #0e314b;
+$bodybgcolor: #f6f2f3;
+$tblhdstartbg: #eaeaea;
+$tblhdendbg: #eaeaea;
+$tbltextcolor: #787878;
+$gradientcolor: #fff;
+$coursecontainerbg: #778890;
+$coursecontainbg: #e3e3e3;
+$usernavhvrbg: #df1515;
+$usernavhvrlink: #fff;
+$lighthash: #dcecf9;
+$iconbgcolor: $sitehighlight;
+$borderhighlet: #929fa6;
+$hovering: #297b77;
+$organizeicon : #778890;
+$blacktext: #2a2a2a;
+$lightbuttonbgcolor : lighten($buttonbgcolor, 30%);
+$lightblockhdrstart : lighten($blockheaderstartbg, 7%);
+$lightblockheaderend : lighten($blockheaderendbg, 10%);
+$anchorhvrcolor: #df1515;
+/*
+ * scheme scss for different plugins
+ * Please copy the set of css for the respective plugin from block listed below
+ * 
+*/
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+body::-webkit-scrollbar-thumb {
+   background-color: $sitehighlight;
+}
+/*.navbar-light.bg-white .action-menu .dropdown-toggle{
+    color:$lefticoncolor;
+}*/
+.navbar-light .navbar-nav .nav-link{
+    color: $blocktextcolor;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus{
+    color: $blocktextcolor;  
+}
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active{
+    color:$blocktextcolor;
+}
+.navbar-light .navbar-nav .nav-link{color:$blocktextcolor;}
+#page-my-index #page{ background-color: $cardbackgroundcolor;}
+.bg-sitehighlight{
+    background-color: $sitehighlight;
+}
+.text-sitehighlight{
+    color: $sitehighlight;
+}
+[data-region="drawer"] {
+    background-image: linear-gradient(45deg, $quicksidebars, $quicksidebars);
+}
+#nav-drawer .leftmenu_navigator{
+    background: $sitehighlight;
+    color: $lefticoncolor;
+}
+#nav-drawer .btn-secondary {
+    background-color: $iconbgcolor;
+    color: #fff;
+}
+a {
+    color: $linkcolor;
+    &:hover {
+        color: $linkhovercolor;
+    }
+    &:focus {
+        color: $linkhovercolor;
+    }
+    &:visited {
+        color: $linkhovercolor;
+    }
+}
+a.dropdown-item{color: inherit;}
+
+table thead,
+table.dataTable.no-footer > thead/* th*/, 
+table.generaltable thead/* th*/,
+.path-grade-report-grader .gradeparent tr.heading/* th.cell*/{
+    background-image: linear-gradient(to left, $tblhdstartbg, $tblhdendbg);
+    background-attachment: fixed;
+}
+table thead > tr > th, 
+table.dataTable.no-footer > thead > tr > th,
+table.generaltable thead > tr > th,
+.path-grade-report-grader .gradeparent tr.heading th.cell,
+.path-grade-report-grader .gradeparent tr.heading th.cell > a,
+.path-grade-report-grader .gradeparent tr.heading th.cell > a > i.fa, 
+table thead > tr > th a,
+table.dataTable.no-footer > thead > tr > th a,
+table.generaltable thead > tr > th a{
+    color: $tbltextcolor;
+    background-color: inherit;
+}
+
+/*.icon{color: $linkcolor;}*/
+#page-login-index .form-control {
+    box-shadow: 0 0 5px $lightbuttonbgcolor inset;
+    border: 1px solid $lightbuttonbgcolor inset;
+    &:focus {
+        box-shadow: 0 0 5px $buttonbgcolor inset;
+        border: 1px solid $buttonbgcolor inset;
+    }
+}
+.block_userdashboard .view_more_container {
+    background-color: $buttonbgcolor;
+    &:hover,&:focus,&:active {
+        background-color: $btnhoverbgcolor;
+    }
+    .viewbtn {
+        color: $btntextcolor;
+        &:hover,&:focus,&:active {
+            color: $btnhovertextcolor;
+        }
+    }
+}
+// body button,
+// html [type="button"],
+body [type="reset"],
+body [type="submit"],
+body [type="cancel"],
+body .btn-primary,
+// body .btn,
+.cat_btn {
+    background-color: $buttonbgcolor;
+    color: $quicklinkcolor;
+    border-color: $btnbordercolor;
+    border-radius: 0.25rem;
+ &:hover,&:focus,&:active {
+        background-color: $btnhoverbgcolor;
+        color: $quicklinkcolor;
+ }
+}
+body .btn-link[data-toggle="popover"]{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+div#continue button > a,
+body button > a {
+    color: $btntextcolor;
+    &:hover,&:focus,&:active {
+        color: $btnhovertextcolor;
+        text-decoration: none;
+    }
+}
+.btn-secondary.disabled:hover,
+.fp-viewbar.disabled a:hover,
+.btn-default.disabled:hover,
+.btn-secondary:disabled:hover,
+.btn-default:disabled:hover {
+    background-color: $btnhoverbgcolor;
+    color: $btnhovertextcolor;
+}
+.quick_nav_list .dashboard_count_list .dashbaord_count_item .dashboard_count_string{
+    color: #0e314b;
+    font-weight: 300;
+    
+}
+
+
+body#page-local-forum-index #forumtable .forumdata_container .bottom_content
+ .emaildigest .fa.fa-pencil{
+    background-color: $lighthash;
+    color: $buttonbgcolor;
+    &:hover,&:focus,&:active {
+        color: $buttonbgcolor;
+    }
+}
+
+.initialbar .letter{color: $sitehighlight;background-color: $btntextcolor;}
+.initialbar .letter.active{color: $btntextcolor;background-color: $buttonbgcolor;border-color: $buttonbgcolor;}
+body .dataTables_wrapper .dataTables_paginate .paginate_button{
+    background-color: $btntextcolor !important;
+    color: $buttonbgcolor !important;
+    &:hover,&:focus,&:active {
+        background-color: $btntextcolor !important;
+        color: $buttonbgcolor !important;
+    }
+}
+/*
+.dataTables_wrapper .dataTables_paginate .paginate_button.active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus{
+    background-color: $btntextcolor !important;
+    color: $buttonbgcolor !important;
+    border-color: $btnbordercolor !important;
+    background-image: none;
+}
+
+.page-item.active .page-link, .page-item.active .page-link:focus,
+.page-item.active .page-link:hover,
+body .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+body .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+body .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus {
+    background-color: $btntextcolor !important;
+    color: $buttonbgcolor !important;
+    border-color: $btnbordercolor !important;
+    background-image: none;
+} 
+.dataTables_wrapper .dataTables_paginate .paginate_button.active a,
+body .dataTables_wrapper .dataTables_paginate .paginate_button.current a {
+    color: $buttonbgcolor !important;
+    &:hover, &:focus, &:visited {
+        color: $buttonbgcolor !important;
+    }
+}*/
+.block.block_userdashboard .course_name a,
+.block.block_userdashboard .userdashboard_content .ctype_program .bootcamp_name{
+    color: $hedingblock;
+    font-weight: bold;
+}
+#page-blocks-userdashboard-userdashboard_courses .course_name a{
+    font-size: 18px;
+    word-break: break-all;
+    color: $hedingblock;
+    font-weight: bold;
+}
+.userdashboard_content .bootcamp_name{
+  color: $hedingblock;
+}
+#block-region-layerone_one .block.block_myskills #all_skills_acquired th{
+    font-weight: 300;
+    background-color: #d2d2d2;
+    color: #000;
+    /*color: $sitehighlight;*/
+}
+body .action-menu .dropdown-toggle{
+
+    color:$buttonbgcolor;
+}
+
+body .form-filemanager a.btn, .alert a.btn {
+    background-color: inherit;
+    color: inherit; 
+    border-color: transparent;
+    &:hover,&:focus,&:active {
+        background-color: inherit;
+        color: inherit;
+    }
+}
+/*.navbar-light.bg-white {
+    background-color: $headerbgcolor !important;
+}*/
+ .navbar .popover-region-header-actions .icon, 
+ .navbar .popover-region-toggle .icon {
+    color: $blocktextcolor !important;
+}
+body, #page {
+    background-color: #fff;
+}
+.block-region .block .card-body .card-title {
+    background: linear-gradient(to left,#2a2a2a,#2a2a2a);
+    color: #fff;
+}
+.block_courselister.card {
+    background-color: #fff;
+}
+/* Styling Checkbox Starts */
+.trend-checkbox-label .trend-checkbox-custom{border: 2px solid $blockheaderstartbg;}
+.trend-checkbox-label input:checked ~ .trend-checkbox-custom {background: linear-gradient(to left, $blockheaderstartbg, $blockheaderendbg);border: 2px solid $blockheaderstartbg;}
+.trend-checkbox-label input:checked ~ .trend-checkbox-custom::after{border-color: $gradientcolor;}
+.trend-checkbox-label .trend-checkbox-custom::before {border: 2px solid $blockheaderstartbg;}
+.trending_modal_popup .modal-content {background: linear-gradient(-45deg, $lightblockheaderend,1%, $lightblockhdrstart);}
+/* Styling Checkbox ends */
+.theme_scheme6 .block_achievements #achievements>.nav-tabs {  
+    padding-top: 8px !important;    
+    line-height: 11px !important; 
+    text-transform: none;  
+    background: linear-gradient(to left,#2a2a2a,#2a2a2a);
+}
+.modal .modal-header .close,
+div.editor_atto_toolbar button,
+div.editor_atto_toolbar button:hover,
+div.editor_atto_toolbar button:focus,.alert button.close {
+    background-color: inherit;
+    color: inherit;
+}
+.filemanager a.btn,
+.filemanager a.btn:hover,
+.filemanager a.btn:focus {
+    background-color: inherit;
+    color: inherit;
+    border: inherit;
+}
+.modal.openLMStransition .form_label a.btn,
+a[data-toggle="popover"].btn.btn-link.p-a-0{
+    background-color: inherit;
+    border: none;
+}
+.openLMStransition .form_status {
+    .form_status_listitem.active .form_status_listitem_link{
+        background-color: $iconbgcolor;
+        cursor: pointer;
+    }
+}
+.page-context-header .page-header-headings h3:after {
+    border-bottom: 3px solid $iconbgcolor;
+}
+.openLMStransition .form_status .form_status_listitem.active .form_status_listitem_link:after{
+    border-left: 20px solid $iconbgcolor;
+}
+.openLMStransition .form_status .form_status_listitem.active .form_status_listitem_link:before{
+    border-top: 20px solid $iconbgcolor;
+    border-right: 20px solid $iconbgcolor;
+    border-bottom: 20px solid $iconbgcolor;
+}
+#nav-drawer.closed .user_navigation_link:hover{
+    background-color: $usernavhvrbg;
+    color: $usernavhvrlink;
+}
+#nav-drawer.closed .user_navigation_link:hover .user_navigation_link_text {
+    background-color: $usernavhvrbg;
+    color: $usernavhvrlink;
+}
+
+#sidepreopen-control{background-color: $sitehighlight;color: #fff;}
+#sidepre-blocks{background-color: $sitehighlight;}
+/*scss for the quick action links starts*/
+.showoptions{color: $buttonbgcolor;}
+.actionicons.opened .options_container{background-color: $iconbgcolor;}
+.actionicons .options_container:after{border-top-color: $iconbgcolor;}
+.options_container:hover{background-color: $iconbgcolor;}
+.options_container li:hover{
+    background-color: $iconbgcolor;
+    color: $buttonbgcolor;
+}
+/*
+.page-item.disabled .page-link,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
+body .dataTables_wrapper .dataTables_paginate .paginate_button a,.pagination .page-link,
+#page-local-catalog-allcourses .pagination>.disabled>a,
+#page-local-catalog-allcourses .pagination>li>a
+{
+    color: $btntextcolor !important;
+    background-color: $buttonbgcolor !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+body .dataTables_wrapper .dataTables_paginate .paginate_button a:hover,
+.page-link:hover,
+#page-local-catalog-allcourses .pagination>.disabled>a:hover,
+#page-local-catalog-allcourses .pagination>li>a:hover,
+#page-local-catalog-allcourses .pagination>.active>a{
+    color: $btntextcolor !important;
+    background-color: $buttonbgcolor !important;
+    border-color: $btnbordercolor !important;
+    background-image: none;
+  } */
+// #nav-drawer.closed .user_navigation_ul .user_nav_div .fa{color: $usernavhvrlink;} /*$usernavhvrlink for scheme6*/
+// #nav-drawer.closed .user_navigation_ul .user_nav_div:hover .fa{color: $usernavhvrlink;}
+/*.theme_scheme6 #nav-drawer.closed .user_navigation_ul .user_nav_div .fa,
+.organization_scheme6 #nav-drawer.closed .user_navigation_ul .user_nav_div .fa {color: $usernavhvrlink;}*/
+/*scss for the quick action links ends*/
+ #page-local-notifications-email_status table thead > tr > th, table.dataTable.no-footer > thead > tr > th,
+ #demo.jplist .coursepage-name > a{font-weight: bold;}
+/*
+ * @plugin type format
+ * @plugin sub-type tabtopics ====> starts here
+ * 
+*/
+/*body#page-course-view-tabtopics .course_page_info_progress{background-color: $sitehighlight;}
+body#page-course-view-tabtopics .course_progress_stats{border-color: $btntextcolor;}
+body#page-course-view-tabtopics .course_stat_label{color: $gradientcolor;}*/
+
+/*
+ * @plugin sub-type tabtopics <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type block
+ * @plugin sub-type userdashboard ====> starts here
+ * 
+*/
+.block.block_userdashboard .block_dashboard_tabslist .dashboard-stat.active_main_tab .more{
+    color: $quicklinkcolor;
+}
+.block.block_userdashboard .block_dashboard_tabslist{
+    border :1px solid $quicksidebars;
+    border-bottom: none;
+    background: linear-gradient(45deg, $quicksidebars, $quicksidebars, $quicksidebarthirdclr 80%);
+    color: $gradientcolor;
+}
+.block.block_userdashboard .block_dashboard_tabslist .dashboard-stat.active_main_tab {
+    background-color: $sitehighlight;
+    border-right: 1px solid $sitehighlight;
+    opacity: 0.8;
+    font-weight: bold;
+    color: #fff;
+}
+.block.block_userdashboard .block_dashboard_tabslist .dashboard-stat.active_main_tab:after{
+    border-left: 14px solid $sitehighlight;
+}
+.block.block_userdashboard .block_dashboard_tabslist .dashboard-stat .more{font-weight: bold;}
+.block.block_userdashboard .course_container, 
+#page-blocks-userdashboard-userdashboard_courses .course_container{
+    border: 1px solid $coursecontainerbg;
+}
+.block.block_userdashboard .course_container{background-color: #ebebeb;}
+.block.block_userdashboard .block_dashboard_tabslist .dashboard-stat.active_main_tab:after{
+    right: -1% !important;
+    border-right: 25px solid #fff !important;
+}
+.block.block_userdashboard  #linked_course_details_info .col-md-12.pr-0 {
+    padding-left: 0px !important;
+}
+.block.block_userdashboard #linked_course_details_info{margin-left: none !important;}
+.block.block_userdashboard .portlet.light.shadow{border-radius: 0px 0px 8px !important;}
+.block.block_userdashboard .progress-chart-container .progress-doughnut, 
+#page-blocks-userdashboard-userdashboard_courses .progress-chart-container .progress-doughnut{
+    border: 5px solid #eceeef; 
+}
+.block.block_userdashboard .progress-chart-container .progress-doughnut .progress-indicator svg .circle, 
+ #page-blocks-userdashboard-userdashboard_courses .progress-chart-container .progress-doughnut .progress-indicator svg .circle{
+    stroke: $sitehighlight;
+}
+.block.block_userdashboard .progress-chart-container .progress-doughnut .progress-text.has-percent, 
+#page-blocks-userdashboard-userdashboard_courses .progress-chart-container .progress-doughnut .progress-text.has-percent{
+    color: $sitehighlight;
+}
+.block.block_userdashboard .block_dashboard_tabslist .dashboard-stat.active_main_tab:after{border-left-color: $sitehighlight;}
+.block.block_userdashboard .portlet.light.shadow{border-color: $quicksidebars;}
+.block.block_userdashboard .titleinfo .count_info_container{background-color: $quicksidebars;color: $quicklinkcolor;}
+.block.block_userdashboard .titleinfo .count_info_container .count_string{color: $quicklinkcolor;}
+.userdashboard_content .lp_container{border-color: $sitehighlight;}
+.userdashboard_content .learning_plan_view .lpicon{color: $sitehighlight;}
+.userdashboard_content .evalicon{color: $sitehighlight;}
+.userdashboard_content .evalactions{background: $sitehighlight;}
+
+.userdashboard_content .classroom_container .ub_classroomname{background: none; color: $sidebarbgstartcolor; /*linear-gradient(45deg, $sidebarbgstartcolor, $sidebarbgendcolor);*/}
+.userdashboard_content .evalactions {background: linear-gradient(45deg, $sidebarbgstartcolor, $sidebarbgendcolor);}
+.userdashboard_content .program_container .programicon{color: $sitehighlight;}
+.userdashboard_content .program_view_more_container{background: $sitehighlight;}
+.userdashboard_content .program_container .data_progress .progress-chart-container .progress-doughnut .progress-indicator svg .circle{stroke: $sitehighlight;}
+.ont_container:hover .startquiz_btn{background: linear-gradient(45deg, $sidebarbgstartcolor, $sidebarbgendcolor);}
+.userdashboard_content .program_container .certicon{color: $sitehighlight;}
+.block.block_userdashboard .course-next{color: $sitehighlight;}
+.block.block_userdashboard .course-prev{color: $sitehighlight;}
+/*.block.block_userdashboard i.course-prev,.block.block_userdashboard i.course-next{margin-top: 124px;}*/
+.userdashboard_content .programicon_container {background-color: $sitehighlight;}
+.userdashboard_content .bootcampicon_container{background-color: $sitehighlight;border: 1px solid $sitehighlight;}
+.block.block_userdashboard .userdashboard_content .cert_name,
+.block.block_userdashboard .userdashboard_content .learning_plan_view .lp_name,
+.block.block_userdashboard .userdashboard_content .evalname_container .evalname,
+.block.block_userdashboard .userdashboard_content .testname{
+    color: $hedingblock;
+    font-weight: bold;
+}
+.userdashboard_content .classroom_container .ub_classroomname a,
+.block.block_userdashboard .userdashboard_content .cert_name{
+    color: $hedingblock;
+    font-weight: bold;
+}
+body#page-blocks-training_calendar-view .fc-toolbar.fc-header-toolbar .fc-center{
+    color: $hedingblock;
+    font-weight: bold;
+}
+/* font awsome Icons*/
+.onlinetests_courses .userdashboard_content .schedule i{
+color: $hedingblock;
+}
+/*
+ * @plugin sub-type userdashboard <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type block
+ * @plugin sub-type achievements ====> starts here
+ * 
+*/
+
+.userdashboard_content .classroom_container .ub_classrooms{
+    border-radius: none;
+}
+.block_achievements #achievements li.achievements_tabs > a{
+    color: $blocktextcolor;
+    /*font-weight: 100;*/
+}
+
+.block.block_achievements .ui-tabs .ui-tabs-active{border-bottom: 5px solid $sitehighlight !important;}
+.block_achievements .viewmorebutton {color: $btntextcolor;}
+/*
+ * @plugin sub-type achievements <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type block
+ * @plugin sub-type quick_navigation ====> starts here
+ * 
+*/
+.block.block_quick_navigation .quick_navigation_detail a,
+.block.block_quick_navigation .quick_nav .quick_nav_list .span_createlink a{
+    color:$hedingblock;
+    font-weight: 400;
+    &:hover {
+        color: $sitehighlight;
+    }
+}
+.block.block_quick_navigation .quick_nav .quick_nav_list {
+    background:$lefticoncolor;
+    color: $hedingblock;
+    border: 2px solid rgba(221,221,221,.65);
+}
+.quick_nav .quick_nav_list .span_str{font-weight: 600;font-size: 19px;background: #FFFFFF;color:$hedingblock; text-shadow: 1px 1px 0px #FFFFFF, -2px 3px 0px rgba(0,0,0,0.15);}
+.quick_nav .quick_nav_list .anch_span i.fa{color: $hedingblock;opacity: 0.2;font-size: 4em;}
+.quick_nav_list .progress-chart-container .progress-doughnut .progress-indicator svg .circle{stroke: $sitehighlight;}
+
+/*
+ * @plugin sub-type quick_navigation <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type block
+ * @plugin sub-type my_event_calender ====> starts here
+ * 
+*/
+
+.course_extended_menu_itemlink .icon{color: $hedingblock;}
+ .course_extended_menu_list .dropdown-toggle .icon, 
+ #page-local-certification-view .course_extended_menu_list li button{color: $hedingblock;}
+#page-local-myteam-team .caption-subject{
+    color: $hedingblock;
+    font-weight: bold;
+}
+/* .block_my_event_calendar .fc-today .fc-day-number {
+    background-color: $sitehighlight;
+    color: $lefticoncolor;
+}
+.block_my_event_calendar .fc-day-number.active_day {
+    background-color: $btntextcolor;
+    color: $buttonbgcolor;
+} */
+
+/*
+ * @plugin sub-type my_event_calender <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type block
+ * @plugin sub-type training_calender ====> starts here
+ * 
+*/
+
+body#page-blocks-training_calendar-view #calendar table thead.fc-head{
+    background: linear-gradient(to left, $sidebarbgstartcolor, $sidebarbgendcolor);
+}
+/*
+ * @plugin sub-type training_calender <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type costcenter ====> starts here
+ * 
+*/
+.costcenter_container .orgimg_container .content_left,
+.dept_container .dept_topcontent{
+    background-image: linear-gradient(45deg, $organizeicon, $organizeicon);
+}
+.costcenter_container .details_content .org_icon_container{background-color: $sitehighlight;}
+body#page-local-costcenter-costcenterview .costcenter_container:before,
+body#page-local-costcenter-costcenterview .costcenter_container:after,
+.evendepts .dept_content .sideline,
+.odddepts .dept_content .sideline,
+.dept_container .evendepts .dept_content .connent_line,
+.dept_container .odddepts .dept_content .connent_line {border-color: $sitehighlight !important;}
+.dept_container .dept_content:before{background-color: $sitehighlight;}
+body#page-local-courses-index .catlisticon i,
+/*#manage_feedbacksid .eval_container .evalname a,*/
+.course_extended_menu_list .createiconchild/*, .options_container li i*/{color: $blacktext;}
+/*
+ * @plugin sub-type courses <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type users ====> starts here
+ * 
+*/
+/*table thead > tr > th, table.dataTable.no-footer > thead > tr > th, table.generaltable thead > tr > th, .path-grade-report-grader .gradeparent tr.heading th.cell, .path-grade-report-grader .gradeparent tr.heading th.cell > a, .path-grade-report-grader .gradeparent tr.heading th.cell > a > i.fa, .path-grade-report-grader .gradeparent tr.heading .block_settings .block_tree th.cell > a > i[aria-expanded="true"]::before, .block_settings .block_tree .path-grade-report-grader .gradeparent tr.heading th.cell > a > i[aria-expanded="true"]::before, .path-grade-report-grader .gradeparent tr.heading .block_navigation .block_tree th.cell > a > i[aria-expanded="true"]::before, .block_navigation .block_tree .path-grade-report-grader .gradeparent tr.heading th.cell > a > i[aria-expanded="true"]::before, .path-grade-report-grader .gradeparent tr.heading .block_settings .block_tree th.cell > a > i[aria-expanded="false"]::before, .block_settings .block_tree .path-grade-report-grader .gradeparent tr.heading th.cell > a > i[aria-expanded="false"]::before, .path-grade-report-grader .gradeparent tr.heading .block_navigation .block_tree th.cell > a > i[aria-expanded="false"]::before, .block_navigation .block_tree .path-grade-report-grader .gradeparent tr.heading th.cell > a > i[aria-expanded="false"]::before, table thead > tr > th a, table.dataTable.no-footer > thead > tr > th a, table.generaltable thead > tr > th a
+{
+    color:$lefticoncolor;
+}*/
+body#page-local-users-index #manage_users1 .userscontainer .userpic{border-color: $sitehighlight;}
+#page-local-users-team .team_learningtype_dropdown {color: $linkhovercolor;}
+#page-local-users-profile .general_info_container, #page-local-users-skillprofile .userprfltabs_container {background: linear-gradient(45deg, $sidebarbgstartcolor, $sidebarbgendcolor);}
+#page-local-users-profile .fontfa{color: $sitehighlight;}
+.path-local-users .dashbaord_count_item .dashboard_count_value{color: $sitehighlight;}
+
+/*
+ * @plugin sub-type users <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type courses ====> starts here
+ * 
+*/
+#page-local-courses-courses #filters_form{background-color: $lefticoncolor}
+
+.crname_head:after{
+    border-bottom: 3px solid $iconbgcolor;
+}
+body#page-local-courses-index .catlist_container .cattop_content .catname,
+#page-local-courses-courses .course_name a,
+#page-local-onlinetests-index #onlinetestlist .schedule,
+.course_extended_menu_list .catcreateicon,
+.theme_scheme6 .costcenter_container .details_content .details_topcontent .details_topleft{
+    color: $hedingblock;
+}
+body#page-local-courses-index .catlist_container .cattop_content .catname:after{border-color: $sitehighlight;}
+.bootstrap-duallistbox-container {background-color: $coursecontainerbg;}
+.bootstrap-duallistbox-container select[multiple]::-webkit-scrollbar-thumb{background-color: $buttonbgcolor;}
+.bootstrap-duallistbox-container .buttons .btn-default:hover,
+.bootstrap-duallistbox-container .buttons .btn-default:disabled:hover{
+    background-color: $buttonbgcolor;
+    color: $btntextcolor;
+}
+.alert-info, #page-admin-index .releasenoteslink, #adminsettings .form-overridden, .que .formulation, .assignfeedback_editpdf_widget .label{
+    border: 1px solid $lefticoncolor;
+}
+.alert-info{border: 1px solid $lighthash;}
+table.dataTable tr.odd td.sorting_1,
+table.dataTable tr.even td.sorting_1{background: none;}
+/*body#page-local-courses-courses .actionicons a .icon{color: $hedingblock;}*/
+#page-my-index table.event_table.dataTable tr.odd {
+    background-color: $blockheaderstartbg;
+    color: $hedingblock;
+}
+/*
+ * @plugin sub-type courses <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type classrooms ====> starts here
+ * 
+*/
+
+#page-local-groups-index div.card-title {
+    background-color: $sidebarbgstartcolor;
+    color: $lefticoncolor;
+    background-image: none;
+}
+#page-local-groups-index .showoptions, #page-local-classroom-index .showoptions {
+    color: $lefticoncolor;
+}
+body#page-local-learningplan-index #manage_learningpathsid .learning_plan_view .lp_name,
+#page-local-program-index #status_tabs .program_container .programname_status .class_name,
+body#page-local-courses-index .catlisticons i {
+    color: $hedingblock;
+}
+#page-local-classroom-view .course_extended_menu_list li button,
+#page-local-classroom-view .createpopicon{color: $iconbgcolor;}
+#page-local-classroom-index #status_tabs .classroom_container .classroomname_status{background: $sidebarbgstartcolor;}
+#page-local-classroom-index .crstatus_tabs_list,
+body#page-local-catalog-allcourses .cattbas_container {background-color: $coursecontainbg;}
+#evaluationlist .eval_container .evalactions{
+    background: linear-gradient(to left, $sidebarbgstartcolor, $sidebarbgstartcolor);
+}
+
+#page-local-classroom-view .ribbon {
+    background: $blockheaderstartbg;
+    background: -webkit-gradient(linear, left top, left bottom, from($blockheaderstartbg), to($blockheaderendbg));
+    background: -webkit-linear-gradient(top, $blockheaderstartbg, $blockheaderendbg);
+    background: -moz-linear-gradient(top, $blockheaderstartbg, $blockheaderendbg);
+    background: -ms-linear-gradient(top, $blockheaderstartbg, $blockheaderendbg);
+    background: -o-linear-gradient(top, $blockheaderstartbg, $blockheaderendbg);
+    background-image: -ms-linear-gradient(top, $blockheaderstartbg 0%, $blockheaderendbg 100%);
+}
+#page-local-classroom-view .custom_header {
+    background: repeating-linear-gradient( 45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px );
+}
+#page-local-classroom-view .nav-tabs .nav-link.active{border-color: $sitehighlight;}
+
+/*
+ * @plugin sub-type classrooms <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type program ====> starts here
+ * 
+*/
+.path-local-program #status_tabs{background-color: $coursecontainerbg;}
+#page-local-program-index .program_view_more_container{background-color: $sitehighlight;}
+#page-local-program-index .programicon{color: $sitehighlight;}
+#page-local-program-view .createpopicon{color: $sitehighlight;}
+#page-local-program-view .nav-tabs .nav-link.active{border-color: $sitehighlight;}
+.path-local-program .program_progress_wrap{background-color: $sitehighlight;}
+.path-local-program .program_progress_stats{border-color: $btntextcolor;}
+.path-local-program .program_stat_label {color: $gradientcolor;}
+.path-local-program .program_coursename:after{border-color: $sitehighlight;}
+#page-local-program-index .crstatus_tabs_list{background-color: $coursecontainerbg;}
+.popupstringicon{color: $hedingblock;}
+#page-local-program-index .data_progress .progress-chart-container .progress-doughnut .progress-indicator svg .circle {stroke: $sitehighlight;}
+// #page-local-catalog-allcourses .pagination>.active>a,
+// #page-local-catalog-allcourses .pagination>.active>a:hover{
+//     background-color: $hedingblock;
+// }
+#page-local-program-index .programicon_container {
+    background-color: $hedingblock;
+}
+#page-local-program-index .program_container {
+    border-color: $sitehighlight;
+}
+body#page-local-catalog-allcourses .spotlight-group,
+body#page-local-catalog-allcourses .spotlight-group span.text-dark{color: $lefticoncolor !important;}
+/*
+ * @plugin sub-type program <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type certification ====> starts here
+ * 
+*/
+#page-local-program-view .programview_tabscontainer .nav-tabs .nav-link{background-color: $sitehighlight;}
+.block.block_userdashboard .block_dashboard_tabslist li.block_dashboard_tabslistitem:first-child > div{
+    border-radius: 8px 0px 0px 0px;
+}
+.path-local-certification .certification_stat_label {color: $gradientcolor;}
+.path-local-certification .certification_progress_stats{border-color: $btntextcolor;}
+.path-local-certification .certification_coursename:after{border-color: $sitehighlight;}
+.path-local-certification .certification_progress_wrap{background-color: $sitehighlight;}
+#page-local-certification-index .certification_view_more_container{background-color: $sitehighlight;}
+#page-local-certification-index .certification_container{border-color: $sitehighlight;}
+#page-local-certification-index .certificationicon{color: $hedingblock;}
+body#page-local-certification-index .crname_head{color: $hedingblock;}
+#page-local-certification-view .nav-tabs .nav-link.active{border-color: $sitehighlight;}
+#page-local-certification-index .crstatus_tabs_list{background-color: $lighthash; height: 5em;}
+#page-local-certification-view .createpopicon{color: $sitehighlight;}
+#page-local-certification-index .data_progress .progress-chart-container .progress-doughnut .progress-indicator svg .circle {stroke: $sitehighlight;}
+
+/*
+ * @plugin sub-type certification <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type learningplan ====> starts here
+ * 
+*/
+/*#page-local-classroom-index .bg_banner,*/
+/*#page-local-classroom-index #status_tabs .classroom_container .classroomname_status .class_name{
+    color: $lefticoncolor;
+}*/
+.modal .modal-header .modal-title{
+    /*color: $hedingblock;*/
+    font-weight: bold;
+}
+.block_courselister button.cat_btn.viewmore_btn:hover {
+    background-color: #df1515;
+    border-color: #df1515;
+}
+body#page-local-forum-index #forumtable .forumdata_container .top_content .forumname a, body#page-local-forum-view .forumdata_container .top_content .forumname a,
+.collapsible-actions .collapseexpand{color: $hedingblock;}
+.testsicon, #page-local-onlinetests-index #onlinetestlist .testname,body #manage_feedbacksid .eval_container .evalicon,
+#manage_feedbacksid .eval_container .evalname a, a .fa-sliders {
+    color: $hedingblock;
+}
+body#page-local-learningplan-index table#all_learning_plans .learning_plan_view .lp_name{color:$hedingblock; font-weight: bold;}
+#page-local-learningplan-index table#all_learning_plans .lp_container{border-color: $sitehighlight;}
+body#page-local-learningplan-index table#all_learning_plans .learning_plan_view .lpicon{color: $hedingblock;}
+body.path-local-learningplan ul.nav.nav-tabs li>a.nav-link.active{border-color: $sitehighlight;}
+.path-local-learningplan .lpcourses{border-color: $blacktext;}
+.path-local-learningplan .lpcourse_progress.progress-chart-container{background-color: $sitehighlight;}
+.path-local-learningplan .summary_container{border-color: $sitehighlight;}
+.path-local-learningplan .summary_container:after{border-left-color: $sitehighlight;}
+body#page-local-learningplan-index #manage_learningpathsid .learning_plan_view .lpicon{
+    color: $hedingblock;
+}
+#page-local-learningplan-index #manage_learningpathsid .lp_container {
+    border-bottom-color: $sitehighlight;
+}
+/*
+ * @plugin sub-type learningplan <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type evaluation ====> starts here
+ * 
+*/
+#evaluationlist .eval_container .evalactions{background: linear-gradient(to left, $blockheaderstartbg, $blockheaderendbg);}
+#evaluationlist .eval_container .evalicon{color: $sitehighlight;}
+.eval_schedule_label {color: $hedingblock;}
+/*
+ * @plugin sub-type evaluation <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type forum ====> starts here
+ * 
+*/
+body#page-local-forum-index #forumtable .forumdata_container .bottom_container{background: $coursecontainbg; color: $hedingblock;}
+body#page-local-forum-index #forumtable .forumdata_container .bottom_content .subscribe button:after{color: $lefticoncolor;}
+/*
+ * @plugin sub-type forum <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type catalog ====> starts here
+ * 
+*/
+body#page-local-catalog-allcourses .spotlight-group{color: $btntextcolor;background-color: $buttonbgcolor;}
+.catalog_popup .spotlight-group {color: $btntextcolor;background-color: $buttonbgcolor;}
+/*
+ * @plugin sub-type catalog <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type onlinetests ====> starts here
+ * 
+*/
+#page-local-onlinetests-index #onlinetestlist tr td:nth-of-type(odd) .ot_icon,
+#page-local-onlinetests-index #onlinetestlist tr td:nth-of-type(even) .ot_icon{color: $sitehighlight;}
+#page-local-onlinetests-index .ont_container:hover .startquiz_btn{background-color: $sitehighlight;}
+/*
+ * @plugin sub-type onlinetests <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type requests ====> starts here
+ * 
+*/
+.requests_container .req_component_icon,.component_icon,
+.requests_container .req_component_name{color: $hedingblock; font-weight: bold;} /*$hedingblock*/
+/*
+ * @plugin sub-type requests <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type block
+ * @plugin sub-type training_calendar ====> starts here
+ * 
+*/
+body#page-blocks-training_calendar-trainingcalender #calendar table thead.fc-head {
+    background: linear-gradient(to left, $blockheaderstartbg, $blockheaderendbg);
+}
+/*
+ * @plugin sub-type training_calendar <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type block
+ * @plugin sub-type gamification ====> starts here
+ * 
+*/
+body#page-blocks-gamification-index .badgeheader{background: linear-gradient(to left,$blockheaderstartbg, $blockheaderendbg);}
+/*
+ * @plugin sub-type gamification <==== ends here
+ * 
+*/
+
+/*
+ * @plugin type local
+ * @plugin sub-type gamification ====> starts here
+ * 
+*/
+body#page-local-gamification-viewallbadges .heading{background: linear-gradient(to left,$blockheaderstartbg, $blockheaderendbg);}
+/*
+ * @plugin sub-type gamification <==== ends here
+ * 
+*/
+#back2Top {background-color: $buttonbgcolor; color: $btntextcolor !important;}
+.que h3.no, .que .qtext {
+    background: linear-gradient(to left, $blockheaderstartbg, $blockheaderendbg);
+    color: $gradientcolor;    
+}
+.block_achievements #achievements > .nav-tabs{
+    /*background: $sitehighlight;*/
+    margin: 0;
+    float: left;
+    display: inline-block;
+    border: none;
+    padding: 0px !important;
+    border-bottom: 1px solid #ddd !important;
+    width: 100%;
+   line-height: 18px;
+   padding: 5px;
+}
+.progress-bar{
+    background-color: #adbac1;
+    color: #000;
+    font-weight: bold;
+}
+.progress{border-radius: 25px !important;}
+.bootstrap-duallistbox-container label{color:$lefticoncolor;}
+#page-local-courses-courses .coursedesc .alert-info{border-color: #6aa2d0;}
+#id_enddate_calendar i {color: $hedingblock;}
+body#page-blocks-training_calendar-view #calendar .fc-toolbar button{background-color: $hedingblock;}
+body#page-blocks-training_calendar-view #calendar .fc button .fc-icon{color: $lefticoncolor;}
+body a:hover {
+    color: $anchorhvrcolor;
+}
+/*css added by Raghuvaran for leftmenu icons when hover on them. the pusrpose of overirding here from custom_changes.scss is left menu icons affects with selected scheme colors(display differently when hover on them)*/
+/*.theme_scheme6 #nav-drawer.closed .user_navigation_link:hover .classroom_icon_wrap,
+.organization_scheme6 #nav-drawer.closed .user_navigation_link:hover .classroom_icon_wrap{
+    background-image: url([[pix:theme_epsilon|scheme_icons/schemefff]]) !important;
+}
+.theme_scheme6 #nav-drawer.closed .user_navigation_link:hover .skill_icon_wrap,
+.organization_scheme6 #nav-drawer.closed .user_navigation_link:hover .skill_icon_wrap,
+.theme_scheme6 .manage_skill_icon_wrap, .organization_scheme6 .manage_skill_icon_wrap {
+    background-image: url([[pix:theme_epsilon|scheme_icons/skillschemefff]]) !important;
+}
+.theme_scheme6 #nav-drawer.closed .user_navigation_link:hover .bootcamp_icon_wrap,
+.organization_scheme6 #nav-drawer.closed .user_navigation_link:hover .bootcamp_icon_wrap{
+    background-image: url([[pix:theme_epsilon|scheme_icons/bcschemefff]]) !important;
+}*/

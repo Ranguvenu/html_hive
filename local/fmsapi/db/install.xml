@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/fmsapi/db" VERSION="20201102" COMMENT="XMLDB file for Moodle local/fmsapi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+  <TABLES>
+    <TABLE NAME="local_fmsapi_course_search" COMMENT="FMSAPI course search based on skills" >
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" />
+        <FIELD NAME="skillkeyword" TYPE="text" LENGTH="big" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="coursename" TYPE="text" LENGTH="big" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="skills" TYPE="text" LENGTH="big" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="employee_id" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="employee_name" TYPE="char" LENGTH="225"  SEQUENCE="false" />
+        <FIELD NAME="employee_email" TYPE="text" LENGTH="big" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"  />
+         <FIELD NAME="course_description" TYPE="text" LENGTH="big" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="message" TYPE="text" LENGTH="big"  SEQUENCE="false" />
+        <FIELD NAME="requested_by" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="requested_date" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_fmsapi_logs" COMMENT="Storing prisemforce logs">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="eventname" TYPE="char" LENGTH="255" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="transactionid" TYPE="char" LENGTH="150" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" />
+        <FIELD NAME="elementid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" />        
+        <FIELD NAME="params" TYPE="text" NOTNULL="false" SEQUENCE="false" />        
+        <FIELD NAME="response" TYPE="text" NOTNULL="false" SEQUENCE="false" />
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>
+        <FIELD NAME="usercreated" TYPE="int" LENGTH="12" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" />
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="12" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" />        
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>   
+    </TABLE>
+  </TABLES>
+</XMLDB>

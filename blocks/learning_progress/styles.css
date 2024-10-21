@@ -1,0 +1,112 @@
+.block_learning_progress{
+    border: none !important;
+}
+.learning_progress_container{
+    display: flex;
+    padding: 20px;
+    font-size: 16px;
+    background-color: #fff;
+    box-shadow: 0px 0px 8px 3px #d3eaf4;
+    margin-top: 10px;
+}
+.learning_progress_container .progress_container span{
+    flex-shrink: 0;
+    font-weight: bold;
+}
+.learning_progress_container .progress_container .progress_percentage{
+    font-size: 20px;
+}
+.learning_progress_container .progress_container .progress {
+    width: 100%;
+    margin: 0 20px;
+    height: 8px !important;
+    background:#d5d5d5;
+    border-radius:10px !important;
+    flex: 0 0 1;
+}
+.learning_progress_container .progress_container .progress-bar{
+    background:#0091cb;
+    border-radius:10px;
+}
+.learning_progress_container .completed_container{
+    width: 100%;
+    border-left: 2px solid #0EA804;
+}
+.learning_progress_container .completed_container{
+    font-weight: bold;
+}
+.learning_progress_container .completed_container .progress_icon{
+    flex-shrink: 0;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.learning_progress_container .completed_container .progress_icon i{
+    font-size: 18px;
+    color: #0EA804;
+}
+.learning_progress_container .completed_container span{
+    flex-shrink: 0;
+}
+.learning_progress_container .completed_container .value{
+    color: #0EA804;
+    font-size: 22px ;
+    margin: 0 10px;
+}
+.learning_progress_container .inprogress_container{
+    width: 100%;
+    border-left: 2px solid #EE2E24;
+}
+.learning_progress_container .inprogress_container{
+    font-weight: bold;
+}
+.learning_progress_container .inprogress_container .progress_icon{
+    flex-shrink: 0;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.learning_progress_container .inprogress_container .progress_icon i{
+    font-size: 18px;
+    color: #008DCF;
+}
+.learning_progress_container .inprogress_container span{
+    flex-shrink: 0;
+}
+.learning_progress_container .inprogress_container .value{
+    color: #008DCF;
+    font-size: 22px ;
+    margin: 0 10px;
+}
+.learning_progress_container .action_btn_container .btn{
+    width: 100%;
+    max-width: 150px;
+    background-color: transparent !important;
+    color: #000 !important;
+    border-radius: 0 !important;
+    border-width: 2px !important;
+    border-color: #000 !important;
+}
+.learning_progress_container .action_btn_container .btn:hover{
+    background-color: #EE2E24 !important;
+    color: #fff !important;
+    border-color: #EE2E24 !important;
+}
+#page-my-index  .block_learning_progress .learning_progress_container  .inprogress_container .progress_icon { 
+    background-image: url([[pix:block_learning_progress|microsoft]]); 
+    -webkit-background-size: cover; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    width:20px; 
+    height: 20px; 
+    display:inline-block; 
+} 
+
+#page-my-index  .block_learning_progress .learning_progress_container .inprogress_container{ 
+    display:flex; 
+} 
+
+#page-my-index  .block_learning_progress .learning_progress_container  .inprogress_container .progress_icon i:before{ 
+    content:""; 
+} 

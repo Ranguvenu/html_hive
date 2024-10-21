@@ -1,0 +1,17 @@
+<div>
+    <table class='generaltable' id='course_users'>
+        <thead>
+            <tr>
+                <th>{{# str}} employeename, local_courses{{/ str}}</th>
+                <th>{{# str}} empnumber, local_courses{{/ str}}</th>
+                <th>{{# str}} email, local_courses{{/ str}}</th>
+                <th>{{# str}} completionstatus, local_courses{{/ str}}</th>
+                <th>{{# str}} completiondate, local_courses{{/ str}}</th>
+                {{# added_certificate}}
+                    <th>{{# str}} actions, local_courses{{/ str}}</th>
+                    <th>{{# str}} certificate, local_courses{{/ str}}</th>
+                {{/ added_certificate}}
+            </tr>
+        </thead>
+    </table>
+</div>

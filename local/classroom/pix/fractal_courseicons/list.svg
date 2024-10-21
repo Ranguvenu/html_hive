@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-list">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="list" clip-path="url(#clip-list)">
+    <g id="Group_21945" data-name="Group 21945" transform="translate(-43.5 -270.387)">
+      <path id="Path_625" data-name="Path 625" d="M.06,3.293c0-.666.017-1.332,0-2C.033.573.392,0,1.641,0S3.209.624,3.209,1.321c0,1.086,0,2.17,0,3.256,0,1.682.044,3.361-.022,5.042-.026.674,0,11.072,0,11.713.035,4.865.022,9.732.017,14.6,0,.347.123.765-.127,1.027a2.357,2.357,0,0,1-1.445.765,2.8,2.8,0,0,1-1.52-.861c-.223-.223-.057-.612-.057-.928Z" transform="translate(53.083 286.125) rotate(-90)" stroke="#000" stroke-width="0.4"/>
+      <path id="Path_11994" data-name="Path 11994" d="M.06,3.293c0-.666.017-1.332,0-2C.033.573.392,0,1.641,0S3.209.624,3.209,1.321c0,1.086,0,2.17,0,3.256,0,1.682.044,3.361-.022,5.042-.026.674,0,11.072,0,11.713.035,4.865.022,9.732.017,14.6,0,.347.123.765-.127,1.027a2.357,2.357,0,0,1-1.445.765,2.8,2.8,0,0,1-1.52-.861c-.223-.223-.057-.612-.057-.928Z" transform="translate(53.083 297.125) rotate(-90)" stroke="#000" stroke-width="0.4"/>
+      <path id="Path_11995" data-name="Path 11995" d="M.06,3.293c0-.666.017-1.332,0-2C.033.573.392,0,1.641,0S3.209.624,3.209,1.321c0,1.086,0,2.17,0,3.256,0,1.682.044,3.361-.022,5.042-.026.674,0,11.072,0,11.713.035,4.865.022,9.732.017,14.6,0,.347.123.765-.127,1.027a2.357,2.357,0,0,1-1.445.765,2.8,2.8,0,0,1-1.52-.861c-.223-.223-.057-.612-.057-.928Z" transform="translate(53.083 309.125) rotate(-90)" stroke="#000" stroke-width="0.4"/>
+      <g id="Group_21944" data-name="Group 21944" transform="translate(46.5 280.387)">
+        <text id="_1" data-name="1" transform="translate(0 6)" font-size="6" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+        <text id="_2" data-name="2" transform="translate(0 16.999)" font-size="6" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">2</tspan></text>
+        <text id="_3" data-name="3" transform="translate(0 29.001)" font-size="6" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">3</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

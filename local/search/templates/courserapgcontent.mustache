@@ -1,0 +1,37 @@
+{{!
+    This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+}}
+<div class="programs">
+    {{# enable}}
+        <table class="generaltable">
+            <thead>
+                <tr>
+                    <th>{{# str}}program, local_search{{/ str}}</th>
+                    <th>{{# str}}actions, local_search{{/ str}}</th>
+                </tr>
+            </thead>
+            <tbody>
+        {{# programrow}}
+            <tr>
+                <td>{{ programid }}</td>
+                <td><a href='javascript:void(0)' style='cursor:pointer' data-action='courseselfenrol{{courseid}}' class='courseselfenrol enrolled{{courseid}}' onclick ='(function(e){ require("local_search/courseinfo").courseratest({selector:"courseselfenrol{{courseid}}", enroll:1, coursename:"{{coursename}}", programcode:"{{programid}}"}) })(event)'>{{# str}}enroll,local_search{{/ str}}</a></td>
+            </tr>
+        {{/ programrow}}
+            </tbody>
+        </table>
+    {{/ enable}}
+    {{^ enable}}
+    {{/ enable}}
+</div>

@@ -1,0 +1,68 @@
+<div class="w-full pull-left forumdata_container">
+	<div class="w-full pull-left mt-15 mb-15 top_content">
+		<div class="text-center pr-0">
+			<span class="discussicon_container"><img src ="{{ discussionicon }}"/>
+			<!--<div style="background-image: url('{{ discussionicon }}');" alt="" class="discussionimg forumimage_bg" ></div>--></span>
+		</div>
+		<div class="col-md-11 col-sm-11 col-11 pull-left forumname">
+			<a href="{{ configpath }}/local/forum/discuss.php?d={{ discussionid }}">{{ topicname }}</a>
+			{{# posteduser}}
+				<a class="pull-right" href="{{ configpath }}/local/forum/post.php?edit={{postid}}" title="Edit">
+					<i class="fa fa-pencil"></i>
+				</a>
+			{{/ posteduser}}
+			<ul class="w-full pull-left topic_infolist">
+		        <li>
+			        <span>{{#str}}topicliststartedby, local_forum{{/str}}<span class="ml-1">:</span></span>
+			        <span>
+			        	<!--<a href="{{ configpath }}/local/users/profile.php?id= {{ postuserid }}&amp;course=1">{{ postuser_name }}</a>-->
+			        	<a href="javascript:void(0)">{{ postuser_name }}</a>
+			        </span>
+		        </li>
+		        <li>
+		        	<span>{{#str}}topiclistreplies, local_forum{{/str}}<span class="ml-1">:</span></span>
+		        	<span><a href="{{ configpath }}/local/forum/discuss.php?d={{ discussionid }}">{{ repliescountlink }}</a></span>
+		        </li>
+		        <li>
+		        	<span>{{#str}}topiclistlastpostby, local_forum{{/str}}<span class="ml-1">:</span></span>
+		        	<span><a href="{{ configpath }}/user/view.php?id={{lastpostuserid}}&amp;course=1">{{ lastpostby }}</a></span></span>
+		        </li>
+		        <li>
+		        	<span>{{#str}}topiclistlastposton, local_forum{{/str}}<span class="ml-1">:</span></span>
+		        	<span><a href="{{ configpath }}/local/forum/discuss.php?d={{ lastpostdatelink }}">{{ lastpostdate }}</a></span></span>
+		        </li>
+		        <li>
+		        	<span>{{{ subscriptions }}}</span>
+		        </li>
+		        <li>
+					<span>{{{data}}}</span>
+		        </li>
+    		</ul>
+		</div>
+	</div>
+	{{# latestposthas_cotent }}
+    <div class="w-full pull-left more_container">
+    	<div class="last_reply w-full pull-left">
+		<div>{{{ latestpostsubject }}}</div>
+		<div> <span class="ml-1 break_all">{{ latestpostdesc }}</span></div>
+			<ul class="w-full pull-left topic_infolist">
+		        <li>
+			        <span>{{#str}}topiclistpostedby, local_forum{{/str}}<span class="ml-1">:</span></span>
+			        <span>
+			        	<!--<a href="{{ configpath }}/local/users/profile.php?id= {{ latestpostuserid }}&amp;course=1">{{ latestpostuser }}</a>-->
+			        	<a href="javascript:void(0)">{{ latestpostuser }}</a>
+			        </span>
+		        </li>
+		        <li>
+			        <span>{{#str}}topiclistpostedon, local_forum{{/str}}<span class="ml-1">:</span></span>
+			        <span>
+			        	<!-- <a href="{{ configpath }}/local/users/profile.php?id= {{ latestpostuserid }}&amp;course=1">{{ latestpost_date }}</a> -->
+			        	<a href="javascript:void(0)">{{ latestpost_date }}</a>
+			        </span>
+		        </li>
+    		</ul>
+    	</div>
+    	<span class="morebtn"><a href="{{ configpath }}/local/forum/discuss.php?d={{ discussionid }}">{{#str}}topiclistmore, local_forum{{/str}}</a></span>
+    </div>
+	{{/ latestposthas_cotent }}
+</div>

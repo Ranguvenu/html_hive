@@ -1,0 +1,80 @@
+{{!
+This file is part of Moodle - http://moodle.org/
+
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Moodle. If not, see
+<http: //www.gnu.org/licenses />.
+}}
+<div class="col-md-12 row">
+<div class="col-md-8">
+<table class="generaltable">
+    <thead class="text-center bg-primary text-white">
+    {{#ismanager}}
+        <th>{{#str}}employeename, local_learningdashboard {{/str}}</th>
+    {{/ismanager}}
+
+        <th>{{#str}}learningcredits, local_learningdashboard {{/str}}</th>
+        <th>{{#str}}targetcredits, local_learningdashboard {{/str}}</th>
+        {{# pendingtab}}
+        <th>{{#str}}pendingcredits, local_learningdashboard {{/str}}</th>
+        {{/ pendingtab}}
+        {{# completedtab}}
+        <th>{{#str}}achievedcredits, local_learningdashboard {{/str}}</th>
+        {{/ completedtab}}
+    </thead>
+    <tbody>
+        {{# learnerdata}}
+            <tr>
+            {{#ismanager}}
+                <td>{{creditstype}}</td>
+            {{/ismanager}}
+                <td>{{creditstype}}</td>
+                <td class="text-center">{{targetcredits}}</td>
+                {{# completedtab}}
+                <td class="text-center"><a href='javascript:void(0)'
+                    onclick="(function(e){ require('local_learningdashboard/learningdashboard').init({contextid:1, component:'local_learningdashboard', callback:'coursespopup', plugintype: 'local', pluginname: 'learningdashboard', courseids: '{{courseids}}', creditsstatus: '{{coursestatus}}', creditstype: '{{creditstype}}',coursecount: '{{coursecount}}' }) })(event)">{{achievedcredits}}
+                </a></td>
+                {{/ completedtab}}
+                {{# pendingtab}}
+                <td class="text-center"><a href='javascript:void(0)'
+                    onclick="(function(e){ require('local_learningdashboard/learningdashboard').init({contextid:1, component:'local_learningdashboard', callback:'coursespopup', plugintype: 'local', pluginname: 'learningdashboard', courseids: '{{courseids}}', creditsstatus: '{{coursestatus}}', creditstype: '{{creditstype}}',coursecount: '{{coursecount}}' }) })(event)">{{pendingcredits}}
+                </a></td>
+                {{/ pendingtab}}
+            </tr>
+        {{/ learnerdata}}
+    </tbody>
+
+</table>
+</div>
+    <div class="student_quarter_wise_report col-md-4">
+    {{{charthtml}}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 learning_data">
+        <div class="row">
+            {{# pendingtab}}
+            <div class="col-md-6">
+                <span class="left text-danger">
+                    <a href="{{urlone}}" class="danger">{{labelone}}</a>
+                </span>
+            </div>
+            <div class="col-md-6">
+                <span class="right text-danger">
+                    <a href="{{urltwo}}" class="danger">{{labeltwo}}</a>
+                </span>
+            </div>
+            {{/ pendingtab}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+$(document).ready(function(){
+    $("#id_filter_courses").select2({
+                     });
+  $("#id_filter_batch").select2({
+                     });
+  $("#id_filter_trainers").select2({
+                     });
+  $("#id_filter_onlinetest").select2({
+                     });
+  $("#id_filter_mooc_courses").select2({
+                     });
+});

@@ -1,0 +1,29 @@
+<!--<button type="Download" class="btn btn-secondary pull-right" id="" title="Download CSV">Download CSV</button>-->
+<a href = "{{downloadurl}}" class = "pull-right" style="cursor:pointer">Download CSV</a>
+<table class="table table-striped table-hover display" id="fmsapi_list" >
+    <thead class="thead-dark">
+      <tr>
+        <th>{{#str}}id, local_fmsapi{{/str}}</th>
+        <th>{{#str}}keyword, local_fmsapi{{/str}}</th>
+        <th>{{#str}}course, local_fmsapi{{/str}}</th>
+        <th>{{#str}}reqby, local_fmsapi{{/str}}</th>    
+        <th>{{#str}}empemail, local_fmsapi{{/str}}</th>
+        <th>{{#str}}response, local_fmsapi{{/str}}</th>
+        <th>{{#str}}reqdate, local_fmsapi{{/str}}</th>
+       </tr>
+    </thead>
+
+    <tbody>
+      {{# result}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{skillkeyword}}</td>
+        <td>{{coursename}}</td>
+        <td>{{name}}</td>        
+        <td>{{employee_email}}</td>
+        <td>{{message}}</td>
+        <td>{{requested_date}}</td>
+       </tr>
+      {{/ result}}
+    </tbody>
+  </table>

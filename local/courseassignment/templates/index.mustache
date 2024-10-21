@@ -1,0 +1,63 @@
+<h6><b>{{# str}} table_heading, local_courseassignment{{/ str}}</b> </h6>
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="generaltable hover" id="tab" data-page-length='10'>
+        <thead>
+          <tr class="text-black text-center">
+            <th>{{# str}} employeeid, local_courseassignment{{/ str}}</th>
+            <th>{{# str}} firstname, local_courseassignment{{/ str}}</th>
+            <th>{{# str}} lastname, local_courseassignment{{/ str}}</th>
+            <th>{{# str}} emailid, local_courseassignment{{/ str}}</th>
+            <th>{{# str}} assignment_file, local_courseassignment{{/ str}}</th>
+            <!--<th>{{# str}} grade, local_courseassignment{{/ str}}</th>-->
+            <th>{{# str}} initial_submission_date, local_courseassignment{{/ str}}</th>      
+            <th>{{# str}} last_submission_date, local_courseassignment{{/ str}}</th>          
+            <th>{{# str}} compl_status, local_courseassignment{{/ str}}</th>            
+            <th>{{# str}} status, local_courseassignment{{/ str}}</th>
+            <th>{{# str}} reason, local_courseassignment{{/ str}}</th>
+            <th>{{# str}} actions, local_courseassignment{{/ str}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{# records }}
+          <tr class="text-center">
+            <td>{{ open_employeeid }}</td>
+            <td>{{ firstname }}</td>
+            <td>{{ lastname }}</td>
+            <td>{{ email }}</td>
+            <td>
+              {{# itemid }}
+              <a
+                href="{{url}}/{{contextid}}/assignsubmission_file/submission_files/{{itemid}}/{{filename}}?forcedownload=1"><label
+                  class="fa fa-download" style="float:center;"> &nbsp;&nbsp;</label></a>
+              {{/ itemid }}
+            </td>
+            <td>{{initialdate}}</td> 
+            <td>{{modifieddate}}</td>  
+            <!--<td class="cell c5" id="mod_assign_grading_r1_c5"><a
+                href="{{gradeurl}}?id={{moduleid}} &amp;rownum=0&amp;action=grader&amp;userid={{userid}}"
+                class="btn btn-primary">Grade</a><img class="icon spacer" width="1" height="1" alt="" aria-hidden="true"
+                src="http://localhost/moodle38/theme/image.php/boost/core/1659094600/spacer"><br>{{studentgrade}}-</td>-->
+            <td>{{status}}</td>     
+        
+            <td>{{method}} </td>
+            <td>{{#reason}} {{ reason }} {{/reason}}</td>
+            <td class="cell c5" id="mod_assign_grading_r1_c5">
+              {{#approvestatus}} 
+                <a href="javascript:void(0)" onclick='(function(e){ require("local_courseassignment/grader").acceptGrade({contextid:1, userid:{{userid}} , moduleid:{{moduleid}}, courseid:{{courseid}}, method : "approve"  }) })(event)'><i class="fa fa-check-circle" title = {{# str}} approve_grade, local_courseassignment{{/ str}}></i></a>
+              {{/approvestatus}}
+              {{#rejectstatus}} 
+                <a href="javascript:void(0)" onclick='(function(e){ require("local_courseassignment/grader").init({contextid:1, userid:{{userid}} , moduleid:{{moduleid}}, courseid:{{courseid}}, method : "reject" }) })(event)'><i class="fa fa-close" title = {{# str}} reject_grade, local_courseassignment{{/ str}} ></i> </a>
+              {{/rejectstatus}}
+              {{#resetstatus}}
+                <a href="javascript:void(0)" onclick='(function(e){ require("local_courseassignment/grader").init({contextid:1, userid:{{userid}} , moduleid:{{moduleid}}, courseid:{{courseid}}, method: "reset" }) })(event)'><i class="fa fa-refresh" title = {{# str}} reset_grade, local_courseassignment{{/ str}} ></i></a>
+              {{/resetstatus}}
+            </td>
+          </tr>
+          {{/ records}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

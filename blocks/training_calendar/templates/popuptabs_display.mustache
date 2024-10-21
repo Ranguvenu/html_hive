@@ -1,0 +1,96 @@
+{{{event_details}}}
+<div id="learning_tabs" class=" w-100 courselddata marginb-10">
+      <div class="learning_tabs_list ">
+         {{#tabs.0}}
+             <ul class="nav nav-tabs learningcontent_tabs" role="tablist">
+                 {{#tabs}}
+                     <li class="nav-item learningcontentitem {{type}}" data-type="{{type}}" data-eventid="{{eventid}}" data-itemid = "{{itemid}}" data-target="learningcontent_{{type}}_{{eventid}}" data-selected-class="active" aria-controls="{{type}}_{{eventid}}" aria-selected="false" tabindex="-1" role="tab" >
+                         <a class=" {{active}} nav-link " data-toggle="tab" href="javascript:void(0)" aria-controls="{{type}}" role="tab"  title="{{name}}" >
+                         {{name}}
+                     </a>
+                     </li>
+                 {{/tabs}}
+             </ul>
+         {{/tabs.0}}
+    </div>
+    <div class="tab-content">
+            {{#tabs.0}}
+                {{#tabs}}
+                    <div role="tabpanel"
+                            class="tab-pane {{active}}"
+                            id="learningcontent_{{type}}_{{eventid}}">
+                                <div class=" row">
+
+                                    <div class=" prerequisites_course col-md-12">
+
+                                        <div class="{{eventid}}_{{type}}">
+                                                <div class="input_container position-relative">
+                                                    N/A
+                                                  <!-- {{itemid}} {{name}}  -->
+                                                </div>
+                                        </div>
+
+                                     </div>
+
+                                    <div class="col-md-4">
+
+                                    </div>
+
+                                </div>
+                    </div>
+               {{/tabs}}
+            {{/tabs.0}}
+     
+    </div>
+</div>   
+<script>
+require(['core/ajax', 'core/templates', 'local_costcenter/cardPaginate'], function(Ajax, Templates, cardPaginate) {
+    $(document).ready(function() {
+        if($(".learningcontent_tabs").length>0){
+            $(".learningcontent_tabs").find("li").each(function(){
+                if($(this).find('a').hasClass('active')){
+                     $(this).trigger('click');
+                }
+            });
+        }
+    });
+    $('.learningcontentitem').click(function(){
+        var learningcontenttype = $(this).data('type');
+        var data = $(this).data();
+        $('.tab-pane').removeClass("active");
+        $(this).addClass("active");
+        $('#learningcontent_'+learningcontenttype+'_{{eventid}}').addClass("active");
+        if(learningcontenttype == 'sessions'){
+            var targetid = 'learningcontent_'+learningcontenttype+'_{{eventid}}';
+            var content = '<div class="m-t-2" id="learningcontent_'+learningcontenttype+'_{{eventid}}" data-region="learningcontent_'+learningcontenttype+'_{{eventid}}-preview-container"><div data-region="learningcontent_'+learningcontenttype+'_{{eventid}}-count-container"></div><div data-region="learningcontent_'+learningcontenttype+'_{{eventid}}-list-container" id ="sessionsid"></div></div>';
+            $('#'+targetid).replaceWith(content);
+            var options = {targetID: targetid,
+                        templateName: 'block_training_calendar/eventcontent_'+learningcontenttype,
+                        methodName: 'local_classroom_classroomview'+learningcontenttype,
+                        perPage: 5,
+                        cardClass: 'col-md-6 col-12',
+                        viewType: 'card'};
+            var dataoptions = {tabname: learningcontenttype,classroomid:data.itemid,contextid: 1 };
+            var filterdata = {};
+            cardPaginate.reload(options, dataoptions,filterdata);
+        }else{
+            $('#learningcontent_sessions_{{eventid}}').html('');
+            var promise = Ajax.call([{
+                    methodname: 'block_training_calendar_get_tabinfo_'+data.type,
+                    args: {id:data.itemid, contextid: 1},
+                }]);
+            promise[0].done(function(resp){
+                    console.log(resp);
+                Templates.render('block_training_calendar/eventcontent_'+data.type, {response: resp}).then(function(html, js) {
+                    // Templates.replaceNodeContents(thisdata['container'], html, js);
+                    console.log(html);
+                    $('.'+data.eventid+'_'+data.type).html(html);
+                });
+
+            });
+        }
+
+    });
+});
+
+</script>

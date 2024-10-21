@@ -1,0 +1,84 @@
+{{!
+    This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info' style="color: #000000;">{{{nodata}}}</div>
+        {{#js}}
+            $( document ).ready(function() {
+                $('.global_filter_structure_myenrolledcourses').css('display','none');
+            });
+        {{/js}}
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <ul class='card-wrap m-0 p-0 row {{#records}}{{#action}}actions{{/action}}{{/records}}' data-region='paginate-list' style="list-style:none;">
+            {{#records}}
+                    <li class='{{cardClass}}  readymainContainer d-flex'>
+                        <div id="course-{{courseid}}" class="readyCContainer catcourses_list w-100 active  crse-{{coursenums}}">
+                            <div class="course_container readycourse_container">
+                                <div class="courseimg_container">
+                                    <a href="{{url}}" title="{{ title }}"></a>
+                                    <div style="background-image: url('{{{imageurl}}}');" alt="elearning" class="courseimg courseimg_bg">
+                                        <div class="courseimg_content p-2">
+                                            <span class="courseimg_strip">{{learningtype}}</span>
+                                            <div class="d-block bottom-left">
+                                                <p class="course_name m-0">
+                                                 <a class="d-block"  href="{{ url }}" title="{{ title }}">{{ title }}</a>
+                                                </p>
+                                            </div>
+                                            <div class="coursedesc ">
+                                                    {{# description }}
+                                                        <div class="desc" title = "Course Descripton" >{{{ description }}}
+                                                        </div>
+                                                    {{/ description }}
+                                                    {{^ description }}
+                                                        <p class="alert alert-info text-center mt-1">{{#str}}nocoursedesc, block_user_bookmarks{{/str}}</p>
+                                                    {{/ description }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                <!-- <div class="readyCCnt coursecontent px-4 d-flex flex-column h-100">
+                                    <div class="d-block w-full mt-2">
+                                        <p class="course_name m-y-1">
+                                        <a class="d-block"  href="{{ url }}" title="{{ coursename }}">{{ title }}</a>
+                                        </p>
+                                    </div>
+                                    <div class="w-full mb-1">
+                                        <div class="coursedesc w-full">
+                                            {{# description }}
+                                                <div class="desc" title = "Course Descripton" >{{{ description }}}</div>
+                                            {{/ description }}
+                                            {{^ description }}
+                                                <p class="alert alert-info text-center mt-1">{{#str}}nocoursedesc, block_user_bookmarks{{/str}}</p>
+                                            {{/ description }}
+                                        </div>
+                                    </div>
+                                    <div class="w-full text-center mt-auto">
+                                     <a href="{{ url }}" class=" cat_btn viewmore_btn btn my-2">Show Course</a>
+                                    </div>
+                                   
+                                </div> -->
+                            </div>
+                        </div>
+                    </li>
+            {{/records}}
+        </ul>
+    {{/viewtypeCard}}
+{{/response}}
+
+

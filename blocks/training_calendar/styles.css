@@ -1,0 +1,438 @@
+
+.calender_border {
+    border: 2px solid rgb(0, 114, 198) !important ;
+}
+
+body#page-blocks-training_calendar-view table thead {
+    background-color: unset;
+    background-image: none;
+}
+body#page-blocks-training_calendar-view table thead th{
+    border-left: none;
+    border-right: none;
+    line-height: 40px;
+}
+body#page-blocks-training_calendar-view #calendar table thead.fc-head .fc-head-container {
+    border: none;
+}
+body#page-blocks-training_calendar-view #calendar .session_title {
+    color: #fff;
+    padding: 0px 5px;
+    border-bottom: 1px solid #fff;
+}
+body#page-blocks-training_calendar-view #calendar .fc-toolbar button{
+    background-image: none;
+}
+body#page-blocks-training_calendar-view #calendar .fc button .fc-icon{
+    top: 0px;
+}
+body#page-blocks-training_calendar-view #calendar table thead.fc-head{
+    background: linear-gradient(to left,#0071bc,#00a99d);
+    color: #fff;
+    height: 40px;
+    float: left;
+}
+body#page-blocks-training_calendar-view #calendar table thead.fc-head table:first-child thead {
+    line-height: 28px;
+}
+body#page-blocks-training_calendar-view #calendar .fc-bg table tbody tr td:nth-child(odd){
+    background-color: #f2f2f2;
+}
+body#page-blocks-training_calendar-view #calendar .fc-day-grid-event .fc-content{
+    white-space: initial;
+}
+body#page-blocks-training_calendar-view #calendar .fc-head-container.fc-widget-header .fc-row.fc-widget-header {
+    margin-right: 0px !important;
+}
+body#page-blocks-training_calendar-view #calendar .fc-scroller.fc-day-grid-container{
+    overflow-y: hidden !important;
+}
+body#page-blocks-training_calendar-view #calendar .fc-row.fc-week.fc-widget-content:nth-last-child(2) {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+body#page-blocks-training_calendar-view #calendar .fc-event{
+    border: none !important;
+    background: none !important;
+}
+body#page-blocks-training_calendar-view #calendar .fc-day-grid-event{
+    margin: 0 !important;
+    padding: 0 !important
+}
+body#page-blocks-training_calendar-view #calendar .local_classroom {
+    background-color: #0071bc;
+}
+body#page-blocks-training_calendar-view #calendar .local_program{
+    background-color: #3ab54a;   
+}
+body#page-blocks-training_calendar-view #calendar .local_certification{
+    background-color: #28aae2;   
+}
+body#page-blocks-training_calendar-view #calendar .local_evaluation{
+    background-color: #3f51b5;   
+}
+body#page-blocks-training_calendar-view #calendar .local_onlinetets{
+    background-color: #f7941d;   
+}
+body#page-blocks-training_calendar-view #calendar .local_learningplan{
+    background-color: #ec1b23;   
+}
+body#page-blocks-training_calendar-view #calendar .session_title span {
+    font-size: 11px;
+}
+body#page-blocks-training_calendar-view #calendar span.fc-title a {
+    text-decoration: none;
+}
+body#page-blocks-training_calendar-view .fc-toolbar.fc-header-toolbar .fc-center {
+    color: #1177d1;
+}
+body#page-blocks-training_calendar-view .fc-toolbar button:hover {
+    /*background-color: #0a4981 !important;*/
+    box-shadow: none;
+}
+.eventpopup_footer{
+    list-style-type: none;
+    margin-bottom: 0px;
+    float: right;
+    margin-right: 20px;
+}
+.calender_clr_list{
+    list-style-type: none;
+    margin: 0px;
+}
+.calender_clr_list .caleder_clr_list_item{
+    float: left;
+    padding: 5px;
+    line-height: 9px;
+}
+/*.calender_clr_list .caleder_clr_list_item i.fa {
+    float: left;
+    font-size: 18px;
+}*/
+.calender_clr_list .caleder_clr_list_item .calendar_spot_clr{
+    padding: 4px;
+}
+.calender_clr_list .caleder_clr_list_item.classroom .calendar_spot_clr{
+    background-color: #0071bc;
+}
+.calender_clr_list .caleder_clr_list_item.evalaluation .calendar_spot_clr{
+    background-color: #3f51b5;
+}
+.calender_clr_list .caleder_clr_list_item.learningplan .calendar_spot_clr{
+    background-color: #ec1b23;
+}
+.calender_clr_list .caleder_clr_list_item.onlinetests .calendar_spot_clr{
+    background-color: #f7941d;
+}
+.calender_clr_list .caleder_clr_list_item.program .calendar_spot_clr{
+    background-color: #3ab54a;
+}
+.calender_clr_list .caleder_clr_list_item.certification .calendar_spot_clr {
+    background-color: #28aae2;
+}
+.calender_clr_list .caleder_clr_list_item.mod .calendar_spot_clr {
+    background-color: #f26723;
+}
+body#page-blocks-training_calendar-view .catalog_crimg {
+    height: 22px;
+    width: 25px;
+}
+.calender_clr_list .caleder_clr_list_item.classroom .calendar_clr {
+    color: #0071bc;
+}
+.calender_clr_list .caleder_clr_list_item.evalaluation .calendar_clr {
+    color: #3f51b5;
+}
+.calender_clr_list .caleder_clr_list_item.learningplan .calendar_clr {
+    color: #ec1b23;
+}
+.calender_clr_list .caleder_clr_list_item.onlinetests .calendar_clr {
+    color: #f7941d;
+}
+.calender_clr_list .caleder_clr_list_item.program .calendar_clr {
+    color: #3ab54a;
+}
+.calender_clr_list .caleder_clr_list_item.certification .calendar_clr {
+    color: #28aae2;
+}
+.calender_clr_list .caleder_clr_list_item.mod .calendar_clr {
+    color: #f26723;
+}
+
+body#page-blocks-training_calendar-view .session_title.local_evaluation{
+    background-color: #3f51b5;
+}
+body#page-blocks-training_calendar-view .session_title.local_certification{
+    background-color: #28aae2;
+}
+body#page-blocks-training_calendar-view .session_title.local_program{
+    background-color: #3ab54a;
+}
+body#page-blocks-training_calendar-view .session_title.local_onlinetests{
+    background-color: #f7941d;
+}
+body#page-blocks-training_calendar-view .session_title.local_classroom{
+    background-color: #0071bc;
+}
+body#page-blocks-training_calendar-view .session_title.local_learningplan{
+    background-color: #ec1b23;
+}
+body#page-blocks-training_calendar-view .session_title.mod{
+    background-color: #f26723;
+}
+body#page-blocks-training_calendar-view .eventpopup_footer li {
+    display: inline;
+}
+
+
+
+
+/*tarining calender css*/
+
+#page-blocks-training_calendar-view .custom-select{
+    border: 2px solid #c1c1c1!important;
+    box-shadow: none!important;
+    color: #c1c1c1!important;
+}
+#page-blocks-training_calendar-view lable {
+    color: #46464694;
+    font-size: 13px;
+    font-weight: 600;
+}
+#page-blocks-training_calendar-view  td.fc-day-top:nth-child(even) {
+    background: #fff!important;
+}
+#page-blocks-training_calendar-view .fc-unthemed td.fc-today {
+    background: #fff;
+}
+#page-blocks-training_calendar-view .fc .fc-row .fc-content-skeleton td {
+    background:#f2f2f2;
+}
+
+#page-blocks-training_calendar-view .fc-toolbar .fc-left, .fc-right,.fc-center{
+    float:none!important;
+    color:#fff!important;
+
+}
+#page-blocks-training_calendar-view .fc-toolbar .fc-header-toolbar{
+    display:flex!important;
+    margin-bottom: 0!important;
+}
+#page-blocks-training_calendar-view .fc-toolbar {
+    text-align: inherit;
+/*    border: 1px solid #dddd;*/
+    padding:  30px 14px;
+    border-bottom: 0;
+    background:#0091cb;
+    margin: 0!important;
+    display:flex;
+    align-items:center;
+}
+
+#page-blocks-training_calendar-view  #calendar table thead th{
+    border-top: none;
+    background: #0091cb;
+    color: #93d7eb!important;
+    font-size: 20px;
+    font-weight:100!important;
+}
+#page-blocks-training_calendar-view  table thead{
+    border-top:none!important;
+}
+#page-blocks-training_calendar-view body button, html [type="button"]{
+    border-color:#0082bd!important;
+}
+#page-blocks-training_calendar-view #calendar .fc-toolbar button {
+    background-color: #0082bd!important;
+}
+#page-blocks-training_calendar-view  .fc-left {
+    order: 1;
+    margin-left: 16px;
+}
+#page-blocks-training_calendar-view  .fc-right{
+    order:3;
+}
+#page-blocks-training_calendar-view  .fc-center{
+    order:2;
+}
+#page-blocks-training_calendar-view .fc .fc-toolbar>*>:first-child {
+    margin-left: 12px;
+}
+#page-blocks-training_calendar-view .fc-center h2 {
+    font-size: 20px;
+}
+#page-blocks-training_calendar-view button.fc-prev-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right {
+    border-radius: 10px!important;
+}
+#page-blocks-training_calendar-view button.fc-next-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right{
+     border-radius: 10px!important;
+}
+
+#page-blocks-training_calendar-view span.fc-icon.fc-icon-left-single-arrow::after {
+    content: '';
+}
+#page-blocks-training_calendar-view span.fc-icon.fc-icon-right-single-arrow::after {
+    content: '';
+}
+#page-blocks-training_calendar-view span.fc-icon.fc-icon-right-single-arrow{
+ background-image: url([[pix:block_training_calendar|arrow]]);
+ width:20px;
+ height:20px;
+ background-size:cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ transform: rotateY(178deg);
+}
+#page-blocks-training_calendar-view span.fc-icon.fc-icon-left-single-arrow{
+ background-image: url([[pix:block_training_calendar|arrow]]);
+ width:20px;
+ height:20px;
+ background-size:cover;
+ background-repeat: no-repeat;
+ background-position: center;
+}
+/*traing calender  code end*/
+
+@media (max-width: 767px){ 
+    body#page-blocks-training_calendar-view #calendar .fc-widget-content .fc-day-grid-container{ 
+        height: 250px !important; 
+    } 
+} 
+
+.expired {
+    background-color: red !important;
+}
+.upcoming {
+    background-color: #Ffbf00 !important;
+}
+.enrol {
+    background-color: green !important;
+}
+
+
+
+/* training calender new css*/
+
+#page-blocks-training_calendar-view .content_container{
+    color: #969696;
+}
+#page-blocks-training_calendar-view .filecontent_container {
+    font-weight: 600;
+}
+#page-blocks-training_calendar-view  .fa-calendar:before,
+#page-blocks-training_calendar-view  .fa-link:before,
+#page-blocks-training_calendar-view  .fa-file-text:before{
+    content:"";
+
+}
+#page-blocks-training_calendar-view  .fa-calendar{
+    background-image: url([[pix:block_training_calendar|calendericon]]);
+     width:20px;
+     height:20px;
+     background-size:cover;
+     background-repeat: no-repeat;
+     background-position: center;
+     margin-left: 22px;
+
+}
+#page-blocks-training_calendar-view  .fa-link{
+    background-image: url([[pix:block_training_calendar|linkicon]]);
+     width:20px;
+     height:20px;
+     background-size:cover;
+     background-repeat: no-repeat;
+     background-position: center;
+     margin-left: 22px;
+}
+#page-blocks-training_calendar-view  .fa-file-text{
+     background-image: url([[pix:block_training_calendar|filetexticon]]);
+     width:20px;
+     height:20px;
+     background-size:cover;
+     background-repeat: no-repeat;
+     background-position: center;
+     margin-left: 22px;
+}
+
+#page-blocks-training_calendar-view  #learning_tabs a.nav-link{
+    color:#8c8c8c;
+    font-size:14px;
+}
+
+#page-blocks-training_calendar-view  #learning_tabs  .nav-tabs{   
+    padding: 8px;
+    justify-content: space-around;
+}
+
+#page-blocks-training_calendar-view  .tab-content  .moduledescription p {
+    font-size: 14px !important;
+    color:#000 !important;
+}
+#page-blocks-training_calendar-view  .usericon_container {
+    margin-left: 22px;
+}
+#page-blocks-training_calendar-view .moduledescription .module_content {
+    font-weight: 600;
+    font-size: 16px;
+    color:#000;
+    margin: 10px 0;
+}
+#page-blocks-training_calendar-view #learning_tabs a.active.nav-link,
+#page-blocks-training_calendar-view #learning_tabs a.nav-link:hover,
+#page-blocks-training_calendar-view  #learning_tabs a.nav-link:active,
+#page-blocks-training_calendar-view  #learning_tabs a.nav-link:focus {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+}
+#page-blocks-training_calendar-view .capacity_container,
+#page-blocks-training_calendar-view .enroll_container{
+   margin-right: 20px; 
+}
+#page-blocks-training_calendar-view  .modal-content{
+    border-radius: 20px;
+}
+#page-blocks-training_calendar-view .capacity_name,
+#page-blocks-training_calendar-view .enroll_name,
+#page-blocks-training_calendar-view .waiting_name{
+    color: #969696;
+}
+#page-blocks-training_calendar-view     .tab-content .prerequisutes_content {
+    font-weight: 600 ;
+    font-size: 16px ;
+    margin: 10px 0;
+}
+#page-blocks-training_calendar-view   .tab-content .prerequisites_popup ::marker{
+    content:"";
+}
+#page-blocks-training_calendar-view   .tab-content  ul.coursenames{
+    padding-left:0;
+}
+#page-blocks-training_calendar-view   #sessions_tab_content .fa-calendar{
+    margin-right:10px;
+}
+#page-blocks-training_calendar-view   #sessions_tab_content i{
+     margin-right:10px;
+     font-size: 20px !important;
+}
+#page-blocks-training_calendar-view  #learningcontent_sessions_7567{
+    margin-top:0 !important;
+}
+#page-blocks-training_calendar-view   #sessions_tab_content .generatable_data{
+    display: flex;
+    align-items: center;
+}
+#page-blocks-training_calendar-view   #learning_tabs .tab-content{
+    padding:10px 15px;
+}
+#page-blocks-training_calendar-view .clockicon_container .icon {
+    background-image: url([[pix:block_training_calendar|waitinglist]]);
+    width:20px;
+    height:20px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 22px;
+}
+
+

@@ -1,0 +1,46 @@
+.block_elearning.block{
+    display: none;
+}
+#block-region-content-post>.block_elearning.block>.content div.link_container{
+    /*height: 85px;*/
+    /*background-color: #333;*/
+    float: left;
+    width: 100%;
+}
+#block-region-content-post>.block_elearning.block>.content div.link_container>a{
+    color: #fff;
+    font-size: 24px;
+    float: left;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+#block-region-content-post>.block_elearning.block{
+    padding: 0px;
+    display: block;
+    float: left;
+}
+#block-region-content-post>.block_elearning.block>.content{
+    padding: 0px;
+}
+/*code added by anil*/
+.block_elearning #global_search_text{
+    width: 65%;
+    float: left;
+    height: 22px !important;
+    margin-left: 20px;
+}
+.block_elearning #courses_searchform{
+    margin-top: 8px;
+}
+.block_elearning #global_search{
+    width: 26px;
+    height: 26px;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+.block_elearning{
+    background-color: transparent !important;
+    min-height: 40px !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}

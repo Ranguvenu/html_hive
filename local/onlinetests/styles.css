@@ -1,0 +1,136 @@
+#page-local-onlinetests-users_assign .user_courses select[multiple]{width:23em!important;min-height:25em!important}#page-local-onlinetests-users_assign .user_batches_filter,#page-local-onlinetests-users_assign .user_courses{width:82%;display:block;margin:0 0 0 18%}#page-local-onlinetests-users_assign #select-from option,#page-local-onlinetests-users_assign #select-to option{min-height:1.5em}#page-local-onlinetests-users_assign #select-from optgroup,#page-local-onlinetests-users_assign #select-to optgroup{min-height:2em}#page-local-onlinetests-users_assign .button_ul,#page-local-onlinetests-users_assign .filter_ul{display:inline-block;list-style-type:none;margin:auto}#page-local-onlinetests-users_assign .fitem_fselect{width:50%;float:left}#page-local-onlinetests-index .modal-body .dataTables_wrapper{overflow:auto}#page-local-onlinetests-users_assign .knowmore{float:right;cursor:pointer;padding:5px;border-radius:8px;color:#fff}#onlinetestlist .eval_secondrow{border:1px solid #ddd;width:100%;height:50px;float:left;background-color:#fff;display:inline-flex;text-align:center}#onlinetestlist .eval_secondrow span i.fa{float:left;font-size:25px}.moveleft,.staymiddle{border-right:1px solid #ddd}.eval_heading{float:left;font-size:20px}.eval_actions{float:right}.eval_actions a{padding:0 5px}.eval_actions a i.fa{font-size:17px;color:#818a91}#page-local-onlinetests-index #onlinetestlist a .icon{color:#fff;margin-right:0;margin-left:5px}#page-local-onlinetests-index .course_extended_menu_list{top:-20px}.success_icon{text-align:center;font-size:20px;font-weight:700}.success_icon img{width:35px;height:35px}body#page-local-onlinetests-index .modal-content .modal-body .dataTables_wrapper.no-footer .dataTables_scrollHeadInner,body#page-local-onlinetests-index .modal-content .modal-body .dataTables_wrapper.no-footer .dataTables_scrollHeadInner>table{width:100%!important}.ont_container{background:#fff;box-sizing:border-box;box-shadow:0 0 5px 3px #ddd;position:relative;padding:5px 0 0;border-radius:8px;border:1px solid #ddd}.ont_container:hover{box-shadow:0 0 5px 3px #d8ecf8;border:1px solid #d8ecf8}#page-local-onlinetests-index #onlinetestlist .testname .ontname_brdr{width:70%;float:none;display:block;border-top:3px solid #adadad;text-decoration:none}#page-local-onlinetests-index #onlinetestlist .actions{min-height:23px}.ont_container .startquiz_btn{padding:5px 0;border-radius:0 8px;line-height:32px}.ont_container:hover .startquiz_btn{background-color:#1177d1;border-radius:0 0 8px 8px}.ont_container:hover .startquiz_btn a{color:#fff}.testsicon{font-size:25px;line-height:30px;margin-right:10px;color:#007b78}.startquiz_btn{padding:5px;font-size:20px}.startquiz_btn a{color:#000;text-decoration:none;text-shadow:0 2px 8px #283f4c;font-weight:300}.startquiz_btn a:hover{text-decoration:none}#page-local-onlinetests-index #onlinetestlist .testname{float:left;padding-bottom:5px;margin-top:5px;color:#000;font-size:18px;text-decoration:none;line-height:21px;font-weight:400;word-break:break-all}#page-local-onlinetests-index .actionicons.quick_actions_list6.opened .options_container,#page-local-onlinetests-index .quick_actions_list6.options_container:hover{top:-23px;right:-27px}#page-local-onlinetests-index #onlinetestlist .schedule{margin-right:5px;color:#f05a28}.ot_colon{margin:0 5px;float:right}#page-local-onlinetests-index #onlinetestlist .ot_label{color:#000;float:left;min-width:68px}#page-local-onlinetests-index #onlinetestlist .ot_value{color:#000;font-weight:500;font-size:13px}span.ot_count{margin-left:15px;margin-top:-3px;border-radius:50%;background-color:#00acdd;color:#fff;min-width:30px;min-height:30px;float:left;text-align:center}span.ot_count a{color:#fff;text-decoration:none}span.ot_count .count_value{position:relative;top:4px}.grades_container{width:100%;float:left;padding:10px 15px;font-size:13px}.ont_btm{border-top:1px solid #ddd;background-color:#eee;border-radius:0 0 8px 8px}.ont_actions{float:right;width:31px}.ont_container:hover .ont_btm{background-color:#1177d1;border-radius:0 0 8px 8px}body#page-local-onlinetests-index .no_actions{display:none}body#page-local-onlinetests-index .ont_container:hover .actionicons{visibility:visible}body#page-local-onlinetests-index .actionicons{visibility:hidden}#page-local-onlinetests-users_assign button.custom_btn.btn.move.btn-default,#page-local-onlinetests-users_assign button.custom_btn.btn.remove.btn-default{margin:5px 0;width:100%}@media(min-width:1261px) and (max-width:1400px){.ont_container .ont_content{min-height:158px}}@media (min-width :912px) and (max-width:1260px){body#page-local-onlinetests-index #onlinetestlist .col-lg-3{width:33.33%;max-width:inherit}}@media(min-width:768px){#page-local-onlinetests-users_assign .box3.col-md-2.actions{margin-top:223px}}@media(max-width:911px){.grades_container p{margin-bottom:5px}body#page-local-onlinetests-index .actionicons{visibility:visible}}@media (min-width:620px) and (max-width:660px){#page-local-onlinetests-index #onlinetestlist .testname{font-size:15px}#page-local-onlinetests-index #onlinetestlist .ot_value{font-size:13px}}@media (max-width:619px){body#page-local-onlinetests-index #onlinetestlist .col-sm-6{width:100%;max-width:inherit}}@media (max-width:767px){#page-mod-quiz-edit .maxgrade,#page-mod-quiz-edit .totalpoints{position:static}#page-mod-quiz-edit .maxgrade{float:none;width:100%;clear:both}#page-mod-quiz-edit .statusbar{float:left}#page-mod-quiz-edit .totalpoints{float:left;clear:both;margin:0}#page-local-onlinetests-users_assign button.custom_btn.btn.remove.btn-default{margin-top:0}#page-local-onlinetests-users_assign .box3.col-md-2.actions{margin-bottom:10px}}@media (max-width:360px){#page-local-onlinetests-index #onlinetestlist .testname{font-size:14px}}#page-local-onlinetests-users_assign .dual_select option{padding:5px}
+#page-local-onlinetests-index  .ont_container{
+    padding: 0;
+    overflow: hidden;
+}
+#page-local-onlinetests-index .ont_content {
+    color:#6b6b6b!important;
+}
+#page-local-onlinetests-index .card-img-top {
+    background-image: url([[pix:local_onlinetests|onlinecourse]]);
+    width: 100%;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position:relative;
+    padding:10px;
+}
+#page-local-onlinetests-index .testsicon{
+    display:none;
+}
+#page-local-onlinetests-index .inner_grade {
+    border-bottom: 2px solid #f7f7f7;
+    min-width:250px;
+    justify-content: space-between!important;
+}
+#page-local-onlinetests-index .innergrade_text {
+    margin-bottom: 6px;
+    padding-right:24px;
+}
+#page-local-onlinetests-index .achive_grade {
+    border-bottom: 2px solid #f7f7f7;
+    justify-content: space-between !important;
+}
+#page-local-onlinetests-index .innerachieve_grade {
+    margin-bottom: 6px;
+    margin-top: 6px;
+    padding-right:24px;
+}
+#page-local-onlinetests-index .card-img-top .cardimg-strip{
+    border: 1px solid #fff;
+    padding: 2px 26px;
+    font-size: 14px!important;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index:1;
+    background: #fff;
+    color: #0097cd !important;
+    box-shadow: 0px 0px 7px 0px #00000040;
+    font-weight: 600!important;
+}
+#page-local-onlinetests-index #onlinetestlist .ot_value.open{
+    display:none!important;
+}
+#page-local-onlinetests-index .status_content {
+    margin-bottom: 0;
+    font-size: 13px;
+    font-size: 13px !important;
+    padding: 2px 15px;
+    top: 8px;
+    right: 8px;
+    background: #fdb71a;
+    color: #e3e9eb !important;
+    width: fit-content;
+}
+#page-local-onlinetests-index .sheduledate {
+    font-size: 13px;
+    color: #6b6b6b;
+    padding-left: 6px;
+}
+#page-local-onlinetests-index .startquiz_btn a{
+    text-shadow:none!important;
+    border: 2px solid #393939;
+    padding: 0px 54px;
+    color:#000!important;
+    font-size:12px;
+    font-weight:500;
+    box-shadow: 0px 0px 1px #393939;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+#page-local-onlinetests-index .startquiz_btn a:hover{
+    color:#000!important;
+}
+#page-local-onlinetests-index .ont_container:hover .startquiz_btn{
+    background: transparent!important;
+    color:#000!important;
+}
+#page-local-onlinetests-index .ont_btm{
+    background:#fff!important;
+    border:0!important;
+}
+#page-local-onlinetests-index .ont_container .startquiz_btn{
+    padding:0;
+    line-height: 28px!important;
+}
+#page-local-onlinetests-index .enroll{
+    border-bottom: 2px solid #f7f7f7;
+    padding-bottom:10px;
+    margin-bottom:0;
+}
+#page-local-onlinetests-index .complete{
+    border-bottom: 2px solid #f7f7f7;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#page-local-onlinetests-index .department {
+    margin-top: 10px;
+    font-size: 14px;
+    border-bottom: 2px solid #f7f7f7;
+    padding-bottom: 6px;
+    margin-bottom:0;
+}
+#page-local-onlinetests-index .completed {
+    margin-top: 10px;
+    padding-top:0;
+    font-size: 14px;
+    border-bottom: 2px solid #f7f7f7;
+    padding-bottom: 6px;
+    margin-bottom:0;
+}
+#page-local-onlinetests-index #onlinetestlist .schedule{
+    margin-top:4px;
+}
+#page-local-onlinetests-index .inner_grade {
+    border-bottom: 2px solid #f7f7f7;
+    min-width:250px;
+    justify-content: space-between!important;
+    font-size:13px;
+}
+#page-local-onlinetests-index .sheduledate {
+    font-size: 13px;
+    color: #6b6b6b;
+    padding-left: 6px;
+}

@@ -1,0 +1,174 @@
+#graph-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  z-index: 1000;
+  background-color: white;
+  margin: 0;
+}
+
+header, footer {
+  position: relative;
+  z-index: 1001;
+}
+
+#main-content {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.highcharts-subtitle {
+  position: absolute;
+  white-space: nowrap;
+  text-align: center;
+  color: rgb(102, 102, 102);
+  top: 121px !important;
+}
+
+
+#graph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-legend {
+  display: flex;
+  justify-content: center;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.color-circle.colorcompleted {
+  background-color: #3498DB;
+}
+.color-circle.colorpending {
+  background-color: #F4D03F;
+}
+
+.color-text {
+  font-size: 16px;
+}
+.custombtn{
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  margin-right:10px !important;
+  margin-bottom: 20px !important;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.my-btn {
+  position: relative !important; 
+  z-index: 1002 !important; 
+}
+#page-local-learningdashboard-index .custombtn.pending.active a,
+#page-local-learningdashboard-index .custombtn.pending a:hover,
+#page-local-learningdashboard-index .custombtn.pending.active a:hover,
+#page-local-learningdashboard-index .custombtn.pending a:hover,
+#page-local-learningdashboard-index .custombtn.pending:hover a,
+#page-local-learningdashboard-index .custombtn.pending.active:hover,
+#page-local-learningdashboard-index .custombtn.completed.active a,
+#page-local-learningdashboard-index .custombtn.completed.active a:hover{
+  color: #fff !important;
+}
+#page-local-learningdashboard-index .custombtn.pending a{
+  color: #eeaf00;
+}
+#page-local-learningdashboard-index .custombtn.pending{
+  border-color: #eeaf00 !important;
+}
+#page-local-learningdashboard-index .custombtn.pending.active ,
+#page-local-learningdashboard-index .custombtn.pending a:hover,
+#page-local-learningdashboard-index .custombtn.pending.active a:hover,
+#page-local-learningdashboard-index .custombtn.pending a:hover,
+#page-local-learningdashboard-index .custombtn.pending:hover{
+  background-color: #eeaf00;
+}
+#page-local-learningdashboard-index #creditstables .generaltable tbody td{
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left !important;
+}
+#page-local-learningdashboard-index #creditstables .generaltable thead th{
+  text-align: left;
+}
+#learningdashboard__wrapper .managementpopuptable_details tbody td,
+#learningdashboard__wrapper .managementpopuptable_details thead th{
+  padding: 0.75rem !important;
+}
+#learningdashboard__wrapper .managementpopuptable_details tbody td{
+  font-weight: 500;
+  font-size: 14px;
+}
+#learningdashboard__wrapper .managementpopuptable_details thead th{
+  font-weight: 700;
+  font-size: 16px;
+
+}
+body .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+body .dataTables_wrapper .dataTables_paginate .paginate_button.next{
+  border:none !important;
+}
+body .dataTables_wrapper .dataTables_paginate span .paginate_button{
+  padding: 5px 10px !important;
+}
+#page-local-learningdashboard-index .modal .modal-header .close{
+  display: flex;
+  justify-content: center;
+}
+#page-local-learningdashboard-index .highcharts-container .highcharts-subtitle{
+    left: 139px !important;
+    top: 109px !important;
+}
+#page-local-learningdashboard-index .highcharts-container {
+    width: 500px !important;
+    height: 300px !important;
+}
+#page-local-learningdashboard-index .highcharts-container .highcharts-root{
+  width: 400px;
+  height: 300px;
+}
+#page-local-learningdashboard-index .highcharts-container .highcharts-subtitle span {
+    font-size: 23px !important;
+    font-weight: 600;
+}
+#page-local-learningdashboard-index .my-btn.btn-primary{
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+#page-local-learningdashboard-managerview .my-btn.btn-primary{
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+#page-local-learningdashboard-index #creditstables .learning_data .left a,
+#page-local-learningdashboard-index #creditstables .learning_data .right a
+{
+  color: #d72a1d;
+  text-decoration: underline;
+  font-size: 15px;
+  font-weight: 500;
+}
+#page-local-learningdashboard-managerview .custombtn.teamstatus.active a,
+#page-local-learningdashboard-managerview .custombtn.teamstatus.active a:hover{
+  color: #fff !important;
+}

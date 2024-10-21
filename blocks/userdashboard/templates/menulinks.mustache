@@ -1,0 +1,30 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class='userdashboard_block p-0 d-md-flex flex-row flex-nowrap '>
+    <ul class="block_dashboard_tabslist pull-left">
+    {{# links}}
+        <li class="block_dashboard_tabslistitem">
+            <div class="dashboard-stat {{active_class}}">
+                <a id="{{id}}" data-templatename='{{templatename}}' data-pluginname = '{{pluginname}}' data-tabname='{{tabname}}' data-status='{{status}}' class="{{class}} more">
+                    <i class="{{iconclass}}"></i>{{label}}
+                </a>
+            </div>
+        </li>
+    {{/ links}}
+    </ul>
+    <div class='userdashboard_module_content pull-left col-sm p-0 justify-content-end'></div>
+</div>

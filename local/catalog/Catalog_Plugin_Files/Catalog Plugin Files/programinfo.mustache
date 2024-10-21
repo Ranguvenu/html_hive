@@ -1,0 +1,99 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_catalog/programinfo
+
+    Displays programinfo 
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * none
+
+    Example context (json):
+    {
+        "completedcount" : 15,
+        "itemscount" : 5,
+        "timeopen" : "May 15, 2016"
+    }
+
+}}
+<div class="custom_course_top_section col-lg-12 col-md-12">
+    <div class="custom_course_image col-lg-5 col-md-5 col-xs-12 pull-left">
+       <div style="background-image: url('{{ programlogoimg }}');" class="courseimg_bg"></div>
+    </div>
+    <div class="custom_course_detail col-lg-7 col-md-7 col-xs-12 pull-left">
+            <h3 class="custom_course_name w-full pull-left">{{ programname }}</h3>
+            {{# isdescription}}
+                    {{^ descriptionstring}}
+                        <p class="text-muted">{{{ description }}}</p>
+                    {{/ descriptionstring }}
+                    {{# descriptionstring}}
+                        <p class="text-muted">{{ descriptionstring }} ...</p>
+                    {{/ descriptionstring }}
+                {{/ isdescription}}
+                {{^ isdescription }}
+                    <p class="w-full pull-left alert alert-info text-xs-center">{{#str}}nocoursedesc, local_courses{{/str}}</p>
+                {{/ isdescription }}
+    </div>
+</div>
+    {{# is_admin}}
+        <div class="col-md-12 col-xs-12 enrol invisible">
+            <button class="cat_btn courseenrolbtn pull-right btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{#str}}enroll, local_catalog{{/str}}</button>
+        </div>
+    {{/ is_admin}}
+    {{# selfenrolmentcap }}
+        <div class="enrol_strip">
+            <span class="enroll">{{{.}}}</span>
+        </div>
+    {{/ selfenrolmentcap }}
+<ul class="col-md-12 p-0 spotlight-group mt-15">
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{startdate}}&nbsp;-&nbsp; {{enddate}}</span>
+            <span>Scheduled</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">{{# programlocation }} {{ programlocation }} {{/ programlocation }} {{^ programlocation }} N/A {{/ programlocation }}</span>
+            <span>Program Location</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{# totalseats }} {{ totalseats }} {{/ totalseats }}{{^ totalseats }} N/A {{/ totalseats }}</span>
+            <span>Total Seats</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{# allocatedseats }} {{ allocatedseats }} {{/ allocatedseats }}{{^ allocatedseats }} N/A {{/ allocatedseats }}</span>
+            <span>Allocated Seats</span>
+        </div>
+    </li>
+    <!--<li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{# classroomdepartment }} {{ classroomdepartment }} {{/ classroomdepartment }}{{^ classroomdepartment }} N/A {{/ classroomdepartment }}</span>
+            <span>Department</span>
+        </div>
+    </li>-->
+</ul>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-Arrow_black_1">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="Arrow_black_1" data-name="Arrow  black – 1" clip-path="url(#clip-Arrow_black_1)">
+    <path id="bxs-down-arrow" d="M23.744,40.43a2.256,2.256,0,0,0,3.716,0L47.8,11.046A2.257,2.257,0,0,0,45.945,7.5H5.259A2.265,2.265,0,0,0,3.4,11.046Z" transform="translate(-1.004 0.5)" fill="#9f9f9f"/>
+  </g>
+</svg>

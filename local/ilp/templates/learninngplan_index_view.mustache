@@ -1,0 +1,96 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class="w-100 pull-left pl-3 pr-3 ilpContainer">
+	<div class="w-100 pull-left ilptopContainer">
+		<div class="pull-left pr-15">
+			<span class="ilpicon mr-3"></span>
+			<a class="ilp_name" href="{{ ilp_url }}" >{{{ilp_name}}}</a>
+		</div>
+		<div class="pl-15 pull-right text-right">
+			<span class="ilpstatus {{ ilpstatusclass }} mr-3"><span>{{ ilpstatus }}</span></span>
+			<div class="pull-right position-relative  showoptions{{ilpid}} actionicons">
+	         	<span  class="showoptions" data-action="showoptions{{ilpid}}" onmouseenter="(function(e){ require('theme_epsilon/quickactions').quickactionsCall({ selector:'showoptions{{ilpid}}' }) })(event)"onmouseleave="(function(e){require('theme_epsilon/quickactions').quickactionsCall({ selector:'showoptions{{ilpid}}' }) })(event)"><i class="fa fa-ellipsis-h options"></i></span>
+	            <ul class="options_container" id="showoptions{{ilpid}}">
+	            	{{# capability3}}
+	            	<li>
+						<a href='javascript:void(0)' title = "{{# str}} delete {{/ str}}" onclick="(function(e){ require('local_ilp/lpcreate').deleteConfirm({action:'deleteplan' , id:{{{ilpid}}}, name:'{{{ilp_name}}}' }) })(event)">
+							<i class="fa fa-trash fa-fw" aria-hidden="true" title="{{# str}} delete {{/ str}}" aria-label="Delete"></i>
+						</a>
+					</li>
+					{{/ capability3}}
+					{{# capability2}}
+					<li>
+						<a href='javascript:void(0)' title = "{{# str}} edit {{/ str}}" onclick="(function(e){ require('local_ilp/lpcreate').init({selector:'updatelpmodal', contextid:1, planid:{{{ilpid}}}, form_status:0 }) })(event)">
+							<i class="fa fa-pencil fa-fw" aria-hidden="true" title="{{# str}} edit {{/ str}}" aria-label="Edit"></i>
+						</a>
+					</li>
+					{{/ capability2}}
+					{{# capability1}}
+						{{# hide}}
+						<li>
+							<a href='javascript:void(0)' title="{{title_hide_show}}" onclick="(function(e){ require('local_ilp/lpcreate').toggleVisible({action:'toggleplan' ,visible:'visible', id:{{{ilpid}}}, name:'{{{ilp_name}}}' }) })(event)">
+								<i class="fa fa-eye" title="{{title_hide_show}}"></i>
+							</a>
+						</li>
+						{{/ hide}}
+						{{^ hide}}
+						<li>
+							<a href='javascript:void(0)' title="{{title_hide_show}}"  onclick="(function(e){ require('local_ilp/lpcreate').toggleVisible({action:'toggleplan' ,visible:'hidden', id:{{{ilpid}}}, name:'{{{ilp_name}}}' }) })(event)">
+								<i class="fa fa-eye-slash icon" title="{{title_hide_show}}"></i>
+							</a>
+						</li>
+						{{/hide}}
+					{{/ capability1}}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="w-100 pull-left pt-3 ilp_description">
+		{{# description}}
+			<div title="{{{ description }}}">{{{ ilpdescription }}}</div>
+		{{/ description}}
+		{{^ description}}
+			<div class="pull-left w-full alert alert-info text-center">{{# str }}nocoursedesc, local_courses {{/ str}}</div>
+		{{/ description}}
+	</div>
+	<div class="w-100 pull-left ilpmdlbtmContainer">
+		<div class="pull-left pr-15 ilp_coursesinfo">
+			<p>
+				<span class="pull-left info_lable">{{# str}} assigned_courses, local_ilp {{/ str }}
+					<span class="pull-right mr-2 ml-2">:</span> 
+				</span>
+				<span><b>{{ lpcoursescount }}</b></span>
+			</p>
+		</div>
+		<div class="pl-15 pull-right text-right ilp_coursesinfo">
+			<p>
+				<span class="info_lable">{{# str}} completedcourses, local_ilp {{/ str }}
+					<span class="mr-2 ml-2">:</span> 
+				</span>
+				<span><b>{{completedcourses}}</b></span>
+			</p>
+		</div>
+	</div>
+	<div class="w-full pull-left ilpbtmContainer">
+		<div class="progress progress-striped">
+            <div class="progress-bar {{ ilpstatusclass }} progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{ilp_completion_percent}}%">
+            	<p class="progress-bar-percent-value">{{ilp_completion_percent}}%</p>
+        	</div>
+        </div>
+        <div class="pull-right ml-3"><b>{{ilp_completion_percent}}%</b></div>
+	</div>
+</div>

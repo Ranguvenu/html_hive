@@ -1,0 +1,21 @@
+<table class="managementpopuptable_details generaltable training_management" id="learningdashboard_{{creditstype}}">
+    <thead class="text-center bg-primary text-white">
+        <th class="text-center">{{#str}}coursename, local_learningdashboard {{/str}}</th>
+        {{#ismanager}}
+        <th class="text-center">{{#str}}categoryname, local_learningdashboard {{/str}}</th>
+        {{/ismanager}}
+        <th class="text-center">{{creditsstatus}}</th>
+    </thead>
+    <tbody>
+        {{# coursedetails}}
+        <tr>
+            <td class="text-center">{{coursename}}</td>
+            {{#ismanager}}
+                <td>{{coursecategory}}</td>
+            {{/ismanager}}
+            <td class="text-center">{{achievedcredits}}</td>
+        </tr>
+        {{/ coursedetails}}
+    </tbody>
+
+</table>

@@ -1,0 +1,432 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{# action}}
+    <ul class="course_extended_menu_list">
+        {{# assignusers}}
+            <li>
+                <div class="courseedit course_extended_menu_itemcontainer">
+                    <a class="course_extended_menu_itemlink" href="{{config.wwwroot}}/local/classroom/uploadusers.php?id={{classroomid}}"><i class="icon fa fa-users fa-fw" aria-hidden="true" aria-label="" title ="Upload Users"></i></a>
+                </div>
+            </li>
+            <li>
+                <div class="courseedit course_extended_menu_itemcontainer">
+                    <a class="course_extended_menu_itemlink" href="{{ assignusersurl }}"><i class="icon fa fa-user-plus fa-fw" aria-hidden="true" aria-label="" title ="Assign Users"></i></a>
+                </div>
+            </li>
+        {{/ assignusers}}
+        <li>
+            {{# downloadusers}}
+                <div class="courseedit course_extended_menu_itemcontainer">
+                    <a title="Download" class="course_extended_menu_itemlink" href="{{ downloadurl }}">
+                        <i class="icon fa fa-download fa-fw" aria-hidden="true" aria-label="" title ="Download"></i>
+                    </a>
+                </div>
+            {{/ downloadusers}}
+        </li>
+        <li>
+            {{# edit}}
+                <div class="coursebackup course_extended_menu_itemcontainer">
+                    <a title="User enrollments" class="course_extended_menu_itemlink" href="javascript:void(0)" title = "{{# str}} edit {{/str}}" onclick="(function(e){ require('local_classroom/ajaxforms').init({contextid:1, component:'local_classroom', callback:'classroom_form', form_status:0, plugintype: 'local', pluginname: 'classroom', id: {{ classroomid }} }) })(event)"><i class="icon fa fa-pencil fa-fw" aria-hidden="true" aria-label="" title = "{{# str}} edit {{/str}}"></i>
+                    </a>         
+                </div>
+            {{/ edit}}
+            </li>
+            <li>
+            {{# classroomcompletion}}
+                <div class="coursebackup course_extended_menu_itemcontainer">
+                    <a title="Classroom completion" class="course_extended_menu_itemlink" href="javascript:void(0)" title = "{{# str}} classroomcompletion, local_classroom {{/str}}" onclick="(function(e){ require('local_classroom/ajaxforms').init({contextid:1, component:'local_classroom', callback:'classroom_completion_form', form_status:0, plugintype: 'local', pluginname: 'classroom_completion_settings', id: {{ classroomcompletion_id }}, cid: {{ classroomid }} }) })(event)"><i class="icon fa fa-tags fa-fw" aria-hidden="true" aria-label="" title = "{{# str}} classroomcompletion , local_classroom{{/str}}"></i>
+                    </a>         
+                </div>
+            {{/ classroomcompletion}}
+        </li>
+         {{#classroom_actionstatus}}
+                <li>
+                      <div class="coursebackup course_extended_menu_itemcontainer">
+                          {{{.}}}       
+                      </div>
+                </li>
+         {{/classroom_actionstatus}}
+    </ul>
+{{/ action}}
+{{# classroom}}
+<ul class="course_extended_menu_list">
+    <li>
+        {{# unenroll}}
+            <div class="coursebackup course_extended_menu_itemcontainer">
+                <a title="Course backup" class="course_extended_menu_itemlink" href="javascript:void(0)" alt = "{{# str}} unenroll,local_classroom {{/ str}}"
+                    title = "{{# str}}  unenroll,local_classroom {{/ str}}" onclick="(function(e){ require('local_classroom/classroomunenrol').deleteConfirm({action:'unenrollclassroom', id: {{ classroomid }}, classroomid: {{ classroomid }},classroomname:`{{classname_string}}`}) })(event)"><i class="icon fa fa-window-close" aria-hidden="true" aria-label="" title = "{{# str}}  unenroll,local_classroom {{/ str}}"></i></a>
+            </div>
+        {{/ unenroll}}
+    </li>
+</ul>
+<div class="classview_topcontainer">
+        <div class="row">
+        <div class="col-md-12 p-0">
+            <div class="mainheader_container mb-3 text-light p-4" style="background-image: url('{{ classroomlogoimg }}');">
+                <div class="content_container  col-md-9 col-12 pr-0">
+
+                    <div class="content">
+                        <h4 class="font-weight-bold mb-3">Description</h4>
+                        <div class="description">
+                           <!-- <p>E-learning is a type of learning conducted digitally via electronic media, typically involving the internet.It can be accessed via most electronic devices including a computer, laptop, tablet or smartphone, making it a versatile and easy way for students to learn wherever they are. E-learning resources come in a variety of forms – from software programmes and digital courses to interactive online platform and apps.</p> -->
+                           {{# isdescription}}
+                                {{^ descriptionstring}}
+                                    <p>{{{ description }}}</p>
+                                {{/ descriptionstring }}
+                                {{# descriptionstring}}        
+                            <div class="mainsectioncontainer text-light">
+                                <div class="d-flex flex-column">
+                                    <div>
+                                        <div class="programdesc">
+                                            <p>{{{ descriptionstring }}}</p>
+                                        </div>    
+                                        <a class="description-toggler text-light d-none">{{#str}} show_more, local_classroom {{/str}}</a>  
+                                    </div> 
+                                </div>
+                            </div>
+                                {{/ descriptionstring }}
+                            {{/ isdescription}}
+                            {{^ isdescription }}
+                                <p class="alert alert-info text-center">{{#str}}nocoursedesc, local_classroom{{/str}}</p>
+                            {{/ isdescription }} 
+                         
+                              {{# selfenrolmentcap }}
+                                 
+                                       {{{.}}}
+                                  
+                                {{/ selfenrolmentcap }}
+                         
+                        </div>
+                      
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-12">
+                            <div class="content_bottom d-flex justify-content-between">
+                                <span>Classroom Location : <b>{{# classroomlocation }} {{ classroomlocation }} {{/ classroomlocation }} {{^ classroomlocation }} N/A {{/ classroomlocation }}</b> </span>
+                                <span>Department : <b>{{# classroomdepartment }} {{ classroomdepartment }} {{/ classroomdepartment }}{{^ classroomdepartment }} N/A {{/ classroomdepartment }} {{^ classroomlocation }} N/A {{/ classroomlocation }}</b> </span>
+                                    
+                                    <span class="d-none">Pre-requisites : 
+                                    <span class="" title="{{classroomdepartmenttitle}}" >{{# iltprerequisites}}<ul class="coursenames"><li><a href="{{config.wwwroot}}/course/view.php?id={{courseid}}">{{coursename}}</a>
+                                        {{#show}}
+                                      {{# coursecompleted}} <i class="fa fa-check text-success" aria-hidden="true" title="completed"></i> {{/ coursecompleted}}
+            
+            
+            
+                                     {{^ coursecompleted}} <i class="fa fa-times text-danger"
+                                     aria-hidden="true" title=" Not completed"></i>
+                                      {{/ coursecompleted}}
+                                     {{/show}}
+                                   </li>
+                                     </ul>{{/ iltprerequisites}}{{^ iltprerequisites }} N/A {{/ iltprerequisites }}</span>    
+                                </span>
+        
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-9 classview_tabscontainer">
+            <ul class="course_extended_menu_list">
+            {{# certificate_exists }}
+                {{# certificate_download }}
+                    <li>
+                        <a class="course_extended_menu_itemlink" title="{{#str}} download_certificate, local_courses {{/ str}}" class="course_extended_menu_itemlink" href="{{ config.wwwroot}}/local/certificates/view.php?ctid={{certificateid}}&mtype=classroom&mid={{classroomid}}"><i class="icon fa fa-download" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {{/ certificate_download }}
+                {{^ certificate_download }}
+                        <li>
+                            <a class="course_extended_menu_itemlink" title="{{# str}} unableto_download_msg, local_classroom, Learning path {{/str}}" class="course_extended_menu_itemlink" href="javascript: void(0)"><!-- <i class="icon fa fa-download" aria-hidden="true"></i> -->
+                            <i class="icon fa fa-download" aria-hidden="true"></i>
+
+                            </a>
+                        </li>
+                {{/ certificate_download }}
+            {{/ certificate_exists }}
+           </ul>
+            <ul class="nav nav-tabs inner_tabs" role="tablist">
+                {{#course_tab}}
+                    <li class="nav-item classroommodules" role="presentation" data-module="courses" data-status = 2>
+                        <a class="active nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="courses" role="tab">{{# str }} courses, local_classroom {{/ str }}</a>
+                    </li>
+                {{/course_tab}}
+                {{#session_tab}}
+                    <li class="nav-item classroommodules" role="presentation" data-module="sessions" data-status = 1>
+                        <a class="nav-link" data-toggle="tab"  href="javascript:void(0);" aria-controls="sessions" role="tab">{{# str }} sessions, local_classroom {{/ str }}</a>
+                    </li>
+                {{/session_tab}}
+                {{#user_tab }}
+                    <li class="nav-item classroommodules" role="presentation" data-module="users" data-status = 3>
+                        <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="users" role="tab">{{# str }} users, local_classroom {{/ str }}</a>
+                    </li>
+                {{/user_tab }}
+                {{#feedback_tab }}
+                    <li class="nav-item classroommodules" role="presentation" data-module="feedbacks" data-status = 4>
+                        <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="evaluations" role="tab">{{# str }} pluginname, local_evaluation {{/ str }}</a>
+                    </li>
+                {{/feedback_tab }}
+                {{#completion_settings_tab}}
+                    <li class="nav-item informationdata" role="presentation" data-module="completioninfo" data-status = 6>
+                        <a class="nav-link" data-toggle="tab" href="javascript:void(0);" onclick="(function(e){ require('local_classroom/classroom').completionInfo({contextid:1, classroomid: {{classroomid}}, name:'completioninfo'}) })(event)" aria-controls="completion_settings_tab" role="tab">{{# str }} completion_settings_tab, local_classroom {{/ str }}</a>
+                    </li>
+                {{/completion_settings_tab}}
+                {{#user_tab }}
+                    {{#target_audience_tab}}
+                        <li class="nav-item informationdata" role="presentation" data-module="targetaudience" data-status = 7>
+                            <a class="nav-link" data-toggle="tab" href="javascript:void(0);" onclick="(function(e){ require('local_classroom/classroom').completionInfo({contextid:1, classroomid: {{classroomid}}, name:'targetaudience'}) })(event)" aria-controls="target_audience_tab" role="tab">{{# str }} target_audience_tab, local_classroom {{/ str }}</a>
+                        </li>
+                    {{/target_audience_tab}}
+                {{/user_tab }}
+                {{#requested_users_tab}}
+                    <li class="nav-item classroommodules" role="presentation" data-module="requestedusers" data-status = 5>
+                        <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="requested_users_tab" role="tab">{{# str }} requested_users_tab, local_classroom {{/ str }}</a>
+                    </li>
+                {{/requested_users_tab}}
+                {{#waitinglist_users_tab}}
+                    <li class="nav-item classroommodules" role="presentation" data-module="waitinglistusers" data-status =8>
+                        <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="waitinglist_users_tab" role="tab">{{# str }} waitinglist_users_tab, local_classroom {{/ str }}</a>
+                    </li>
+                {{/waitinglist_users_tab}}
+            </ul>
+            <div class="" id="classroommodulescontent">
+                <div class="tab-content pull-left w-100">
+
+                    <div class="tab-pane active" id="courses" role="tabpanel">
+                        {{#assign_courses}}
+                            <div class="createicon">
+                                <i class="fa fa-plus add_classroomcourse createpopicon" aria-hidden="true" title="Assign Courses" onclick="(function(e){ require('local_classroom/ajaxforms').init({contextid:1, component:'local_classroom', callback:'course_form', form_status:0, plugintype: 'local_classroom', pluginname: 'course', id:0, cid: {{classroomid}} }) })(event)"></i>
+                            </div>
+                        {{/assign_courses}}
+
+                        <div class="mt-0" id="courses_tabdata" data-region="courses_tabdata-preview-container">
+                            <div data-region="courses_tabdata-count-container"></div>
+                            <div data-region="courses_tabdata-list-container" id ="coursesid"></div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="sessions" role="tabpanel">
+                         
+                        {{#uploadsessionattendance}}
+                            <div class = "uploadicon">
+                                <a href="{{cfgwwwroot}}/local/classroom/upload_attendance.php?cid={{classroomid}}" title="{{#str}}upload_attendance,local_classroom{{/str}}">
+                                <i class="fa fa-upload fa-fw upload_session_attendance attendanceuploadicon" ></i></a>
+                            </div>
+                        {{/uploadsessionattendance}}
+
+                        {{#createsession}}
+                            <div class="createicon">
+                                <i title="Create a Session" class="fa fa-plus create_session createpopicon" aria-hidden="true" onclick="(function(e){ require('local_classroom/ajaxforms').init({contextid:1, component:'local_classroom', callback:'session_form', form_status:0, plugintype: 'local_classroom', pluginname: 'session', id:0, cid: {{classroomid}}, title: 'addsession' }) })(event)"></i>
+                            </div>
+                        {{/createsession}}
+                        
+                        <div class="m-t-2" id="sessions_tabdata" data-region="sessions_tabdata-preview-container">
+                            <div data-region="sessions_tabdata-count-container"></div>
+                            <div data-region="sessions_tabdata-list-container" id ="sessionsid"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="users" role="tabpanel">
+                        {{#assignusers}}
+                            <div class="createicon"><a href="{{config.wwwroot}}/local/classroom/enrollusers.php?cid={{classroomid}}"><i class="icon fa fa-user-plus fa-fw add_classroomcourse createpopicon cr_usericon" aria-hidden="true" title="{{#str}}viewclassroom_assign_users, local_classroom {{/str}}"></i></a></div>
+                        {{/assignusers}}
+                        <div class="m-t-2" id="users_tabdata" data-region="users_tabdata-preview-container">
+                            <div data-region="users_tabdata-count-container"></div>
+                            <div data-region="users_tabdata-list-container" id ="usersid"></div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="feedbacks" role="tabpanel">
+                        {{#createfeedback}}
+                            <div class="createicon">
+                                <i class="fa fa-plus createpopicon" data-action="createevaluationmodal" title="{{#str}}createevaluation, local_evaluation {{/str}}" onclick="(function(e){ require('local_evaluation/newevaluation').init('createevaluationmodal',1, -1,{{classroomid}},'classroom') })(event)"></i>
+                            </div>
+                        {{/createfeedback}}
+                        <div class="m-t-2" id="feedbacks_tabdata" data-region="feedbacks_tabdata-preview-container">
+                            <div data-region="feedbacks_tabdata-count-container"></div>
+                            <div data-region="feedbacks_tabdata-list-container" id ="feedbacksid"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="completioninfo" role="tabpanel">
+                        <div class="completioninfo"></div>
+                    </div>
+                    <div class="tab-pane" id="targetaudience" role="tabpanel">
+                        <div class="targetaudience"></div>
+                    </div>
+                    <div class="tab-pane" id="requestedusers" role="tabpanel">
+                        <div class="m-t-2" id="requestedusers_tabdata" data-region="requestedusers_tabdata-preview-container">
+                            <div data-region="requestedusers_tabdata-count-container"></div>
+                            <div data-region="requestedusers_tabdata-list-container" id ="requestedusersid"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="waitinglistusers" role="tabpanel">
+                        <div class="m-t-2" id="waitinglistusers_tabdata" data-region="waitinglistusers_tabdata-preview-container">
+                            <div data-region="waitinglistusers_tabdata-count-container"></div>
+                            <div data-region="waitinglistusers_tabdata-list-container" id ="waitinglistusersid"></div>
+                        </div>
+                    </div>
+                    <!-- {{{ classroomsessions }}} -->
+                </div>
+
+            </div>
+        </div>
+        {{# classroom}}
+        <div class="col-md-3 right_container">
+            <div class="details_block">
+                <h6>Details</h6>
+                <ul>
+                    <li class="d-flex">
+                        <span class="calendar_icon"></span>
+                        <span class="dates">{{#userdate}} {{startdate}}, %d %b' %y , %I:%M %p {{/userdate}} - {{#userdate}} {{enddate}}, %d %b' %y , %I:%M %p{{/userdate}}</span>
+                    </li>
+                    <li class="new_class d-flex">
+                        <span class="announce_icon"></span>
+                        <span >{{classroom_status}}</span>
+                    </li>
+                    <li class="trainer d-flex">
+                        <span class="trainer_icon"></span>
+                        {{#trainers}}
+                        <span>{{trainername}}</span>
+                         {{/trainers}}
+                            {{^trainers}}
+                        <span>No trainers Assigned</span>
+                        {{/trainers}}   
+                    </li>
+                </ul>
+            </div>
+            <div class="classdetails_block">
+                <ul>
+                    <li class="d-flex">
+                        <span class="seatsallocation_icon"></span>
+                        <span class="text-muted mx-2">{{# str}} seats_allocated, local_classroom, Seats allocated {{/str}}</span>
+                        <span class="count">{{allocatedseats}}/{{totalseats}}</span>
+                    </li>
+                    <li class="d-flex">
+                        <span class="user_icon"></span>
+                        <span class="text-muted mx-2">{{# str}} user_completions, local_classroom, User completions {{/str}}</span>
+                        <span class="count">{{completed_seats}}/{{allocatedseats}}</span>
+                    </li>
+                    <li class="d-flex">
+                        <span class="waitinglist_icon"></span>
+                        <span class="text-muted mx-2">{{# str}} users_waiting_list, local_classroom, Users waiting list{{/str}}</span>
+                        <span class="count">{{waitingseats}}</span>
+                    </li>
+                    <li class="d-flex">
+                        <span class="grade_icon"></span>
+                        <span class="text-muted mx-2">{{# str}} grade, local_classroom, Grade{{/str}}</span>
+                        <span class="count">{{#open_grade}} {{open_grade}} {{/open_grade}} {{^open_grade}} All {{/open_grade}} </span>
+                    </li>
+                    <li class="url d-flex">
+                        <span class="url_icon"></span><span class="text-muted mx-2 d-flex">URL {{#open_url}}{{open_url}}{{/open_url}}</span><span class="url_name">{{^open_url}}N/A{{/open_url}}</span>
+                    </li>
+               
+                </ul>
+                </div>
+            </div>
+        </div>
+{{/ classroom}}
+
+{{#js}}
+
+    $( document ).ready(function() {
+        $(".trainer-next, .trainer-prev").click(function () {
+            var div = $(".trainers_scroll")[0];
+            var html = $(div).html();
+            $(div).remove();
+            $(".topcontent_right_bottom").append("<div class=\"col-md-4 col-12 pull-left trainers_scroll\">" + html + "</div>");
+        });
+    });
+    var program_desc_height = $('.programdesc').height();
+
+    if(program_desc_height > 70){
+        $('.programdesc').addClass('short');
+        $('.description-toggler').removeClass('d-none');
+    } 
+    $('.description-toggler').click(function(e){
+        e.preventDefault();
+        var desc_element = $(this).parent().find('.programdesc');
+        if(desc_element.hasClass('short')){
+            desc_element.removeClass('short');
+            $(this).html("{{#str}} show_less, local_classroom {{/str}}");
+        }else{
+            desc_element.addClass('short'); 
+            $(this).html("{{#str}} show_more, local_classroom {{/str}}");
+        }
+    });    
+    $('.classroommodules').click(function(){
+        var classroommodule = $(this).data('module');
+
+        if ($(this).find('a').hasClass('active')){
+            return true;
+        }
+        $(".tab-pane").removeClass('active');
+        $("#"+classroommodule).addClass('active');
+
+        var status = $(this).data('status');
+        var targetid = classroommodule+'_tabdata';
+        var options = {targetID: targetid,
+                    templateName: 'local_classroom/classroomview'+classroommodule,
+                    methodName: 'local_classroom_classroomview'+classroommodule,
+                    perPage: 5,
+                    cardClass: 'col-md-6 col-12',
+                    viewType: 'card'};
+
+        var dataoptions = {tabname: classroommodule,classroomid: {{classroomid}},contextid: 1 };
+        var filterdata = {};
+        for(i = 1; i<=7; i++){
+            if(status != i){
+                switch(i){
+                    case 1:
+                        $("#sessions_tabdataid").empty();
+                    break;
+                    case 2:
+                        $("#coursesid").empty();
+                    break;
+
+                    case 3:
+                        $("#usersid").empty();
+                    break;
+
+                    case 4:
+                        $("#feedbacksid").empty();
+                    break;
+
+                    case 5:
+                        $("#requestedusersid").empty();
+                    break;
+
+                    case 6:
+                        $(".completioninfo").empty();
+                    break;
+
+                    case 7:
+                        $(".targetaudience").empty();
+                    break;
+                }
+                
+            }
+        }
+        require(['local_costcenter/cardPaginate'], function(cardPaginate) {
+            cardPaginate.reload(options, dataoptions,filterdata);
+        });
+    });
+
+{{/js}}
+{{/ classroom}}

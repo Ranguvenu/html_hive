@@ -1,0 +1,161 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class=" col-md-12 classview_tabscontainer">
+    
+    <ul class="nav nav-tabs inner_tabs" role="tablist">
+        
+        <li class="nav-item lamodules" role="presentation" data-module="year" data-status = 2>
+            <a class="active nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="year" role="tab">{{# str }} currentyear, block_empcredits {{/ str }}</a>
+        </li>
+        
+        <li class="nav-item lamodules" role="presentation" data-module="allccdata" data-status = 1>
+            <a class="nav-link" data-toggle="tab"  href="javascript:void(0);" aria-controls="allccdata" role="tab">{{# str }} allcompletedcourses, block_empcredits {{/ str }}</a>
+        </li>
+        
+        <li class="nav-item lamodules" role="presentation" data-module="certdata" data-status = 3>
+            <a class="nav-link" data-toggle="tab" href="javascript:void(0);" aria-controls="certdata" role="tab">{{# str }} downloadcertificates, block_empcredits {{/ str }}</a>
+        </li>
+        
+    </ul>
+    <div class="" id="classroommodulescontent">
+        <div class="tab-content  w-100">
+            
+            <div class="tab-pane active" id="year" role="tabpanel">
+                
+                <div class="global_filter_structure form-group m-0  p-0 col-md-4 ">
+                    <a class="downarrow_icon downloadcsv" href="{{config.wwwroot}}/blocks/empcredits/export.php?tableid=lastoneyearccdata" data-formid = "externalfilteringform"></a>
+                    <div class="input_container position-relative">
+                        
+                        <input id="global_filter_year" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                        <span class="learner_search_icon"></span>
+                    </div>
+                </div> 
+                
+                <div class="mt-0" id="year_tabdata" data-region="year_tabdata-preview-container">
+                    <div data-region="year_tabdata-count-container"></div>
+                    <div data-region="year_tabdata-list-container" id ="yearid"></div>
+                </div>
+            </div>
+            
+            <div class="tab-pane" id="allccdata" role="tabpanel">
+                <div id="filters_form" class="card card-body p-2" style = "background-color : #fff">
+                    {{{filterform}}}      
+                    
+                </div>
+                <div class="createicon"></div>
+                
+                
+                <div class="global_filter_structure form-group m-0 p-0  col-md-4 ">
+                    <a class="downarrow_icon downloadcsv" href="{{config.wwwroot}}/blocks/empcredits/export.php?tableid=allccdata" data-formid = "externalfilteringform"></a>
+                    
+                    <div class="input_container position-relative">
+                        
+                        <input id="global_filter_allccdata" class="global filter form-control " placeholder="  {{# str}}search{{/ str}}.." type="text" name="search_query">
+                        <span class="learner_search_icon"></span>
+                    </div>
+                </div> 
+                
+                <!-- </div> -->
+                <div class="m-t-2" id="allccdata_tabdata" data-region="allccdata_tabdata-preview-container">
+                    <div data-region="allccdata_tabdata-count-container"></div>
+                    <div data-region="allccdata_tabdata-list-container" id ="allccdataid"></div>
+                </div>
+            </div>        
+            
+            <div class="m-t-2" id="certdata_tabdata" data-region="certdata_tabdata-preview-container">
+                <div data-region="certdata_tabdata-count-container"></div>
+                <div data-region="certdata_tabdata-list-container" id ="certdataid"></div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+</div>
+
+{{#js}}
+$(document).ready(function() { 
+    
+    
+    if($(".inner_tabs").length>0){
+        $(".inner_tabs").find("li").each(function(){
+            if($(this).find('a').hasClass('active')){
+                $(this).trigger('click');
+            }
+        });
+    }
+    
+});
+$('.lamodules').click(function(){
+    var lamodule = $(this).data('module');
+    
+    
+    $(".tab-pane").removeClass('active');
+    $("#"+lamodule).addClass('active');
+    
+    var status = $(this).data('status');
+    var targetid = lamodule+'_tabdata';
+    var options = {targetID: targetid,
+        templateName: 'block_empcredits/learninganalyticstabs_'+lamodule,
+        methodName: 'block_empcredits_learninganalytics_'+lamodule,
+        perPage: 5,
+        cardClass: 'col-md-6 col-12 tableformat',
+        viewType: 'table'};
+        
+        var dataoptions = {tabname: lamodule,classroomid: 1,contextid: 1 };
+        var filterdata = {};
+        for(i = 1; i<=7; i++){
+            if(status != i){
+                switch(i){
+                    case 1:
+                    $("#allccdata_tabdataid").empty();
+                    break;
+                    case 2:
+                    $("#yearid").empty();
+                    break;
+                    
+                    case 3:
+                    $("#certdataid").empty();
+                    break;
+                    
+                    
+                }
+                
+            }
+        }
+        require(['local_costcenter/cardPaginate'], function(cardPaginate) {
+            cardPaginate.reload(options, dataoptions,filterdata);
+            
+            var search_interval = 100;
+            var timer;
+            $(document).on('keyup', '#global_filter_'+ lamodule, function(){
+                var searchval = $(this).val();
+                var filterdata = {search_query: searchval};
+                timer = setTimeout(function(){
+                    
+                    cardPaginate.reload(options,dataoptions,filterdata);
+                    
+                },search_interval);
+            });
+            $(document).on('keydown', '#global_filter_'+ lamodule, function(){
+                clearTimeout(timer);
+            });
+        });
+    });
+    
+    {{/js}}
+    

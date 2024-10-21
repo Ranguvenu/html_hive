@@ -1,0 +1,26 @@
+<div>
+    {{# usersexists}}
+   <table class='generaltable' id='sme_course_users'>
+        <thead>
+            <tr>
+                <th>{{# str}} employeename, local_courses{{/ str}}</th>
+                <th>{{# str}} empnumber, local_courses{{/ str}}</th>
+                <th>{{# str}} email, local_courses{{/ str}}</th>             
+            </tr>
+        </thead>
+        <tbody>
+            {{# userdata}}
+                <tr>
+                    <td>{{employeename}}</td>
+                    <td>{{employeeid}}</td>
+                    <td>{{email}}</td>
+                   
+                </tr>
+            {{/ userdata}}
+        </tbody>
+    </table>
+    {{/ usersexists}}
+    {{^ usersexists}}
+        {{# str}} nousersmsg, local_courses{{/ str}}
+    {{/ usersexists}}
+</div>

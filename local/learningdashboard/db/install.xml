@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/learningdashboard/db" VERSION="2016120700" COMMENT="XMLDB file for Moodle local/learningdashboard"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+  <TABLES>    
+     <TABLE NAME="local_learningdashboard_master" COMMENT="Master credits data for Dashboard">
+	  <FIELDS>
+	  <FIELD NAME="id" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="true"/>
+	  <FIELD NAME="creditstype" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+	  <FIELD NAME="startmonth" TYPE="int" LENGTH="10" NOTNULL="true"  SEQUENCE="false"/>
+	  <FIELD NAME="endmonth" TYPE="int" LENGTH="10" NOTNULL="true"  SEQUENCE="false"/>
+	  <FIELD NAME="credits" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" />
+	  <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+	  <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" />
+	  <FIELD NAME="usercreated" TYPE="int" LENGTH="10" NOTNULL="true"  SEQUENCE="false"/>
+	  <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="false"  SEQUENCE="false"/>
+	  </FIELDS>
+	  <KEYS>
+	  <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+	  </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

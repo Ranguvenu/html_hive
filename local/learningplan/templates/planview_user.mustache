@@ -1,0 +1,202 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="planview_container">
+	<ul class="course_extended_menu_list">
+		{{{challenge_element}}}
+		{{# certificate_exists }}
+            {{# certificate_download }}
+                    <li>
+						<a class="course_extended_menu_itemlink" title="{{#str}} download_certificate, local_courses {{/ str}}" class="course_extended_menu_itemlink" href="{{ config.wwwroot}}/admin/tool/certificate/view.php?code={{certificateid}}"><i class="icon fa fa-download" aria-hidden="true"></i>
+	                    </a>
+                    </li>
+            {{/ certificate_download }}
+            {{^ certificate_download }}
+                    <li>
+                        <a class="course_extended_menu_itemlink" title="{{# str}} unableto_download_msg, local_certificates, Learning path {{/str}}" class="course_extended_menu_itemlink" href="javascript: void(0)"><i class="icon fa fa-download" aria-hidden="true"></i>
+                        </a>
+                    </li>
+            {{/ certificate_download }}
+        {{/ certificate_exists }}
+        <li>
+            <button class='unenrol' onclick="(function(e){ require('local_learningplan/lpunenrol').init({ userid: {{userid}}, pathid: {{planid}}, path: `{{lpname}}` }) })(event)">Un-enrol</button>
+        </li>
+	</ul>
+	<div class="row planview_topcontent">
+		<div class="col-lg-3 col-md-3  d-none-1023 courseimg_container">
+			<div style="background-image: url('{{ lpimgurl }}');" alt="{{ lpname }}" title="{{ lpname }}" class="lpimg_bg" ></div>
+
+		<!-- {{{display_ratings}}} -->
+		<!-- {{{display_like}}} -->
+		</div>
+		
+		{{# needenrol}}
+		<a class='btn btn-primary  mr-15' href='javascript:void(0)' onclick='(function(e){
+		require("local_learningplan/courseenrol").enrolUser({planid:{{{planid}}}, userid:{{{userid}}}, planname:"{{{lpname}}}" }) })(event)'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{# str}} enrol , local_learningplan{{/ str}}</a>
+		{{/ needenrol}}
+	
+		<div class="col-lg-9 col-md-9 d-block-1023">
+			<!--<h4 class='pull-left mb-5 lp_name'>{{ lpname }}</h4>-->	
+			<div class=" description_block pb-10">
+				<span class=" heading mb-1 d-flex"><b>Description</b></span>
+				<div class=" description mt-2" id="moduleds">
+					{{# description_string }}
+					<div class="m-0 collapse" id="collapseExample" aria-expanded="false">{{{ description_string }}}</div>
+					{{# descount}}
+						<a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></a>
+					{{/ descount }}
+					{{/ description_string }}
+					{{^ description_string }}
+					<p class="alert alert-info text-xs-center m-0">{{#str}}nocoursedesc, local_courses{{/str}}</p>
+					{{/ description_string }}
+			    </div>
+			</div>
+			<div class="row details_block">
+				<div class="col-md-4 ">
+					<div class="details_content mb-1">
+						<span class="detail_header"><b>Details</b></span>
+					</div>
+					
+					<div class="path_data text-muted">
+						<span class="text-muted"  style="min-width: 100px;float: left;">Department 
+						<span>:</span> 
+						</span><span class="text-dark">{{ plan_department }}</span>
+					</div>
+					<div class="optional_data text-muted">
+						<span>Grade
+						<span >:</span> 
+						</span><span class="text-dark">{{ plan_grade }}</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="courses_content mb-1">
+						<span class="course_header"><b>Courses</b></span>
+					</div>
+					<div class="optional_data text-muted">
+						<span>Optional
+						<span >:</span> 
+						</span><span class="text-dark">{{ optionalcourses_count }}</span>
+					</div>
+					<div class="mandatory_data text-muted">
+						<span>Mandatory  
+						<span>:</span> 
+						</span><span class="text-dark">{{ mandatarycourses_count }}</span>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="users_content mb-1">
+						<span class="course_header"><b>Users</b></span>
+					</div>
+					<div class="enrolled_data text-muted">
+						<span>Enrolled
+						<span >:</span> 
+						</span><span class="text-dark">{{ total_enroled_users }}</span>
+					</div>
+					<div class="completed_data text-muted">
+						<span>Completed  
+						<span>:</span> 
+						</span><span class="text-dark">{{ cmpltd }}</span>
+					</div>
+				</div>
+			
+			
+			</div>
+
+<!-- 			<div class="col-md-12 col-12 pull-right learningpathcompletion_right mb-2">
+                <div class="w-100 p-0 pull-right mt-1">
+                    <h6>{{# str}} learningpath_completion, local_learningplan {{/ str}}</h6>
+                    <div class="col-md-5 col-6 pull-left">
+                        <div class="pull-left mr-3">
+                            <i class="fa fa-book fa-fw seat_img" aria-hidden="true" aria-label="" title="" ></i>
+                            {{! </span> }}
+                        </div>
+                        <span class="waitingcourses_count"> {{ completed_lp_courses }} / {{ total_lp_courses }}</span>
+                    </div>
+                   	<div class="col-md-7 col-12 pull-right p-0 crseats_progress">
+                        <div class="progress progress-striped">
+                            <div class="progress-bar text-center" role="progressbar" style="width:{{ progress }}%;" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100">{{ progress }}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+			<!--<div class="w-full pull-left mt-5 mb-5"><img src="{{ lpcoursespath }}" class="w-full" height="40"/></div>-->
+			<!-- <div class=" coursepath">{{# lpcoursespath }} {{{lpcoursespath}}} {{/ lpcoursespath }} {{^ lpcoursespath }} <span class=" text-xs-center alert alert-info mt-1 m-0">Assign 2 or more courses to see path</span> {{/ lpcoursespath }}</div> -->
+			<!-- <div class="col-lg-12 col-md-12 pull-left p-0">
+				<div class="col-lg-6 col-md-6 pull-left pl-0">
+					<div class="w-full pull-left mb-1">
+						<span class="w-full pull-left"><b>Details :</b></span>
+					</div>
+					<div class="w-full pull-left">
+						<span class="text-muted" style="min-width: 100px;float: left;">Learningpath Code
+						<span style="margin-right: 10px;float: right;">:</span> 
+						</span><span style="color:#333;"><b>{{ plan_learningplan_code }}</b></span>
+					</div>
+					<div class="w-full pull-left">
+						<span class="text-muted" style="min-width: 100px;float: left;">Credits 
+						<span style="margin-right: 10px;float: right;">:</span> 
+						</span><span style="color:#333;"><b>{{ lplancredits }}</b></span>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 pull-left pl-0">
+					<div class="w-full pull-left mb-1">
+						<span class="w-full pull-left"><b>Courses :</b></span>
+					</div>
+					<div class="w-full pull-left">
+						<span class="text-muted" style="min-width: 100px;float: left;">Optional
+						<span style="margin-right: 10px;float: right;">:</span> 
+						</span><span style="color:#333;"><b>{{ optionalcourses_count }}</b></span>
+					</div>
+					<div class="w-full pull-left">
+						<span class="text-muted" style="min-width: 100px;float: left;">Mandatory  
+						<span style="margin-right: 10px;float: right;">:</span> 
+						</span><span style="color:#333;"><b>{{ mandatarycourses_count }}</b></span>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<div class="learningpathcompletion_right row my-4">
+		<div class="col-md-5">
+	        <div class="learning_path_details  d-flex justify-content-around">
+	            <div class="learningpath_head">
+	                <h6>{{# str}} learningpath_completion, local_learningplan {{/ str}}</h6>
+	            </div>
+	            <div class=" bookicon d-flex ">
+	                <i class="fa fa-book fa-fw seat_img" aria-hidden="true" aria-label="" title="" ></i>
+	                <span class="waitingcourses_count"> {{ completed_lp_courses }} / {{ total_lp_courses }}</span>
+	            </div>
+	        </div>
+    	</div>
+    	<div class="col-md-7">
+	        <div class="crseats_progress d-flex align-items-center">
+		        <div class="progress flexgrow-1">
+		            <div class="progress-bar text-center" role="progressbar" style="width:{{ progress }}%;" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+
+		        </div>
+	            <span>{{ progress }}%</span>
+	        </div>
+	    </div> 
+    </div>
+</div>
+     
+
+<!-- <div class="w-full pull-left m-15"><h4 class="lp_name">{{lpname}}</h4></div> -->
+
+
+

@@ -1,0 +1,115 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class="lpcoursesuser_view_container lp_course_sortorder">
+<div class = " lpcourses">
+	<div class=" lpcourses_container {{ disable_class1 }} {{ cmpltd_class }} {{ enroldisable_class1 }} " id = "course_info_{{ courseid }}">
+			<div class="vertical_brdr"></div>
+			<div class="row lpcourse_content ">
+				<div class="col-lg-2 col-md-3  course_progress_container">
+					<div class=" middlline_div"></div>
+					<div class=" middlline"></div>
+					<!--<div class="course_progress">
+						<div class="lpcourse_progress progress-chart-container m-b-1">
+						   <div class="progress-doughnut">
+						        <div class="progress-text has-percent">{{ progressbar }}%</div>
+						        <div class="progress-indicator">
+						            <svg xmlns="http://www.w3.org/2000/svg">
+						                <g>
+						                    <title aria-hidden="true">{{ progressbar }}</title>
+						                    <circle class="circle percent-{{ progressbar }}"
+						                        r="27.5"
+					                            cx="35"
+					                            cy="35"/>
+						                </g>
+						            </svg>
+						        </div>
+						    </div>
+						</div>
+					</div>-->
+				</div>
+				<div class="col-lg-10  {{ disable_class1 }} lpcourseslist">
+					<div class=" row course_container">
+						<div class="col-lg-3 col-md-4 d-flex p-0">
+							<div class="courseimg_container ">
+								<div style="background-image: url('{{ courseimgurl }}');" alt="" title="" class="pvcourse_img lpimg_bg" >
+									{{#cmpltd_class}}
+									<span class='cmplt_icon {{cmpltd_class}}' title='Completed'>
+										<i class='fa fa-check' aria-hidden='true'></i>
+									</span>
+									{{/cmpltd_class}}
+									{{{ optional_or_mandtry }}}
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-9 col-md-8  summary_container pt-4">
+							<div class="description ">
+								<h5>{{{ courselink }}} </h5>
+                                <div class=" lp_course_desc">{{ course_summary_string }}</div>
+							</div>
+							<div class="row mb-15">
+								<div class="max_progress col-12 d-flex align-items-center">
+									<div class="progress flexgrow-1">
+	            						<div class="progress-bar text-center" role="progressbar" style="width: {{ progressbar }}%;" aria-valuenow="{{ progressbar }}" aria-valuemin="0" aria-valuemax="100"></div>
+	        						</div>
+        							<span>{{ progressbar }}%</span>
+        						</div>
+							</div>
+						</div>
+<!-- 						{{^ needenrol}}
+							<div class="col-lg-5 col-md-4 pull-left">
+						{{#cmpltd_class}}
+							<div class='completed'>
+							{{# completiondate}}
+							<span class='cmplt_icon {{cmpltd_class}}' title='Completed'>
+							<i class='fa fa-check' aria-hidden='true'></i>
+						</span>
+						<span cmplt_date>{{ completiondate }}</span>
+						{{/ completiondate}}
+
+						{{^ completiondate}} {{ lp_course_completion_msg }} {{/ completiondate}}
+
+					</div>
+				{{/cmpltd_class}}
+				</div>
+				{{/ needenrol}} -->
+
+					</div>
+				</div>
+				<!-- {{^ needenrol}}
+				<div class="col-lg-5 col-md-4 pull-left">
+				{{#cmpltd_class}}
+					<div class='completed'>
+						{{# completiondate}}
+						<span class='cmplt_icon {{cmpltd_class}}' title='Completed'>
+							<i class='fa fa-check' aria-hidden='true'></i>
+						</span>
+						<span cmplt_date>{{ completiondate }}</span>
+						{{/ completiondate}}
+
+						{{^ completiondate}} {{ lp_course_completion_msg }} {{/ completiondate}}
+
+					</div>
+				{{/cmpltd_class}}
+				</div>
+				{{/ needenrol}} -->
+			</div>
+				<span class="lp_dot"></span>
+			</div>
+			<!--<div style="background-image: url('{{ course_summary_image_url }}');" alt="{{  }}" title="{{  }}" class="lpimg_bg" ></div>-->
+	</div>
+</div>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="auth/disprz/db" VERSION="20210225" COMMENT="XMLDB file for Moodle auth/oidc plugin"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    
+    <TABLE NAME="auth_disptz_temp" COMMENT="Stores tokens.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="username" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="username uniqid"/>
+        <FIELD NAME="disprzid" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="train userid"/>
+        <FIELD NAME="firstname" TYPE="char" LENGTH="255" NOTNULL="true"  SEQUENCE="false" COMMENT="firstname"/>
+        <FIELD NAME="lastname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="lastname"/>
+        <FIELD NAME="email" TYPE="char" LENGTH="255"  NOTNULL="true" SEQUENCE="false" COMMENT="Email"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10"  NOTNULL="true" SEQUENCE="false" COMMENT="Course"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10"  NOTNULL="true" SEQUENCE="false" COMMENT="timecreated"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10"  NOTNULL="false" SEQUENCE="false" COMMENT="timemodified"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="username" UNIQUE="false" FIELDS="username"/>
+      </INDEXES>
+    </TABLE>
+
+    
+  </TABLES>
+</XMLDB>

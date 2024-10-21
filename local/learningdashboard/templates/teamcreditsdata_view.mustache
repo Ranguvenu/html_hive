@@ -1,0 +1,67 @@
+{{!
+This file is part of Moodle - http://moodle.org/
+
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Moodle. If not, see
+<http: //www.gnu.org/licenses />.
+}}
+{{#response}}
+<div class="col-md-12 row">
+<table class="generaltable" id="teamsstatuscreditdata">
+    <thead class="text-center bg-primary text-white">
+        <th>{{#str}}employeename, local_learningdashboard {{/str}}</th>
+        {{#isadminview}}
+            <th>{{#str}}email, local_learningdashboard {{/str}}</th>
+            <th>{{#str}}mobilenumber, local_learningdashboard {{/str}}</th>
+            <th>{{#str}}startdate, local_learningdashboard {{/str}}</th>
+        {{/isadminview}}
+        {{^isadminview}}
+            <th>{{#str}}targetcredits, local_learningdashboard {{/str}}</th>
+            <th>{{#str}}achievedcredits, local_learningdashboard {{/str}}</th>
+            <th>{{#str}}status, local_learningdashboard {{/str}}</th>
+        {{/isadminview}}
+    </thead>
+    <tbody>
+        {{#records}}
+            <tr>
+                <td class="text-center">{{employeename}}</td>
+                {{#isadminview}}
+                    <td>{{email}}</td>
+                    <td>{{mobile}}</td>
+                    <td>{{startdate}}</td>
+                {{/isadminview}}
+                {{^isadminview}}
+                    {{#targetcredits}}
+                    <td class="text-center">{{targetcredits}}</td>
+                    {{/targetcredits}}
+                    {{^targetcredits}}
+                    <td class="text-center">{{#str}}nocreditscount, local_learningdashboard{{/str}}</td>
+                    {{/targetcredits}}
+                    <td class="text-center"><a href='javascript:void(0)'
+                        onclick="(function(e){ require('local_learningdashboard/learningdashboard').init({contextid:1, component:'local_learningdashboard', callback:'coursespopup', plugintype: 'local', pluginname: 'learningdashboard', courseids: '{{courseids}}', creditsstatus: '{{status}}', ismanager: 1, userfullname: '{{employeename}}',coursecount: '{{coursecount}}' }) })(event)">{{achievedcredits}}
+                    </a></td>    
+                    {{#targetcredits}}            
+                    <td class="text-center"><a href='javascript:void(0)'
+                        onclick="(function(e){ require('local_learningdashboard/learningdashboard').init({contextid:1, component:'local_learningdashboard', callback:'coursespopup', plugintype: 'local', pluginname: 'learningdashboard', courseids: '{{courseids}}', creditsstatus: '{{status}}', ismanager: 1, userfullname: '{{employeename}}',coursecount: '{{coursecount}}' }) })(event)">{{coursestatus}}</a></td>
+                    {{/targetcredits}}
+                    {{^targetcredits}}
+                    <td class="text-center">{{coursestatus}}</td>
+                    {{/targetcredits}}
+                {{/isadminview}}
+            </tr>
+        {{/records}}
+    </tbody>
+
+</table>
+</div>
+{{/response}}

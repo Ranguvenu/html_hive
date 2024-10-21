@@ -1,0 +1,79 @@
+{{!
+    This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+{{#response}}
+    {{^records}}
+    {{#nodata}}
+        <div class = 'w-100 pull-left alert alert-info'>{{nodata}}</div>
+    {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <ul class='card-wrap m-0 p-0 {{#records}}{{#action}}actions{{/action}}{{/records}}' data-region='paginate-list'>
+            {{#records}}
+                    <li class='  px-4 {{cardClass}} pull-left readymainContainer'>
+                        <div id="course-{{courseid}}" class="col-md-12 col-12 readyCContainer pull-left catcourses_list active  crse-{{coursenums}}">
+                            <div class="col-12 pull-left course_container readycourse_container">
+                                <div class="courseimg_container col-12 p-0">
+                                    <div style="background-image: url('{{{imageurl}}}');" alt="elearning" class="courseimg courseimg_bg"></div>
+                                    <span class="{{^iconurl}}novisible{{/iconurl}} crse-icon crse-icon-course-type" style="background-image: url({{ iconurl }})"></span>
+                                    <span class="{{^coursetype}}novisible{{/coursetype}}crse-s-type crse-s-type">{{ coursetype }}</span>
+                                </div>
+                                <div class="readyCCnt coursecontent col-12 pull-left px-4">
+                                    <div class="d-block w-full mt-2">
+                                        <p class="course_name m-y-1"><a class="d-block" href="{{ url }}"title="{{ title }}">{{ title }}</a></p>
+                                    </div>
+                                    <div class="w-full pull-left">
+                                        <div class="coursedesc w-full pull-left">
+                                            {{# description }}
+                                                <div class="desc" title = "Course Descripton" >{{{ description }}}</div>
+                                            {{/ description }}
+                                            {{^ description }}
+                                                <p class="alert alert-info text-center mt-1">{{#str}}nocoursedesc, theme_versatile{{/str}}</p>
+                                            {{/ description }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cat_btmContainer col-12 mb-2 pt-2  pull-left px-4">
+                                    <div class="w-full cat_btm">
+                                        <span class="text-muted">Course Provided by<span class="mr-3 pl-2">:</span></span><span><img src="{{{course_provider}}}" width = "155px" height="50px" /></span>
+                                    </div>
+                                </div>
+                                <div class="cat_btmContainer col-12 mb-2 pt-2  pull-left px-4">
+                                    <div class="w-full pull-left cat_btm">
+                                       <!-- {{#duration }}
+                                            <div class="col-lg-7 col-12 p-0 pull-left mb-2 d-flex flex-row flex-wrap align-items-center">
+                                                <span class="text-muted pull-left catbtm_colon d-flex flex-row flex-wrap align-items-center"><span class="icon-clock-o"></span>{{# str }} duration, block_courselister {{/ str }} <span class="colon_align">:</span> </span><span class="catbtm_info text-muted" title="{{duration}}">{{ duration }}</span>
+                                            </div>
+                                        {{/duration }}
+                                        {{#modules }}
+                                            <div class="col-lg-5 col-12 p-0 pull-left mb-2 d-flex flex-row flex-wrap align-items-center">
+                                                <span class="text-muted d-flex flex-row flex-wrap align-items-center justify-content-end"><i class="fa fa-window-restore"></i>{{# str }} managemodules, block_courselister {{/ str }} 
+                                                    <span class="colon_align">:</span> </span>
+                                                <span class="text-muted catbtm_info">{{ modules }}</span>
+                                            </div>
+                                        {{/modules }} -->
+                                    </div>
+                                    <!--<div class="crse-s-meta row-fluid {{^completebefore}}novisible{{/completebefore}}">
+                                        <i class="fa fa-calendar"></i> {{# str }} completebefore, block_courselister {{/ str }}: {{completebefore}}
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            {{/records}}
+        </ul>
+    {{/viewtypeCard}}
+{{/response}}

@@ -1,0 +1,58 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template catalog/elarning list
+
+    Displays elarning
+   
+}}
+
+<div class="course-img">
+    <a ng-if="record.enroll == 0" title="<% record.coursename %>">
+        <div style="background-image: url('<% record.fileurl %>')" class=courseimg_bg></div>
+    </a>
+    <a ng-if="record.enroll == 1" title="<% record.coursename %>" ng-href="<% record.course_url %>">
+        <div style="background-image: url('<% record.fileurl %>')" class=courseimg_bg></div>
+    </a>
+</div>
+<div class="coursepage-name">
+    <a ng-if="record.enroll == 0" class="coursesubtitle" title="<% record.coursename %>" >
+        <h5 class="cat-level-course"><% record.course_fullname %><br/></h5>
+    </a>
+
+    <a ng-if="record.enroll == 1" class="coursesubtitle" title="<% record.coursename %>" ng-href="<% record.course_url %>">
+        <h5 class="cat-level-course"><% record.course_fullname %><br/></h5>
+    </a>
+        <div ng-bind-html="record.course_avgrating | unsafe" ></div>
+    <div class="course-desc" ng-bind-html="record.summary | unsafe" ></div>
+    <span class="pull-left w-full cls-rating" ng-bind-html="record.rating_element | unsafe"></span>
+    <div class="pull-left w-full mt-2 cls-tags" title="record.tags" ng-bind-html="record.tags | unsafe"></div></br>
+    <div class="course-author">
+        <div class="row">
+            <div class="col-md-12 pull-left author-name">
+                <div class="course_maindetails">
+                    <span class="pull-right w-full">
+                        <span class="course_details_new">
+                            <span ng-bind-html="record.selfenrol | unsafe" class="enrolled<% record.id %>"></span>
+                            <span ng-bind-html="record.redirect | unsafe"></span>
+                        </span> {{! end of class course_details_new div}}
+                    </span> {{! end of class pull-right div}}
+                </div> {{! end of class course_maindetails div}}
+            </div> {{! end of class author-name div}}
+        </div> {{! end of class row div}}
+    </div> {{! end of class course-author div}}    
+</div> {{! end of class coursepage-name div}}

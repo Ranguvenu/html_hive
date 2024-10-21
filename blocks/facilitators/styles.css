@@ -1,0 +1,11 @@
+.block_facilitators ul.auth_details {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0px;
+}
+.block_facilitators .auth_details .auth_img img.userpicture{
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 80px;
+}

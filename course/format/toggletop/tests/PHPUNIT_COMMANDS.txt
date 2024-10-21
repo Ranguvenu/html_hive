@@ -1,0 +1,29 @@
+Ref: https://docs.moodle.org/dev/PHPUnit
+
+composer install --dev
+
+php admin/tool/phpunit/cli/init.php
+
+vendor/bin/phpunit format_toggletop_courseformatlib_testcase course/format/toggletop/tests/courseformatlib_test.php
+or
+vendor\bin\phpunit format_toggletop_courseformatlib_testcase course/format/toggletop/tests/courseformatlib_test.php
+
+vendor/bin/phpunit format_toggletop_courseformatrenderer_testcase course/format/toggletop/tests/courseformatrenderer_test.php
+or
+vendor\bin\phpunit format_toggletop_courseformatrenderer_testcase course/format/toggletop/tests/courseformatrenderer_test.php
+
+vendor/bin/phpunit format_toggletop_courseformattoolbox_testcase course/format/toggletop/tests/courseformattoolbox_test.php
+or
+vendor\bin\phpunit format_toggletop_courseformattoolbox_testcase course/format/toggletop/tests/courseformattoolbox_test.php
+
+vendor/bin/phpunit format_toggletop_privacy_testcase course/format/toggletop/tests/privacy_provider_test.php
+or
+vendor\bin\phpunit format_toggletop_privacy_testcase course/format/toggletop/tests/privacy_provider_test.php
+
+vendor/bin/phpunit format_toggletop_togglelib_testcase course/format/toggletop/tests/togglelib_test.php
+or
+vendor\bin\phpunit format_toggletop_togglelib_testcase course/format/toggletop/tests/togglelib_test.php
+
+vendor/bin/phpunit --group format_toggletop
+or
+vendor\bin\phpunit --group format_toggletop

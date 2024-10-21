@@ -1,0 +1,139 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_courseassignment/assignmentreport
+
+    This template renders the courses content for the courses plugin.
+
+    Example context (json):
+    {}
+}}
+
+{{#response}}
+    {{#viewtypeCard}}   
+    <div class="table-responsive"> 
+    <table id ="demo" class="generaltable">
+        <thead>
+            <tr style="text-align: center;">
+                {{#actions}}
+                <th>{{#str}}uname,local_externalcertificate{{/str}}</th>
+                {{/actions}}
+                <th>{{#str}}employeeid, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}cname, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}authority, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}institute_provider, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}externalcertificate, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}category, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}duration, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}credit, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}description, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}skill, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}issueddate, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}validedate, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}uploadeddate, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}approveddate, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}department, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}empgrade, local_externalcertificate{{/str}}</th>  
+                <th>{{#str}}status, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}download, local_externalcertificate{{/str}}</th>
+                <th>{{#str}}reason, local_externalcertificate{{/str}}</th>
+                {{#actions}}
+                <th>{{#str}}action, local_externalcertificate{{/str}}</th>
+                {{/actions}}
+            </tr>
+        </thead>
+     
+        <tbody>
+            {{#records}}
+             
+            <tr style="text-align: center;">
+                {{#actions}}
+                <td>{{username}}</td>
+                {{/actions}}
+                <td>{{empid}}</td>
+                <td><a {{#url}}href = "{{url}}"{{/url}} target= "_blank">{{coursename}}</a></td>
+                <td>{{certificate_issuing_authority}}</td>  
+                <td>{{institute_provider}}</td>
+                <td>External Certificate</td>
+                <td>{{category}}</td>   
+                <td>{{duration}}</td>
+                <td>{{credit}}</td>
+                <td>{{description}}</td>   
+                <td title = "{{ allskills }}">{{skill}}</td>
+                <td>{{issueddate}}</td>
+                <td>{{validedate}}</td>
+                <td>{{uploadeddate}}</td>
+                <td>{{approveddate}}</td>
+                <td>{{department}}</td>
+                <td>{{empgrade}}</td>
+                {{^approvestatus}}
+                <td style="color:green">{{status}}</td>
+                {{/approvestatus}}
+                {{#approvestatus}}
+                <td style="color:red">{{status}}</td>
+                {{/approvestatus}}
+        
+                <td><a href="{{imageurl}}"  target="_blank"><i class="fa fa-arrow-circle-down" title="{{#str}}download, local_externalcertificate{{/str}}"></i></a></td>
+                <td  title="{{ compreason }}">{{reason}}</td>
+                {{#actions}}
+                <td>
+                    {{^mergestatus}}
+                        {{#approvestatus}}
+                        <a href="javascript:void(0)" title="{{#str}}approve, local_externalcertificate{{/str}}" onclick="(function(e){
+                            require('local_externalcertificate/external_certificates').statusConfirm({
+                                id:{{id}},status:1
+                            })
+                        })(event)"> <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    
+                        </a>
+                        {{/approvestatus}}
+                    {{/mergestatus}}
+                    {{#mergestatus}}
+                        {{#approvestatus}}
+                        <a href="javascript:void(0)" title="{{#str}}cantapprove_certificate, local_externalcertificate{{/str}}" class="disabled"> <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    
+                        </a>
+                        {{/approvestatus}}
+                    {{/mergestatus}}
+                    {{#rejectstatus}}
+                    <a href="javascript:void(0)" title="{{#str}}decline, local_externalcertificate{{/str}}" onclick="(function(e){
+                        require('local_externalcertificate/reason_form').init({
+                            id:{{id}},status:2, contextid:1, callback:'reason_form', component:'local_externalcertificate', pluginname:'local_externalcertificate'
+                        })
+                    })(event)"> <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </a>
+                    {{/rejectstatus}}
+                    {{#mergestatus}}
+                        <a href="javascript:void(0)" title="{{#str}}mergecourse, local_externalcertificate{{/str}}" onclick="(function(e){
+                            require('local_externalcertificate/external_certificates').mergecoursestatus({
+                                id:{{id}},status:3,contextid:1, callback:'mergecourses_form', component:'local_externalcertificate', pluginname:'local_externalcertificate'
+                            })
+                        })(event)"> <i class="fa fa-code-fork" aria-hidden="true"></i>
+                        </a>
+                    {{/mergestatus}}
+                </td>
+                {{/actions}}
+            </tr>
+               
+            {{/records}}
+        </tbody>
+        </table>
+    </div>
+    {{/viewtypeCard}}
+{{/response}}
+
+

@@ -1,0 +1,130 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_catalog/learningplaninfo
+
+    Displays learningplaninfo 
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * none
+
+    Example context (json):
+    {
+        "completedcount" : 15,
+        "itemscount" : 5,
+        "timeopen" : "May 15, 2016"
+    }
+
+}}
+
+<div class="w-full pull-left info_container">
+    <div class="custom_course_top_section col-12 pull-left">
+        <div class="custom_course_image col-md-5 col-12 pull-left">
+           <div style="background-image: url('{{ lpimgurl }}');" class="courseimg_bg"></div>
+        </div>
+        <div class="custom_course_detail col-md-7 col-12 pull-left">
+            <h3 class="custom_course_name w-full pull-left">{{ lpname }}</h3>
+            {{# description_string }}
+                <p class="m-0">{{{ description_string }}}</p>
+            {{/ description_string }}
+            {{^ description_string }}
+                <p class="w-full pull-left alert alert-info text-center m-0">{{#str}}nocoursedesc, local_courses{{/str}}</p>
+            {{/ description_string }}
+        </div>
+    </div>
+    {{# is_admin}}
+        <div class="col-12 pull-left enrol invisible">
+            <button class="cat_btn courseenrolbtn pull-right btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{#str}}enroll, local_catalog{{/str}}</button>
+        </div>
+    {{/ is_admin}}
+    {{^ is_admin}}
+    {{# selfenrolmentenable}}
+        {{^ requestbtn}}
+            {{^ pending}}
+                {{# displayenrolbtn}}
+                    <div class="w-full pull-right">
+                        <span class="enrol">
+                            <a class='btn btn-primary pull-right mr-15' href='javascript:void(0)' onclick='(function(e){
+                            require("local_learningplan/courseenrol").enrolUser({planid:{{{planid}}}, userid:{{{userid}}}, planname:"{{{lpname}}}" }) })(event)'>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                {{# str}} enroll , local_catalog{{/ str}}
+                            </a>
+                        </span>
+                    </div>
+                {{/ displayenrolbtn}}
+            {{/ pending}}
+        {{/ requestbtn}}
+        {{# requestbtn}}
+            <div class="w-full pull-right">
+                <span class="enrol">
+                    <a class="viewmore_btn fakebtn btn-primary pull-right mr-15" href='javascript:void(0)' onclick="(function(e){ require('local_request/requestconfirm').init({componentid:{{planid}}, component:'{{component}}', action:'{{action}}', componentname: '{{lpname}}' }) })(event)" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    {{# str}} requestforenroll , local_classroom{{/ str}}
+                    </a>
+                </span>
+            </div>
+        {{/ requestbtn}}
+        {{# pending}}
+            <div class="enrol_strip">
+                <button class="cat_btn btn-primary viewmore_btn">Processing</button>
+            </div>
+        {{/ pending}}
+    {{/ selfenrolmentenable}}
+    {{^ selfenrolmentenable }}
+        <div class="col-12 pull-left enrol">
+            <a href={{ linkpath }}><button  class="cat_btn courseenrolbtn pull-right btn btn-primary">{{#str}}start_now, local_catalog{{/str}}</button></a>
+        </div>
+    {{/ selfenrolmentenable }}
+    {{/ is_admin}}
+</div>
+<ul class="w-100 pull-left py-2 px-0 spotlight-group mt-15">
+    <!--<li>
+        <div class="spotlight">
+            <span class="icon-student font-weight-bold">&nbsp;{{plan_startdate}}&nbsp;-&nbsp; {{plan_enddate}}</span>
+            <span class="text-white"><i class="fa fa-calendar pr-1" aria-hidden="true"></i> Scheduled</span>
+        </div>
+    </li> -->
+    <li>
+        <div class="spotlight">
+            <span class="icon-student font-weight-bold"> {{ lpcode }}</span>
+            <span class="text-white">Learningplan Code</span>
+        </div>
+    </li>
+    <li>   
+        <div class="spotlight">
+            <span class="icon-student font-weight-bold">&nbsp; {{ lplancredits }} </span>
+            <span class="text-white">Credits</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student font-weight-bold">&nbsp;{{# optionalcourses_count }} {{ optionalcourses_count }} {{/ optionalcourses_count }}{{^ optionalcourses_count }} N/A {{/ optionalcourses_count }}</span>
+            <span class="text-white">Optional Courses</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student font-weight-bold">&nbsp;{{# mandatarycourses_count }} {{ mandatarycourses_count }} {{/ mandatarycourses_count }}{{^ mandatarycourses_count }} N/A {{/ mandatarycourses_count }}</span>
+            <span class="text-white">Mandatory Courses</span>
+        </div>
+    </li>
+</ul>

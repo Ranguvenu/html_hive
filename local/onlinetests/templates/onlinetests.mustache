@@ -1,0 +1,263 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#response}}
+    {{! card view }}
+    {{#viewtypeCard}}
+        <div class=" row" id="onlinetestlist" >
+            {{#records}}
+                <div class="{{cardClass}}  my-3">
+                    <div class="ont_container">
+                        <div class="card-img-top d-flex align-items-end">
+                            <span class="cardimg-strip">Open</span>
+                             <p class="w-full d-flex status_content">
+                                    <span class="ot_labelstatus">{{# str }} status, local_onlinetests {{/ str }}</span>
+                                    <span class="ot_colonstatus mr-1">:</span>
+                                <span>
+                                    <span>{{ status }}</span>
+                                </span>
+                            </p>   
+                        </div>
+                        <div class="w-full  px-3 py-2">
+                            <span class="testsicon pull-left">
+                             <i class="fa fa-desktop ot_icon"></i>
+                             </span> 
+                <a href="{{starttest_url}}" class="testname font-weight-bold" title="{{testfullname}}">{{ testname }}
+                            </a>     
+                <ul class="course_extended_menu_li " style = "float:right; list-style-type:none;">
+            {{# certificate_exists }}
+            {{# certificate_download }}
+                <li>
+                    <a class="course_extended_menu_itemlink" title="{{#str}} download_certificate, local_courses {{/ str}}" class="course_extended_menu_itemlink" href="{{configpath}}/local/certificates/view.php?ctid={{certificateid}}&mtype=onlinetest&mid={{testid}}"><i class="icon fa fa-download" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {{/ certificate_download }}
+            {{^ certificate_download }}
+                    <li>
+                        <a class="course_extended_menu_itemlink" title="{{# str}} unableto_download_msg, local_onlinetests, {{/str}}" class="course_extended_menu_itemlink" href="javascript: void(0)">
+                        <i class="icon fa fa-download" aria-hidden="true"></i>
+                        </a>
+                    </li>
+            {{/ certificate_download }}
+            {{/ certificate_exists }}
+             </ul>
+                            <div class="mt-1 pull-right position-relative showoptions{{testid}} actionicons">
+                                {{# is_admin}}
+                                    <span  class="showoptions" data-action="showoptions{{testid}}" onmouseenter="(function(e){ require('theme_epsilon/quickactions').quickactionsCall({ selector:'showoptions{{testid}}' }) })(event)" onmouseleave="(function(e){require('theme_epsilon/quickactions').quickactionsCall({ selector:'showoptions{{testid}}' }) })(event)">
+                                            <i class="fa fa-ellipsis-h options"></i>
+                                    </span>
+
+                                    <ul class="options_container" id = "showoptions{{testid}}">
+                                        {{# delete}}
+                                            <li class="quick_actions_list_item">
+                                                <a href="javascript:void(0)" id="deleteconfirm{{testid}}" onclick="(function(e){ require('local_onlinetests/newonlinetests').deleteonlinetest('{{ quizid }}') })(event)")><i class="fa fa-trash fa-fw " aria-hidden="true" title="Delete" aria-label="Delete"></i></a>
+                                            </li>
+                                        {{/ delete}}
+
+                                        {{# addusers}}
+                                            <li class="quick_actions_list_item">
+                                                <a href="{{ configpath }}/local/onlinetests/users_assign.php?id={{ testid }}&amp;sesskey={{ sesskey }}"><i class="fa fa-user-plus fa-fw " aria-hidden="true" title="Enroll users" aria-label="Enroll users"></i></a>
+                                            </li>
+                                        {{/ addusers}}
+
+                                        {{# bulkenrollusers}}
+                                            <li class="quick_actions_list_item">
+                                                <a href="{{ configpath }}/local/onlinetests/mass_enroll.php?id={{ testid }}&amp;sesskey={{ sesskey }}"><i class="fa fa-users fa-fw " aria-hidden="true" title="Bulk Enrollments" aria-label="Bulk Enrollments"></i></a>
+                                            </li>
+                                        {{/ bulkenrollusers}}
+
+                                        {{# edit}}
+                                            <li class="quick_actions_list_item">
+                                                <a data-action="createonlinetestsmodal" data-value="{{ testid }}" href="javascript:void(0)"><i class="fa fa-pencil fa-fw " aria-hidden="true" title="Edit" aria-label="Edit"></i></a>
+                                            </li>
+                                        {{/ edit}}
+
+                                        {{# questions}}
+                                            <li class="quick_actions_list_item">
+                                                <a target="_blank" href="{{ configpath }}/mod/quiz/edit.php?cmid={{ cmid }}&amp;sesskey={{sesskey}}"><i class="fa fa-question fa-fw " aria-hidden="true" title="Add Questions" aria-label="Add Questions"></i></a>
+                                            </li>
+                                        {{/ questions}}
+
+                                <!--         {{# hide_show}}
+                                           {{# hide}}
+                                            <li>
+                                            <a href="javascript:void(0)" title="{{# str}} makeinactive,local_onlinetests{{/ str}}" onclick="(function(e){ require('local_onlinetests/newonlinetests').suspendonlinetest({ id:{{testid}},hide:0,status:0}) })(event)">
+                                                <i class="fa fa-eye"></i></a>
+                                             </li>
+                                            {{/ hide}}
+                                            {{# show}}
+                                             <li>
+                                            <a href="javascript:void(0)" title="{{# str}} makeactive,local_onlinetests{{/ str}}" onclick="(function(e){ require('local_onlinetests/newonlinetests').suspendonlinetest({ id:{{testid}},show:1,status:1}) })(event)">
+                                                <i class="fa fa-eye-slash"></i></a>
+                                        </li>
+                                        {{/ show}}
+                                        {{/ hide_show}} -->
+                                            {{# hide_show}}
+                                        {{# hide}}
+                                                <li class="quick_actions_list_item">
+                                                   <a href="javascript:void(0)" title="{{# str}} makeinactive,local_onlinetests{{/ str}}" onclick="(function(e){require('local_onlinetests/newonlinetests').suspendonlinetest({ id:{{testid}},visible:0,status:'enable'}) })(event)">
+                                                <i class="fa fa-eye"></i></a>
+                                                </li>
+                                            {{/ hide}} 
+
+                                            {{# show}}
+                                              <li class="quick_actions_list_item">
+                                                <a href="javascript:void(0)" title="{{# str}} makeactive,local_onlinetests{{/ str}}" onclick="(function(e){ require('local_onlinetests/newonlinetests').suspendonlinetest({ id:{{testid}},visible:1,status:'disable'}) })(event)">
+                                                <i class="fa fa-eye-slash"></i></a>
+                                                </li>
+                                            {{/ show}}
+
+                                            {{# edit}}
+                                                <li class="quick_actions_list_item">
+                                                    <a target="_blank" href="{{ configpath }}/course/modedit.php?update={{ cmid }}&return=0">
+                                                        <i class="fa fa-pencil fa-fw " aria-hidden="true" title="Edit Quiz" aria-label="Edit Quiz"></i>
+                                                    </a>
+                                                </li>
+                                            {{/ edit}}
+                                        <!-- {{/ hide_show}} -->
+                                    </ul>
+                                {{/ is_admin}}
+                            </div>
+                        </div>
+                        <div class="w-100  ont_content">
+                            <!--<div class="w-full pull-left text-right actions">{{{actions}}}</div>-->
+                            <div class="w-full d-flex">
+                                <div class="grades_container text-left">
+                                    <div class="row inner_grade ">
+                                        <div class=" col-6 innergrade_text">
+                                            <div class="d-flex m-0">
+                                                    <span class="ot_label">
+                                                    {{# str }} maxgrade, local_onlinetests {{/ str }}
+                                                    </span>
+                                                    <span class="ot_colon">:</span>
+                                                    <span class="ot_value text-muted">{{ maxgrade }}</span>
+                                            </div>
+                                        </div>
+                                        <div class=" col-6 innergrade_text">
+                                               <div class="d-flex m-0">
+                                                <span class="ot_label">
+                                                    {{# str }} gradepass, local_onlinetests {{/ str }}
+                                                </span>
+                                                <span class="ot_colon">:</span>
+                                                <span class="ot_value text-muted">
+                                                    <span class="">{{ passgrade }}
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            </div>
+                                    </div>
+                                <div>
+                                    {{# is_admin }}
+                                        <p class="w-full   department d-flex "> 
+                                                <span class="ot_label">
+                                                    {{#str}}department, local_onlinetests{{/str}}
+                                                </span>
+                                                <span class="ot_colon">:</span>  
+                                            <span class="ot_value text-muted" title="{{deptname}}">
+                                                <span class="">{{departmentsCut}}</span>
+                                            </span>
+                                        </p>
+                                        <p class="w-full   completed d-flex">
+                                            <span class="ot_label">
+                                                {{# str }} completed, local_onlinetests {{/ str }} / {{# str }} enrolled, local_onlinetests {{/ str }}
+                                                <span class="ot_colon">:</span>
+                                            </span>
+                                            <span class="ot_value">
+                                                <a href="javascript:void(0)" class="onlinetest_users_count" onclick="(function(e){ require('local_onlinetests/newonlinetests').enrolledusers({contextid: '{{contextid}}', type:2, testid: '{{testid}}', testname: '{{testname}}' }) })(event)")><span>{{ completed }}</span></a>
+                                                <span class="">/</span>
+                                                <a href="javascript:void(0)" class="onlinetest_users_count" onclick="(function(e){ require('local_onlinetests/newonlinetests').enrolledusers({contextid: '{{contextid}}', type:1, testid: '{{testid}}', testname: '{{testname}}' }) })(event)")><span>{{ enrolled }}</span></a>
+                                            </span>
+                                        </p>
+                                    {{/ is_admin}}
+                                    {{^ is_admin }}
+                                        <div class="row  achive_grade">
+                                             <div class=" col-6 innerachieve_grade">
+                                                 <div class="d-flex m-0">
+                                                <span class="pull-left" title="{{# str }} achievedgrade, local_onlinetests {{/ str }}">
+                                                    <span class="ot_label">
+                                                        Ach. Grade
+                                                    </span>
+                                                    <span class="ot_colon">:</span>
+                                                </span>
+                                                <span class="ot_value text-muted">{{ mygrade }}</span>
+                                            </div>
+                                            </div>
+                                            <div class=" col-6  innerachieve_grade">
+                                                 <div class="d-flex m-0">
+                                                    <span class="ot_label">
+                                                        {{# str }} attempts, local_onlinetests {{/ str }}
+                                                    </span>
+                                                    <span class="ot_colon">:</span>
+                                                <span class="">
+                                                    {{# userattemptid}}
+                                                    <a href="{{ configpath }}/mod/quiz/review.php?attempt={{userattemptid}}&amp;sesskey={{sesskey}}">{{ attempts }}</a>{{/ userattemptid}}{{^ userattemptid}}{{ attempts }}{{/ userattemptid}}</span>
+                                                </div>
+                                            </div>
+                                            <!--<span class="">
+                                                <span class="ot_label">{{# str }} achievedgrade, local_onlinetests {{/ str }}</span>
+                                                <span class="ot_colon">:</span>
+                                            </span>
+                                            <span class="ml-15">
+                                                <span class="">{{ mygrade }}</span>
+                                            </span>-->
+                                        </div>
+                                    {{/ is_admin}}
+                                </div>
+                                {{^ is_admin }}
+                                    <!--<p class="w-full pull-left"><span class="pull-left"><span class="ot_label">{{# str }} attempts, local_onlinetests {{/ str }}</span><span class="ot_colon">:</span></span><span class="ot_count ml-15"><span class="count_value">{{ attempts }}</span></span></p>-->
+
+                                    <div class="w-full d-flex enroll mt-2">
+                                            <span class="ot_label">{{# str }} enrolledon, local_onlinetests {{/ str }}</span><span class="ot_colon">:</span> 
+                                        <span class="">{{ enrolledon }}</span>
+                                    </div>
+                                    <div class="w-full d-flex complete">                     
+                                     <span class="ot_label">{{# str }} completedon, local_onlinetests {{/ str }}</span><span class="ot_colon">:</span>
+                                    <span class="">{{ completedon }}</span>
+                                    </div>                                   
+                                {{/ is_admin}}
+                                <div class="w-full d-flex py-2">
+                                    <span class="schedule">
+                                        <span>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            <span class="sheduledate">1 Dec 2022 - 31 Dec 2022</span>
+                                        </span>
+                                    </span>
+                                    <span class="ot_value open">{{{ testdate }}}
+                                    </span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-flex ont_btm">
+                            {{^ is_admin }}
+                                {{# canreview}}
+                                <div class="w-full d-flex test text-center  justify-content-center startquiz_btn"><a href="{{ starttest_url }}">{{# str }} reviewtest, local_onlinetests {{/ str }}</a></div>
+                                {{/ canreview}}
+                                
+                                {{^ canreview}}
+                                <div class="w-full d-flex test text-center justify-content-center startquiz_btn"><a href="{{ starttest_url }}">{{# str }} starttest, local_onlinetests {{/ str }}</a></div>
+                                {{/ canreview}}
+                            {{/ is_admin }}
+                            {{# is_admin }}
+                                <div class="w-full d-flex test text-center justify-content-center  startquiz_btn"><a href="{{ starttest_url }}">{{# str }} previewtest, local_onlinetests {{/ str }}</a></div>
+                            {{/ is_admin }}
+                        </div>
+                    </div>
+                </div>
+            {{/records}}
+        </div>
+    {{/viewtypeCard}}
+{{/response}}

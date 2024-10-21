@@ -1,0 +1,32 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_training_calendar/allevents
+    displaying events name with dates 
+    when its click it will goto respect module
+}}
+  
+  <a href="{{pluginurl}}"  {{# popup}} onclick="(function(e){ require('block_training_calendar/event_popup').popup_eventinfo({ eventid:{{id}},itemid:{{instance}}, eventinstance:{{instance}}, eventlocal_eventname:'{{local_eventname}}',eventlocal_classroomname:'{{local_classroomname}}', eventlocal_eventstartdate:'{{local_eventstartdate}}', eventlocal_eventenddate:'{{local_eventenddate}}', eventeventtype:'{{eventtype}}', eventtrainer:'{{trainer}}', eventenrolled:{{enrolled}}, eventself_enrol:{{self_enrol}}, eventplugin:'{{plugin}}', eventstatus:'{{status}}',eventlocation:'{{eventlocation}}', eventprerequisite:'{{prerequisites}}', eventprerequisitecheck: '{{prerequisitecompletion}}',eventprerequisiteurl: '{{prerequisiteurl}}', eventstartdate : '{{localeventstartdate}}', eventiltselfenrol : '{{iltselfenrol}}', waitinglistenable : '{{waitinglist_enable}}', capacity: '{{capacity}}', enrolledusers:{{enrolledusers}}, waitinglistinfo: '{{waitinglistinfo}}'}) })(event)" {{/ popup}}>
+
+    <div class="session_title {{plugin}} {{status}}" id="eventclick{{id}}">
+
+    <span class="test" title="{{local_eventname}}">
+        <span>{{eventfullname}}</span>
+    </span></div></a>
+                
+
+

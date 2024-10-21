@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-Arrow_1">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="Arrow_1" data-name="Arrow – 1" clip-path="url(#clip-Arrow_1)">
+    <g id="Group_22419" data-name="Group 22419" transform="translate(-270 -300)">
+      <path id="Icon_awesome-arrow-right" data-name="Icon awesome-arrow-right" d="M20.622,5.05,18.844,3.226a1.88,1.88,0,0,0-2.714,0L.564,19.188a2,2,0,0,0,0,2.785L16.13,37.943a1.88,1.88,0,0,0,2.714,0l1.778-1.824A2.01,2.01,0,0,0,20.59,33.3l-9.648-9.431H33.953A1.942,1.942,0,0,0,35.875,21.9V19.27A1.942,1.942,0,0,0,33.953,17.3H10.941L20.59,7.868A2,2,0,0,0,20.622,5.05Z" transform="translate(277 304.353)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

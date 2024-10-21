@@ -1,0 +1,132 @@
+.courseimg .learningsummary {
+    width: 100%;
+    top: -15px;
+    height: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color : #fff;
+}
+.block_learningsummary_completed .courseimg_strip {
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    padding: 2px 10px;
+    top: 0.5rem;
+    font-size: 12px;
+}
+
+.course_type_completed{
+    margin-top:15px;
+}
+ 
+
+
+#page-local-learningsummary-index #mycompletedcourses .card.readyCContainer{
+    border-radius: 9px;
+    box-shadow: 0 1px 2px #ddd;
+}
+#page-local-learningsummary-index #mycompletedcourses .courseimg_container .courseimg{
+    box-shadow: none;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    position: initial;
+    height: 200px;
+}
+#page-local-learningsummary-index #mycompletedcourses .course_container{
+    box-shadow: 1px 2px #ddd;
+}
+#page-local-learningsummary-index #mycompletedcourses .course_container:hover{
+    box-shadow: 0 2px 7px 2px rgba(66,166,205,.74) !important;
+    border: 1px solid rgba(158,206,228,.85) !important;
+}
+#page-local-learningsummary-index #mycompletedcourses span.courseimg_strip{
+    padding: 3px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 1px 2px #ebe8e8;
+    right: 8px;
+    top:8px;
+    color: #0096cf;
+}
+#page-local-learningsummary-index #mycompletedcourses .coursecontent .course_name{
+    margin-bottom: 8px!important;
+}
+#page-local-learningsummary-index  #mycompletedcourses .course_container .progress{
+    height:8px!important;
+    margin-bottom: 10px!important;
+}
+#page-local-learningsummary-index  #mycompletedcourses .course_container .coursedesc .desc{
+    color: #000!important;
+}
+#page-local-learningsummary-index  #mycompletedcourses .course_container .coursedesc{
+    min-height: 35px;
+    margin-bottom: 10px;
+}
+#page-local-learningsummary-index  #mycompletedcourses .course_container .coursecontent{
+    padding: 10px 34px 23px 14px;
+}
+#page-local-learningsummary-index  #mycompletedcourses .course_container .coursecontent span.percentage {
+    float: right;
+}
+#page-local-learningsummary-index #mycompletedcourses .course_container  .coursecontent b {
+    font-weight: 400;
+}
+#page-local-learningsummary-index #mycompletedcourses .global_filter_structure input {
+    padding: 4px 15px;
+    border-radius: 0!important;
+    width: 261px;
+    margin-left: -14px;
+}
+
+#page-local-learningsummary-index  #mycompletedcourses  .progress-bar {
+    background-color: #00c140 !important; 
+}
+#page-local-learningsummary-index  .complete_header{
+    font-size:20px!important;
+}
+#page-local-learningsummary-index .count{
+    margin-left: 3px;
+    font-weight: 600;
+    color: #ffb536;
+}
+#page-local-learningsummary-index .custom-select {
+    width: 200px!important;
+    height: 33px!important;
+    padding: 4px 5px 4px 8px;
+}
+@media (max-width: 767px){ 
+    #page-local-learningsummary-index #myinprogresscourses .course_container{ 
+        margin-bottom: 10px; 
+    } 
+    #page-local-learningsummary-index .inprogress_block, 
+    #page-local-learningsummary-index .completed_block { 
+        float: left !important; 
+        margin-bottom: 10px; 
+    } 
+} 
+
+/*completed coursecard styles*/
+#page-local-learningsummary-index .learningsummary_status .readyCContainer{
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+}
+#page-local-learningsummary-index #mycompletedcourses .course_container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#page-local-learningsummary-index #mycompletedcourses .course_container .coursecontent{
+        height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#page-local-learningsummary-index  #myinprogresscourses  .progress-bar {
+    background-color: #00c140 !important; 
+}
+

@@ -1,0 +1,58 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{#response}}
+    {{#viewtypeCard}}
+    <div class="" id="year_tab_content">
+        <table class="w-full pull-left generaltable" id = yeardata>
+            <thead>
+                <tr>
+
+                    <th>{{#str}}coursecertidicatenam,block_empcredits{{/str}}</th>
+                    <th>{{#str}}category{{/str}}</th>
+                    <th>{{#str}}learningtype,block_empcredits{{/str}}</th>
+                    <th>{{#str}}courseprovider,block_empcredits{{/str}}</th>
+                    <!-- <th>{{#str}}grade,block_empcredits{{/str}}</th> -->
+                    <th>{{#str}}dateofenrolment,block_empcredits{{/str}}</th>
+                    <th>{{#str}}duration,block_empcredits{{/str}}</th>
+                    <th>{{#str}}credit,block_empcredits{{/str}}</th>
+                    <th>{{#str}}skillcategory,block_empcredits{{/str}}</th>
+                    <th>{{#str}}skillachieved,block_empcredits{{/str}}</th>
+                    <th>{{#str}}completiondate,block_empcredits{{/str}}</th>
+                   
+                </tr>
+            </thead>
+            {{#records}}
+        <tr>
+            <td>{{{name}}}</td>
+            <td>{{category}}</td>
+            <td>{{moduletype}}</td>
+            <td>{{course_provider}}</td>
+            <!-- <td>{{{open_grade}}}</td> -->
+            <td>{{enroleddate}}</td>
+            <td>{{duration}}</td>
+            <td>{{credit}}</td>
+            <!-- <td>{{finalgrade}}</td> -->
+            <td>{{skillcategory}}</td>
+            <td>{{{skill}}}</td>
+            <td>{{{completeddate}}}</td>
+        </tr>
+        {{/records}}
+        </table>
+    </div>
+    {{/viewtypeCard}}
+{{/response}}

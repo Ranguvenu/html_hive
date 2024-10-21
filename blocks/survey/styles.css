@@ -1,0 +1,19 @@
+.block.block_survey .status{
+    float: right;
+}
+.block.block_survey .name{
+    font-weight: bold;
+}
+.block.block_survey table#survey_view thead {
+    display: none;
+}
+.block.block_survey #survey_view_filter input {
+    min-width: 170px;
+}
+.block.block_survey table#survey_view .survey_view{
+	box-sizing: border-box;
+	padding: 6px 0px;
+}
+.block.block_survey .content {
+    padding: 0px 10px 0px !important;
+}

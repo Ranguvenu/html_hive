@@ -1,0 +1,362 @@
+span.courseimg_strip {
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    padding: 2px 10px;
+    top: 0.5rem;
+    font-size: 12px;
+}
+#page-local-learningsummary-index .ui-widget-header{
+	border:none;
+	background-image:none !important;
+    background-color: transparent !important;
+}
+#page-local-learningsummary-index .ui-widget.ui-widget-content{
+	border:none !important;
+}
+#page-local-learningsummary-index .ui-tabs .ui-tabs-nav .ui-tabs-anchor{
+	border-top-right-radius: 11px;
+    text-decoration: none;
+    padding: 7px 13px;
+    border-bottom-left-radius: 11px;
+}
+#page-local-learningsummary-index .ui-state-default.ui-tabs-active.ui-state-active .ui-tabs-anchor {
+    color: #fff;
+    background-color: #008fcc;
+    border: 1px solid #008fcc;
+}
+#page-local-learningsummary-index .ui-tabs .ui-tabs-nav li{
+	margin-right: 1rem;
+}
+#page-local-learningsummary-index .dataTables_wrapper .dataTables_filter {
+    float: right;
+    margin-bottom: 5px;
+}
+#page-local-learningsummary-index .dataTables_filter input[type=search]{
+    box-shadow: inset 0 0 0 #fafafb, 0 0 1px rgb(0 0 0 / 15%);
+    border-radius: 0;
+}
+#page-local-learningsummary-index table#coursesinfo {
+	line-height: 38px;
+}
+#page-local-learningsummary-index table.dataTable tr.odd{
+	background-color: transparent;
+}
+#page-local-learningsummary-index .ui-widget-content a{
+    color: #2aabd9;
+}
+#page-local-learningsummary-index table tbody tr td {
+    font-size: 14px;
+    padding:3px 10px;
+    line-height:2.5;
+}
+#page-local-learningsummary-index .ui-tabs .ui-tabs-panel{
+	padding-top:0;
+	padding-left: 0;
+}
+#page-local-learningsummary-index .ui-state-default.ui-tab .ui-tabs-anchor {
+    color: #616161;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #cacaca;
+}
+#page-local-learningsummary-index table thead tr{
+	border-top: 1px solid #919ea8;
+    border-bottom: 1px solid #b3bdc4;
+}
+#page-local-learningsummary-index .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: none !important;
+}
+#page-local-learningsummary-index .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+/*new code*/
+#page-local-learningsummary-index #tabs-1 a.fa.fa-download {
+    border: 1px solid #2aabd9;
+    border-radius: 50%;
+    padding: 2px;
+    background: #2aabd9;
+    color: #fff;
+    position: absolute;
+    right:0;
+    margin-right: 18.3rem;
+    margin-top: 5px;
+}
+#page-local-learningsummary-index  th.header.c0 {
+    padding: 3px 18px 3px 10px;
+    line-height: 2.5;
+}
+#page-local-learningsummary-index table#certificatesinfo {
+    margin-top:20px;
+}
+
+/*learning summary table responsive*/
+#page-local-learningsummary-index table#coursesinfo{
+    overflow-x: auto;
+    display: block;
+}
+/*Bookmarked courses css*/
+#page-local-learningsummary-index  #mybookmarked_courses .course_container{
+    border:none !important;
+    box-shadow: none !important;
+    overflow: hidden;
+}
+#page-local-learningsummary-index #mybookmarked_courses .courseimg{
+    box-shadow: none;
+    border-radius: 10px;
+    flex-direction: column;
+    display: flex;
+    overflow: hidden;
+    justify-content: end;
+}
+#page-local-learningsummary-index #mybookmarked_courses span.courseimg_strip{
+    padding: 3px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 1px 2px #ebe8e8;
+    right: 8px;
+    top: 25px;
+    color: #0096cf;
+}
+#page-local-learningsummary-index #mybookmarked_courses .course_name a{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color:#fff !important;
+    font-size: 15px;
+}
+#page-local-learningsummary-index #mybookmarked_courses .courseimg_content{
+    display: block;
+    z-index: 1;
+}
+#page-local-learningsummary-index #mybookmarked_courses .coursedesc{
+    min-height: auto !important;
+}
+#page-local-learningsummary-index #mybookmarked_courses .coursedesc .desc{
+    color: #ffffffc4 !important;
+    
+}
+#page-local-learningsummary-index #mybookmarked_courses .coursedesc .alert-info{
+    border: none !important;
+    padding:0 !important;
+    margin-top: 0!important;
+    margin-bottom: 0 !important;
+    color: #ffffffc4;
+    font-size: 14px;
+    text-align: left !important;
+}
+#page-local-learningsummary-index #mybookmarked_courses .courseimg:after{
+    background-image: linear-gradient(rgba(255,255,255,0),#000);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    content: "";
+}
+
+
+
+/*learner analytics code*/
+#page-local-learningsummary-index  .nav-tabs.inner_tabs .nav-link.active{
+    color: #fff !important;
+    background-color: #008fcc !important;
+    border: 1px solid #008fcc !important;
+}
+#page-local-learningsummary-index .nav-tabs .nav-link{
+    color: #616161 !important;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #cacaca !important;
+}
+#page-local-learningsummary-index .nav-tabs .nav-link,
+#page-local-learningsummary-index  .nav-tabs.inner_tabs .nav-link.active{  
+    border-top-right-radius: 11px !important;
+    text-decoration: none;
+    padding: 7px 13px;
+    border-bottom-left-radius: 11px !important;
+    margin-right:10px;
+}
+#page-local-learningsummary-index .nav-tabs.inner_tabs.nav-tabs {
+ border-bottom:0 !important;
+}
+#page-local-learningsummary-index .tab-content .global_filter_structure input{
+    margin-bottom: 10px;
+   padding:4px 26px !important;
+
+}
+#page-local-learningsummary-index .global_filter_structure.form-group{
+    float:right;
+    display: flex;
+}
+#page-local-learningsummary-index .learner_search_icon {
+    background-image:  url('[[pix:local_learningsummary|searchicon]]');
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat; 
+    background-position: center;
+    width:20px;
+    height:20px;
+    position: absolute;
+    top: 7px;
+    margin-left: 8px;
+}
+#page-local-learningsummary-index .downarrow_icon{
+   background-image:  url('[[pix:local_learningsummary|downarrowicon]]');
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat; 
+    background-position: center;
+    width: 30px;
+    height: 30px; 
+    margin-top:2px;
+    margin-right:10px;
+}
+
+#page-local-learningsummary-index .bookmark_header b{
+    font-size: 22px!important;
+}
+
+#page-local-learningsummary-index  #filters_form .fdate_selector.d-flex {
+    align-items: center;
+}
+#page-local-learningsummary-index  #filters_form .mform{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#page-local-learningsummary-index  #filters_form .mform #fitem_id_fromdate,
+#page-local-learningsummary-index  #filters_form .mform #fitem_id_todate{
+    flex: 0 0 50%;
+    max-width: 50%; 
+}
+#page-local-learningsummary-index  .fdate_selector  .form-group.fitem{
+    width:auto !important;
+}
+@media (max-width: 950px){
+    #page-local-learningsummary-index  #filters_form .mform #fitem_id_fromdate,
+    #page-local-learningsummary-index  #filters_form .mform #fitem_id_todate{
+        flex: 0 0 100%;
+        max-width: 100%; 
+    }
+}
+@media (min-width: 768px){
+#page-local-learningsummary-index  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+}
+#page-local-learningsummary-index  .mform>.form-group .col-md-3 .col-form-label {
+    line-height: 4;
+}
+#page-local-learningsummary-index  #filters_form .fdate_selector.d-flex {
+    align-items: center;
+}
+#page-local-learningsummary-index  .fdate_selector.d-flex {
+    flex-flow: nowrap!important;
+}
+
+#page-local-learningsummary-index #filters_form .custom-select {
+    width: 100px!important;
+    height: 33px!important;
+    padding: 4px 5px 4px 8px;
+}
+
+
+ #page-local-learningsummary-index  .count_tags{
+    color:#000;
+    padding:8px 10px;
+    position: absolute;
+    left:0;
+
+}
+#page-local-learningsummary-index  .count_tags i{
+    font-size:21px !important;
+}
+#page-local-learningsummary-index   .courseimg_strip.text-truncate{
+    font-size: 12px !important;
+    padding: 3px 15px !important;
+    max-width: 150px  !important;
+    height: 24px;
+    text-align: center;
+} 
+
+#page-local-learningsummary-index   #myinprogresscourses  span.bookmark_tags{
+    display: flex;
+    margin-left: auto;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    padding: 10px;
+    right: 0;
+    font-size: 21px!important;
+}
+#page-local-learningsummary-index   #myinprogresscourses .courseimg_container {
+    position: relative;
+    display: flex;
+    height: 100%;
+}
+#page-local-learningsummary-index   #myinprogresscourses .courseimg.courseimg_bg.learningsummary:after {
+    background-image: linear-gradient(rgba(255,255,255,0),#000);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+}
+
+
+#page-local-learningsummary-index   #mycompletedcourses  span.bookmark_tags{
+    display: flex;
+    margin-left: auto;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    padding: 10px;
+    right: 0;
+    font-size: 21px!important;
+}
+#page-local-learningsummary-index   #mycompletedcourses .courseimg_container {
+    position: relative;
+    display: flex;
+    height: 100%;
+}
+#page-local-learningsummary-index   #mycompletedcourses .courseimg.courseimg_bg.learningsummary:after {
+    background-image: linear-gradient(rgba(255,255,255,0),#000);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+}
+
+#page-local-learningsummary-index  .fa-bookmark:before {
+    content: "";
+}
+#page-local-learningsummary-index  .courseimg_container .bookmark_sticker{
+    background-color:#fff;
+    color:#000;
+    position: absolute;
+    line-height: 15px;
+    top: 10px;
+    text-align: center;
+    left: 0;
+    padding: 3px 16px;
+    box-shadow: 0 0 9px 0 #00000042;
+    font-size: 12px;
+    z-index: 1;
+}
+#page-local-learningsummary-index   .courseimg_container .label_name {
+    margin-bottom: 4px;
+    font-size: 11px;
+}
+#page-local-learningsummary-index   .courseimg_container .label_date{
+    margin-bottom: 0;
+    font-weight:600;
+}

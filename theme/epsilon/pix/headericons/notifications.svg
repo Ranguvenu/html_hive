@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-Notifications">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="Notifications" clip-path="url(#clip-Notifications)">
+    <g id="notifications-outline" transform="translate(4.954 4.21)">
+      <path id="Path_11996" data-name="Path 11996" d="M35.163,29.152c-2.181-2.67-3.721-4.029-3.721-11.391,0-6.741-3.442-9.143-6.275-10.309a1.516,1.516,0,0,1-.846-.9,4.117,4.117,0,0,0-3.742-3.181,4.109,4.109,0,0,0-3.738,3.184A1.5,1.5,0,0,1,16,7.453C13.158,8.621,9.72,11.015,9.72,17.761c0,7.362-1.544,8.721-3.725,11.391a1.713,1.713,0,0,0,1.468,2.767H33.7A1.714,1.714,0,0,0,35.163,29.152Z" transform="translate(0 0)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+      <path id="Path_11997" data-name="Path 11997" d="M24.374,27v1.359a5.437,5.437,0,1,1-10.874,0V27" transform="translate(1.642 4.919)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+    </g>
+  </g>
+</svg>

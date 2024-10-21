@@ -1,0 +1,87 @@
+{{!
+    This file is part of eAbyas
+    Copyright eAbyas Info Solutons Pvt Ltd, India
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author eabyas  <info@eabyas.in>
+}}
+
+{{#response}}
+    {{^records}}
+        {{#nodata}}
+            <div class = 'w-100 pull-left alert alert-info' style="color: #000000;">{{{nodata}}}</div>
+           
+        {{/nodata}}
+    {{/records}}
+    {{#viewtypeCard}}
+        <ul class='card-wrap m-0 p-0 row mt-4 {{#records}}{{#action}}actions{{/action}}{{/records}}' data-region='paginate-list' style="list-style:none;">
+            {{#records}}
+                    
+                    <li class='pl-0 pr-4 {{cardClass}}  readymainContainer'>
+                        <div id="course-{{courseid}}" class=" card readyCContainer catcourses_list active  crse-{{coursenums}}">
+                            <div class=" course_container readycourse_container ">
+                                <div class="courseimg_container">
+                                    <span class="courseimg_strip text-truncate">{{coursetype}}</span>
+                                    <div style="background-image: url('{{{imageurl}}}');" alt="elearning" class="courseimg courseimg_bg learningsummary"></div>
+                                       {{# expirydate }}
+                                        <div class="bookmark_sticker">
+                                            <p class="label_name">{{# str }} expireddate, local_courses {{/ str }} </p>
+                                            <p class="label_date">{{ expirydate }}</p>
+                                        </div>
+                                        {{/ expirydate }}
+                                        {{^ bookmarkurl}}
+                                        <span class="bookmark_tags " style="cursor: pointer;" title="{{# str}} bookmark_this_course, block_user_bookmarks {{/ str}}">
+                                            <i  class="fa fa-bookmark-o pull-right" aria-hidden="true" onclick="addBookmark('{{url}}', `{{coursename}}`, '{{coursetype}}', {{courseid}})"></i>
+                                        </span>
+                                        {{/ bookmarkurl}}
+
+                                        {{# bookmarkurl}}
+                                        <span class="bookmark_tags " style="cursor: pointer;" title="{{# str}} remove_bookmark, block_user_bookmarks {{/ str}}">
+                                            <i class="fa fa-bookmark pull-right" aria-hidden="true" onclick="deleteBookmark('{{url}}', {{userid}}, {{courseid}})"></i>
+                                        </span>
+                                        {{/ bookmarkurl}}
+                                    </div>
+                                <div class="readyCCnt coursecontent ">
+                                    <div class="d-block w-full ">
+                                        <p class="course_name">
+                                          <a class="d-block" target="_blank" href="{{ url }}" title="{{ coursename }}">{{ title }}</a>
+                                        </p>
+                                    </div>
+                                    <div class="w-full ">
+                                        <div class="coursedesc w-full">
+                                            {{# description }}
+                                                <div class="desc" title = "Course Descripton" >{{{ description }}}</div>
+                                            {{/ description }}
+                                            {{^ description }}
+                                                <p class="alert alert-info text-center mt-1">{{#str}}nodesc, local_courses{{/str}}</p>
+                                            {{/ description }}
+                                        </div>
+                                    </div>
+                                    {{ # progressflag }}
+                                    <div class="progress_container mt-auto">
+                                        <div class=" progress w-full">
+                                            <div class="progress-bar" role="progressbar" style="width:{{progress}}%" aria-valuenow="{{{progress}}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <span class="progress_percentage">{{progress}}%</span>
+                                                {{#str}} inprogress, block_learningsummary_inprogress {{/str}} </div>
+                                            </div>
+                                          {{ /progressflag }}
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+            {{/records}}
+        </ul>
+    {{/viewtypeCard}}
+{{/response}}

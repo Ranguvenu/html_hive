@@ -1,0 +1,101 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_catalog/learningplaninfo
+
+    Displays learningplaninfo 
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * none
+
+    Example context (json):
+    {
+        "completedcount" : 15,
+        "itemscount" : 5,
+        "timeopen" : "May 15, 2016"
+    }
+
+}}
+<div class="custom_course_top_section col-lg-12 col-md-12">
+    <div class="custom_course_image col-lg-5 col-md-5 col-xs-12 pull-left">
+       <div style="background-image: url('{{ lpimgurl }}');" class="courseimg_bg"></div>
+    </div>
+    <div class="custom_course_detail col-lg-7 col-md-7 col-xs-12 pull-left">
+            <h3 class="custom_course_name w-full pull-left">{{ lpname }}</h3>
+            {{# description_string }}
+                <p class="m-0">{{{ description_string }}}</p>
+            {{/ description_string }}
+            {{^ description_string }}
+                <p class="w-full pull-left alert alert-info text-xs-center m-0">{{#str}}nocoursedesc, local_courses{{/str}}</p>
+            {{/ description_string }}
+    </div>
+</div>
+    {{# is_admin}}
+        <div class="col-md-12 col-xs-12 enrol invisible">
+            <button class="cat_btn courseenrolbtn pull-right btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{#str}}enroll, local_catalog{{/str}}</button>
+        </div>
+    {{/ is_admin}}
+    {{# selfenrolmentenable}}
+        <div class="w-full pull-right">
+            <span class="enrol">
+                <a class='btn btn-primary pull-right mr-15' href='javascript:void(0)' onclick='(function(e){
+                require("local_learningplan/courseenrol").enrolUser({planid:{{{planid}}}, userid:{{{userid}}}, planname:"{{{lpname}}}" }) })(event)'>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    {{# str}} enroll , local_catalog{{/ str}}
+                </a>
+            </span>
+        </div>
+    {{/ selfenrolmentenable}}
+   
+<ul class="col-md-12 p-0 spotlight-group mt-15">
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{plan_startdate}}&nbsp;-&nbsp; {{plan_enddate}}</span>
+            <span>Scheduled</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">{{# lptype }} {{ lptype }} {{/ lptype }} {{^ lptype }} N/A {{/ lptype }}</span>
+            <span>Learningplan Code</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{# lplancredits }} {{ lplancredits }} {{/ lplancredits }}{{^ lplancredits }} N/A {{/ lplancredits }}</span>
+            <span>Credits</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{# optionalcourses_count }} {{ optionalcourses_count }} {{/ optionalcourses_count }}{{^ optionalcourses_count }} N/A {{/ optionalcourses_count }}</span>
+            <span>Optional Courses</span>
+        </div>
+    </li>
+    <li>
+        <div class="spotlight">
+            <span class="icon-student">&nbsp;{{# mandatarycourses_count }} {{ mandatarycourses_count }} {{/ mandatarycourses_count }}{{^ mandatarycourses_count }} N/A {{/ mandatarycourses_count }}</span>
+            <span>Mandatory Courses</span>
+        </div>
+    </li>
+</ul>

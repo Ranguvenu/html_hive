@@ -1,0 +1,21 @@
+{{!
+    @deprecated since 4.0
+    @template theme_epsilon/nav-drawer
+
+
+    Example context (json): {}
+}}
+<div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex" aria-hidden="{{#navdraweropen}}false{{/navdraweropen}}{{^navdraweropen}}true{{/navdraweropen}}" tabindex="-1">
+    {{#isloggedin}}
+        
+        {{{output.left_navigation_quick_links}}}
+    {{/isloggedin}}
+    
+</div>
+
+
+{{#js}}
+	$( document ).ready(function() {
+	   
+	});
+{{/js}}
